@@ -27,16 +27,14 @@
     <v-toolbar :clipped-left="clipped" fixed app>
       <v-toolbar-side-icon @click="drawer = !drawer" />
       <v-spacer />
-      <img style="height:55px;position:relative; bottom:4px;" src="http://alex.www.femlight.com/customize/storage/femlight-logo-02_grayPink.png" class="" />
+      <img style="height:55px;position:relative; bottom:4px;" src="http://alex.www.femlight.com/customize/storage/femlight-logo-02_grayPink.png" class="">
       <v-spacer />
       <v-btn icon @click.stop="rightDrawer = !rightDrawer">
         <v-icon>shopping_cart</v-icon>
       </v-btn>
     </v-toolbar>
     <v-content>
-      <v-container>
-        <nuxt />
-      </v-container>
+      <nuxt />
     </v-content>
     <v-navigation-drawer v-model="rightDrawer" :right="right" temporary fixed>
       <v-list>

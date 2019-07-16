@@ -1,5 +1,5 @@
 <template>
-  <div class="swiper-slide">
+  <div class="swiper-slide container pt-5">
     <pagination />
 
     <options-selector

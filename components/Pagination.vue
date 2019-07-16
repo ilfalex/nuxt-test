@@ -17,9 +17,11 @@
       <v-layout
         fill-height
         jusify-content
-        align-content>
+        align-content
+      >
         <v-flex
-          class="headline white--text">
+          class="headline white--text"
+        >
           Step {{ currentStep.key + 1 }}/ {{ steps.length }}
           <span class="">
             : {{ currentStep.label }}
