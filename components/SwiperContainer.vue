@@ -80,9 +80,8 @@ export default {
     }
   },
   mounted() {
-    console.log({
-      store: this
-    })
+    this.$store.dispatch('fetchOptions')
+    // this.$store.dispatch('fetchActiveProduct')
   }
 }
 </script>

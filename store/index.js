@@ -65,11 +65,11 @@ const store = new Vuex.Store({
         console.log('SENDING THE API!!!!',
           state.product
         )
-        femlightAPI.put('/design/update', options).then((res) => {
-          console.log({
-            res: res
-          })
-        })
+        // femlightAPI.put('/design/update', options).then((res) => {
+        //   console.log({
+        //     res: res
+        //   })
+        // })
       } else {
         console.log('NOT SENDING THE API')
       }
@@ -80,9 +80,12 @@ const store = new Vuex.Store({
   	},
   	actions: {
 	  	fetchOptions(context) {
-	  		femlightAPI.get('/design/options').then((res) => {
-        context.commit('SET_OPTIONS', res.data)
-	  		})
+	  		// femlightAPI.get('/design/options').then((res) => {
+      // context.commit('SET_OPTIONS', res.data)
+	  		// })
+      const mockOptionsData = require('./mock-options.json')
+      console.log({ mockOptionsData })
+      context.commit('SET_OPTIONS', mockOptionsData)
 	  	},
 	  	fetchActiveProduct(context) {
 	  		// check local storage for previous product

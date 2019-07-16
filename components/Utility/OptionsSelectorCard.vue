@@ -5,7 +5,9 @@
       :subtitle="subtitle"
       :step="step"
     />
-
+    <div>
+      options: {{ options }}
+    </div>
     <div class="row">
       <div
         v-for="item in options"
