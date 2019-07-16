@@ -79,8 +79,6 @@ export default {
   components: {
     CardBlock,
     WizardNavHeader
-    // Carousel,
-    // Slide
     // WizardNavHeader
   },
   props: {
