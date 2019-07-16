@@ -2,10 +2,11 @@
   <div
     id="wizard-progress"
     :class="[
-      'bg-green container-fluid',
+      'bg-green container-fluid text-xs-center',
       'px-0',
       { 'fixed': isFixed},
     ]"
+    style="width:100%;"
   >
     <div
       class="progress bg-green lighten"
@@ -21,12 +22,12 @@
       >
         <h4
           :class="[
-            'display-4',
+            'display-1',
             { 'pl-3': currentStep.key == 0}
           ]"
         >
           Step {{ currentStep.key + 1 }}/ {{ steps.length }}
-          <span class="d-none d-sm-inline">
+          <span class="">
             : {{ currentStep.label }}
           </span>
         </h4>

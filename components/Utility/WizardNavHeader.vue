@@ -1,34 +1,32 @@
 <template>
   <div>
-    <h4>HELLO</h4>
     <div class="nav-bar py-3">
       <div>
-        <a
+        <v-btn
           v-show="$store.state.step !== 0"
           class="btn btn-default bg-green text-white rounded"
           href="#"
           @click="go('prevStep')"
         >
           Prev
-        </a>
+        </v-btn>
       </div>
-      <h4 class="text-green">
+      <h4 class="display-1 text-green">
         {{ title }}
       </h4>
       <div>
-        isAllowedToContinue: {{ isAllowedToContinue }}
-        <a
+        <v-btn
           v-show="isAllowedToContinue"
           class="btn btn-default bg-green text-white rounded"
           href="#"
           @click="go('nextStep')"
         >
           Next
-        </a>
+        </v-btn>
       </div>
     </div>
-    <div class="text-center">
-      <p class="lead">
+    <div class="text-xs-center">
+      <p class="title">
         {{ subtitle }}
       </p>
     </div>
