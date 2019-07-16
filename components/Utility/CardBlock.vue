@@ -1,12 +1,11 @@
 <template>
   <v-card
     flat
-    color="transparent"
-    :class="['p-4 mb-2 text-xs-center rounded',
-             { slideColor: (isSelected) },
-             { '': !hasHex }
+    :color="(isSelected ? primary : 'transparent')"
+    :class="['pa-4 mb-2 text-xs-center rounded',
+             { 'primary': (isSelected) },
     ]"
-    :style="(isSelected? slideColor : '') + 'width:100%;'"
+    :style=" 'width:100%;'"
   >
     <img id="asdlkfj" :src="image" class="img-responsive rounded" style="max-width:200px;">
     <div v-if="hasHex" class="text-xs-center">
@@ -15,13 +14,14 @@
     <h4
       :class="[
         'text-capitalize title my-3',
+        { 'white--text': (isSelected) }
       ]"
     >
       {{ item.name }}
     </h4>
     <v-btn
       v-if="!hideButton"
-      class="btn btn-default green white--text rounded mb-2"
+      class="btn btn-default primary white--text rounded mb-2"
       @click="updateProduct(param, item)"
     >
       Select

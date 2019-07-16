@@ -28,7 +28,7 @@
     </div>
 
     <carousel
-      :per-page="4"
+      :per-page="5"
       :navigation-enabled="true"
     >
       <slide
@@ -55,7 +55,7 @@
     >
       <v-btn
         large
-        class="btn btn-default green white--text rounded"
+        class="btn btn-default primary white--text rounded"
         @click="$store.dispatch('nextStep')"
       >
         Click here to continue

@@ -29,16 +29,6 @@
       "created_at": null,
       "updated_at": null,
       "icon": "/images/fl_icon_anal_001.svg"
-    },
-    {
-      "id": 4,
-      "name": "penis",
-      "male": 1,
-      "female": 0,
-      "sku_part": "3",
-      "created_at": null,
-      "updated_at": null,
-      "icon": null
     }
   ],
   "colors": [
