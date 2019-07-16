@@ -9,6 +9,7 @@
     <div class="row">
       <div
         v-for="item in options"
+        :key="item.id"
         class="col-md-6 col-lg-4 p-2"
       >
         <card-block

@@ -59,6 +59,7 @@ export default {
       if (this.item.img_path) {
         return this.item.img_path
       }
+      return false
     }
   },
   mounted() {},
@@ -70,7 +71,7 @@ export default {
       this.$store.dispatch('updateProduct', {
         param: param,
         value: value
-      }),
+      })
       this.nextStep()
     }
   }

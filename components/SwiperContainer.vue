@@ -1,16 +1,16 @@
 <template>
   <div class="swiper-slide">
-    <!-- <pagination/>
+    <pagination />
 
-        <options-selector
+    <!-- <options-selector
           v-if="step === 0"
           step="0"
           param="anatomy"
           title="Step One: Choose Your Anatomy"
 					subtitle="Choose the type of product you want to create."
-          :options="$store.state.options.anatomies"/>
+          :options="$store.state.options.anatomies"/> -->
 
-        <options-selector
+    <options-selector
           v-if="step === 1"
           step="1"
           param="sleve_cover"
@@ -18,23 +18,23 @@
           subtitle="This is where you will be able to choose your sleve cover"
           :options="$store.state.options.colors"/>
 
-        <texture-selector
+    <!-- <texture-selector
           v-if="step === 2"
           step="2"
           param="texture"
           title="Step Three: Choose Texture"
           subtitle="This is where you will be able to choose your sleve cover"
-          :options="$store.state.options.textures"/>
+          :options="$store.state.options.textures"/> -->
 
-        <options-selector
+    <!-- <options-selector
           v-if="step === 3"
           step="3"
           param="femlight_model"
           title="Step Four: Choose Femlight"
           subtitle="This is where you will be able to choose your sleve cover"
-          :options="$store.state.options.form_factors"/>
+          :options="$store.state.options.form_factors"/> -->
 
-        <media-uploader-dropzone
+    <!-- <media-uploader-dropzone
           v-if="step === 4"
           step="4"
           title="Step Five: Upload Anatomy"
@@ -57,14 +57,19 @@
 </template>
 
 <script>
+import Pagination from './Pagination.vue'
+import OptionsSelector from './Utility/OptionsSelectorCard.vue'
+// import TextureSelector from './Utility/TextureSelector.vue'
+// import ConfirmOrder from './Utility/ConfirmOrder.vue'
+// import MediaUploaderDropzone from './Utility/MediaUploaderDropzone.vue'
 
 export default {
   components: {
-    // OptionsSelector: require('./Utility/OptionsSelectorCard.vue'),
-    // TextureSelector: require('./Utility/TextureSelector.vue'),
-    // ConfirmOrder: require('./Steps/ConfirmOrder.vue'),
-    // MediaUploaderDropzone: require('./Utility/MediaUploaderDropzone.vue'),
-    // Pagination: require('./Pagination.vue')
+    OptionsSelector,
+    // TextureSelector,
+    // ConfirmOrder,
+    // MediaUploaderDropzone,
+    Pagination
   },
   computed: {
     step() {
