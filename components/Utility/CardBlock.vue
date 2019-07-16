@@ -21,7 +21,7 @@
     </h4>
     <v-btn
       v-if="!hideButton"
-      class="btn btn-default bg-green text-white rounded mb-2"
+      class="btn btn-default green white--text rounded mb-2"
       @click="updateProduct(param, item)"
     >
       Select
