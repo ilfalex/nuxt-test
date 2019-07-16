@@ -55,8 +55,8 @@
     >
       <v-btn
         large
-        @click="$store.dispatch('nextStep')"
         class="btn btn-default green white--text rounded"
+        @click="$store.dispatch('nextStep')"
       >
         Click here to continue
       </v-btn>

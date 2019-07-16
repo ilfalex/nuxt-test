@@ -16,15 +16,13 @@
 </template>
 
 <script>
-import DropZone from 'vue2-dropzone'
-import 'vue2-dropzone/dist/vue2Dropzone.min.css'
+// import DropZone from 'vue2-dropzone'
 import WizardNavHeader from '../../components/Utility/WizardNavHeader.vue'
 
 export default {
   name: 'Uploader',
   components: {
-    WizardNavHeader,
-    DropZone
+    WizardNavHeader
   },
   props: {
     subtitle: String,
@@ -40,7 +38,7 @@ export default {
 	          thumbnailWidth: 600,
         addRemoveLinks: true,
 	          headers: {
-          'X-CSRF-TOKEN': document.head.querySelector('meta[name="csrf-token"]').content
+          // 'X-CSRF-TOKEN': document.head.querySelector('meta[name="csrf-token"]').content
           // 'Authorization': 'Bearer ' + $('meta[name="api_token"]').attr('content'),
         }
 	      }

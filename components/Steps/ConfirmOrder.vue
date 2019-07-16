@@ -28,9 +28,10 @@
 </template>
 
 <script>
+import WizardNavHeader from '../../components/Utility/WizardNavHeader.vue'
 export default {
   components: {
-    WizardNavHeader: require('../../components/Utility/WizardNavHeader.vue')
+    WizardNavHeader
   },
   props: {
     subtitle: String,

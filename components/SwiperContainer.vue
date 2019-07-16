@@ -38,41 +38,44 @@
       :options="$store.state.options.form_factors"
     />
 
-    <!-- <media-uploader-dropzone
-          v-if="step === 4"
-          step="4"
-          title="Step Five: Upload Anatomy"
-          subtitle="This is where you will be able to choose your sleve cover"
-          slug="upload-anatomy"/>
+    <media-uploader-dropzone
+      v-if="step === 4"
+      step="4"
+      title="Step Five: Upload Anatomy"
+      subtitle="This is where you will be able to choose your sleve cover"
+      slug="upload-anatomy"
+    />
 
-        <media-uploader-dropzone
-        	 v-if="step === 5"
-           step="5"
-           title="Step Six: Upload Insignia"
-           subtitle="This is where you will be able to choose your sleve cover"
-           slug="upload-insignia"/>
+    <media-uploader-dropzone
+      v-if="step === 5"
+      step="5"
+      title="Step Six: Upload Insignia"
+      subtitle="This is where you will be able to choose your sleve cover"
+      slug="upload-insignia"
+    />
 
-        <confirm-order
-        	 v-if="step === 6"
-           step="6"
-           title="Step Seven: Confirm Order"
-           subtitle="This is where you will be able to choose your sleve cover"/> -->
+    <confirm-order
+      v-if="step === 6"
+      step="6"
+      title="Step Seven: Confirm Order"
+      subtitle="This is where you will be able to choose your sleve cover"
+    />
   </div>
 </template>
 
 <script>
 import Pagination from './Pagination.vue'
-import OptionsSelector from './Utility/OptionsSelectorCard.vue'
 import TextureSelector from './Utility/TextureSelector.vue'
-// import ConfirmOrder from './Utility/ConfirmOrder.vue'
-// import MediaUploaderDropzone from './Utility/MediaUploaderDropzone.vue'
+import OptionsSelector from './Utility/OptionsSelectorCard.vue'
+import MediaUploaderDropzone from './Utility/MediaUploaderDropzone.vue'
+import ConfirmOrder from './Steps/ConfirmOrder.vue'
 
 export default {
   components: {
     OptionsSelector,
     TextureSelector,
-    // ConfirmOrder,
-    // MediaUploaderDropzone,
+    ConfirmOrder,
+    MediaUploaderDropzone,
     Pagination
   },
   computed: {

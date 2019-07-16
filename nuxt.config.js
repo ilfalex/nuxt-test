@@ -38,7 +38,8 @@ module.exports = {
    ** Plugins to load before mounting the App
    */
   plugins: [
-    { src: '~/plugins/vue-carousel.js', ssr: false }
+    { src: '~/plugins/vue-carousel.js', ssr: false },
+    { src: '~/plugins/dropzone.js', ssr: false }
   ],
   /*
    ** Nuxt.js modules
