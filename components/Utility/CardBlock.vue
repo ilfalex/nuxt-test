@@ -8,17 +8,13 @@
     ]"
     :style="(isSelected? slideColor : '') + 'width:100%;'"
   >
-    <!-- isSelected: {{ isSelected }}<br>
-    slideColor: {{ slideColor }} -->
     <img id="asdlkfj" :src="image" class="img-responsive rounded" style="max-width:200px;">
     <div v-if="hasHex" class="text-xs-center">
       <div class="circle" :style="slideColor" />
     </div>
-    <!-- <div class="display-2"><i :class="['text-white', item.icon ]"></i></div> -->
     <h4
       :class="[
-        'text-capitalize h3 my-3',
-      /* { 'text-white': hasHex } */
+        'text-capitalize title my-3',
       ]"
     >
       {{ item.name }}

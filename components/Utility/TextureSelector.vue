@@ -8,11 +8,11 @@
     <div class="preview-area">
       <div
         v-if="!selectedPreview"
-        class="preview-box box bg-secondary text-center rounded mb-5"
+        class="preview-box box grey lighten-2 text-center rounded mb-5"
         style="height:256px;"
       >
-        <p class="text-white">
-          Select an Texture to preview..
+        <p class="grey--text">
+          Select a texture below to preview..
         </p>
       </div>
       <div
@@ -51,10 +51,12 @@
 
     <div
       v-if="selectedPreview"
-      class="text-xs-center mt-5">
+      class="text-xs-center mt-5"
+    >
       <v-btn
         large
-        @click="$store.dispatch('nextStep')">
+        @click="$store.dispatch('nextStep')"
+      >
         Click here to continue
       </v-btn>
     </div>

@@ -8,7 +8,8 @@
 
     <v-layout
       row
-      wrap>
+      wrap
+    >
       <v-flex
         v-for="item in options"
         :key="item.id"
@@ -21,7 +22,6 @@
         />
       </v-flex>
     </v-layout>
-
   </div>
 </template>
 
