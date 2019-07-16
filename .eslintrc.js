@@ -23,6 +23,7 @@ module.exports = {
     'no-console': 'off',
     'no-tabs': 'off',
     'no-mixed-spaces-and-tabs': 'off',
+    'vue/no-use-v-if-with-v-for': 'off',
     'vue/require-default-prop': 'off'
   }
 }

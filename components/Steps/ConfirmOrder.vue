@@ -29,13 +29,13 @@
 
 <script>
 export default {
+  components: {
+    WizardNavHeader: require('../../components/Utility/WizardNavHeader.vue')
+  },
   props: {
     subtitle: String,
     title: String,
     step: String
-  },
-  components: {
-    WizardNavHeader: require('../../components/Utility/WizardNavHeader.vue')
   },
   computed: {
     product() {

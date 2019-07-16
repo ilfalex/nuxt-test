@@ -54,7 +54,7 @@ export default {
         }
       })
       // check the step data to confirm that the required info is set for the relative step
-      if (stepData.required) {
+      if (stepData && stepData.required) {
         stepData.required.forEach((res) => {
           if (this.$store.state.product[res]) {
             // console.log('it EXISTS!!', res)
@@ -67,6 +67,11 @@ export default {
       }
       return result
     }
+  },
+  mounted() {
+    console.log({
+      state: this.$store.state
+    })
   },
   methods: {
     go(action) {

@@ -4,6 +4,7 @@
     <div class="row">
       <div
         v-for="item in options"
+        :key="item.id"
         class="col-lg-6 p-2"
       >
         <card-block

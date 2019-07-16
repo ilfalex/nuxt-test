@@ -40,7 +40,6 @@
       >
         <div
           @click="setSelection(item)"
-          @mouseover=""
         >
           <card-block
             :param="param"
@@ -77,6 +76,13 @@
 <script>
 import { Carousel, Slide } from 'vue-carousel'
 export default {
+  components: {
+    CardBlock: require('../../components/Utility/CardBlock.vue'),
+    WizardNavHeader: require('../../components/Utility/WizardNavHeader.vue'),
+    Carousel,
+    Slide
+    // WizardNavHeader
+  },
   props: {
     subtitle: String,
     title: String,
@@ -89,13 +95,6 @@ export default {
       selectedOption: null,
       selectedPreview: null
     }
-  },
-  components: {
-    CardBlock: require('../../components/Utility/CardBlock.vue'),
-    WizardNavHeader: require('../../components/Utility/WizardNavHeader.vue'),
-    Carousel,
-    Slide
-    // WizardNavHeader
   },
   methods: {
     setSelection(item) {

@@ -2,21 +2,23 @@
   <div class="swiper-slide">
     <pagination />
 
-    <!-- <options-selector
-          v-if="step === 0"
-          step="0"
-          param="anatomy"
-          title="Step One: Choose Your Anatomy"
-					subtitle="Choose the type of product you want to create."
-          :options="$store.state.options.anatomies"/> -->
+    <options-selector
+      v-if="step === 0"
+      step="0"
+      param="anatomy"
+      title="Step One: Choose Your Anatomy"
+      subtitle="Choose the type of product you want to create."
+      :options="$store.state.options.anatomies"
+    />
 
     <options-selector
-          v-if="step === 1"
-          step="1"
-          param="sleve_cover"
-          title="Step Two: Choose Your Sleve Cover"
-          subtitle="This is where you will be able to choose your sleve cover"
-          :options="$store.state.options.colors"/>
+      v-if="step === 1"
+      step="1"
+      param="sleve_cover"
+      title="Step Two: Choose Your Sleve Cover"
+      subtitle="This is where you will be able to choose your sleve cover"
+      :options="$store.state.options.colors"
+    />
 
     <!-- <texture-selector
           v-if="step === 2"
@@ -26,13 +28,14 @@
           subtitle="This is where you will be able to choose your sleve cover"
           :options="$store.state.options.textures"/> -->
 
-    <!-- <options-selector
-          v-if="step === 3"
-          step="3"
-          param="femlight_model"
-          title="Step Four: Choose Femlight"
-          subtitle="This is where you will be able to choose your sleve cover"
-          :options="$store.state.options.form_factors"/> -->
+    <options-selector
+      v-if="step === 3"
+      step="3"
+      param="femlight_model"
+      title="Step Four: Choose Femlight"
+      subtitle="This is where you will be able to choose your sleve cover"
+      :options="$store.state.options.form_factors"
+    />
 
     <!-- <media-uploader-dropzone
           v-if="step === 4"
