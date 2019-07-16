@@ -4,7 +4,7 @@
       <div>
         <v-btn
           v-show="$store.state.step !== 0"
-          class="btn btn-default bg-green text-white rounded"
+          class="btn btn-default primary text-white rounded"
           href="#"
           @click="go('prevStep')"
         >
@@ -17,7 +17,7 @@
       <div>
         <v-btn
           v-show="isAllowedToContinue"
-          class="btn btn-default bg-green text-white rounded"
+          class="btn btn-default primary text-white rounded"
           href="#"
           @click="go('nextStep')"
         >

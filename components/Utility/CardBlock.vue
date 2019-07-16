@@ -13,7 +13,7 @@
     </div>
     <h4
       :class="[
-        'text-capitalize title my-3',
+        'text-capitalize title mt-3',
         { 'white--text': (isSelected) }
       ]"
     >
@@ -21,7 +21,7 @@
     </h4>
     <v-btn
       v-if="!hideButton"
-      class="btn btn-default primary white--text rounded mb-2"
+      class="btn btn-default primary white--text rounded mt-3 mb-2"
       @click="updateProduct(param, item)"
     >
       Select

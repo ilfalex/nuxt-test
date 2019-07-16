@@ -8,7 +8,27 @@
     ]"
     style="width:100%;"
   >
-    <div
+    <v-progress-linear
+      color="primary"
+      height="100"
+      :value="percentage"
+      class="my-0"
+    >
+      <v-layout
+        fill-height
+        jusify-content
+        align-content>
+        <v-flex
+          class="headline white--text">
+          Step {{ currentStep.key + 1 }}/ {{ steps.length }}
+          <span class="">
+            : {{ currentStep.label }}
+          </span>
+        </v-flex>
+      </v-layout>
+    </v-progress-linear>
+
+    <!-- <div
       class="progress bg-green lighten"
       style="height:200px;"
     >
@@ -32,7 +52,7 @@
           </span>
         </h4>
       </div>
-    </div>
+    </div> -->
   </div>
 </template>
 
