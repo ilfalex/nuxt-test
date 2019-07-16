@@ -44,12 +44,12 @@ export default {
   computed: {
     isAllowedToContinue() {
       // needs to check what the current step is
-      let result
+      let result = false
       let stepData
       const currentStep = this.step
       // needs to grab the step data from the store
       this.$store.state.steps.forEach((item) => {
-        if (currentStep === item.key) {
+        if (parseInt(currentStep) === item.key) {
           stepData = item
         }
       })
