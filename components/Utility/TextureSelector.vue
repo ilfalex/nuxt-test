@@ -49,6 +49,15 @@
       </slide>
     </carousel>
 
+    <div
+      v-if="selectedPreview">
+      <v-btn
+        @click="$store.dispatch('nextStep')">
+        Click here to continue
+      </v-btn>
+      {{ selectedPreview }}
+    </div>
+
     <!-- <div class="container">
       <div class="row">
         <div

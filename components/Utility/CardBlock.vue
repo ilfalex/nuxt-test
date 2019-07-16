@@ -1,5 +1,5 @@
 <template>
-  <div
+  <v-card
     :class="['p-4 mb-2 text-center rounded',
              { slideColor: (isSelected) },
              { '': !hasHex }
@@ -21,14 +21,14 @@
     >
       {{ item.name }}
     </h4>
-    <button
+    <v-btn
       v-if="!hideButton"
       class="btn btn-default bg-green text-white rounded mb-2"
       @click="updateProduct(param, item)"
     >
       Select
-    </button>
-  </div>
+    </v-btn>
+  </v-card>
 </template>
 
 <script>

@@ -57,18 +57,18 @@ const store = new Vuex.Store({
       options.append('upload_anatomy_file', state.product.upload_anatomy_file)
       options.append('upload_insignia_file', state.product.upload_insignia_file)
 
-      if (state.product.anatomy) {
-        console.log('SENDING THE API!!!!',
-          state.product
-        )
-        // femlightAPI.put('/design/update', options).then((res) => {
-        //   console.log({
-        //     res: res
-        //   })
-        // })
-      } else {
-        console.log('NOT SENDING THE API')
-      }
+      // if (state.product.anatomy) {
+      // console.log('SENDING THE API!!!!',
+      //   state.product
+      // )
+      // femlightAPI.put('/design/update', options).then((res) => {
+      //   console.log({
+      //     res: res
+      //   })
+      // })
+      // } else {
+      //   console.log('NOT SENDING THE API')
+      // }
 	    },
 	    SET_PRODUCT(state, payload) {
 	    	state.product = payload
@@ -80,7 +80,6 @@ const store = new Vuex.Store({
       // context.commit('SET_OPTIONS', res.data)
 	  		// })
       const mockOptionsData = require('./mock-options.json')
-      console.log({ mockOptionsData })
       context.commit('SET_OPTIONS', mockOptionsData)
 	  	},
 	  	fetchActiveProduct(context) {

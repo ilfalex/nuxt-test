@@ -16,6 +16,7 @@
         {{ title }}
       </h4>
       <div>
+        isAllowedToContinue: {{ isAllowedToContinue }}
         <a
           v-show="isAllowedToContinue"
           class="btn btn-default bg-green text-white rounded"
@@ -57,10 +58,10 @@ export default {
       if (stepData && stepData.required) {
         stepData.required.forEach((res) => {
           if (this.$store.state.product[res]) {
-            // console.log('it EXISTS!!', res)
+            console.log('it EXISTS!!', res)
             result = true
           } else {
-            // console.log('it does not exist', res)
+            console.log('it does not exist', res)
             result = false
           }
         })
@@ -68,11 +69,7 @@ export default {
       return result
     }
   },
-  mounted() {
-    console.log({
-      state: this.$store.state
-    })
-  },
+  mounted() {},
   methods: {
     go(action) {
       event.preventDefault()
