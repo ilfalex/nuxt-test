@@ -1,10 +1,12 @@
 <template>
   <v-card
-    :class="['p-4 mb-2 text-center rounded',
+    flat
+    color="transparent"
+    :class="['p-4 mb-2 text-xs-center rounded',
              { slideColor: (isSelected) },
              { '': !hasHex }
     ]"
-    :style="(isSelected? slideColor : '')"
+    :style="(isSelected? slideColor : '') + 'width:100%;'"
   >
     <!-- isSelected: {{ isSelected }}<br>
     slideColor: {{ slideColor }} -->

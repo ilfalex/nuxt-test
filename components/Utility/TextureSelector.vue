@@ -17,7 +17,7 @@
       </div>
       <div
         v-if="selectedPreview"
-        class="details mb-5"
+        class="details mb-5 text-xs-center"
       >
         <img
           :src="selectedPreview.img_path"
@@ -50,12 +50,13 @@
     </carousel>
 
     <div
-      v-if="selectedPreview">
+      v-if="selectedPreview"
+      class="text-xs-center mt-5">
       <v-btn
+        large
         @click="$store.dispatch('nextStep')">
         Click here to continue
       </v-btn>
-      {{ selectedPreview }}
     </div>
 
     <!-- <div class="container">

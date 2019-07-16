@@ -5,21 +5,23 @@
       :subtitle="subtitle"
       :step="step"
     />
-    <div>
-      options: {{ options }}
-    </div>
-    <div class="row">
-      <div
+
+    <v-layout
+      row
+      wrap>
+      <v-flex
         v-for="item in options"
         :key="item.id"
-        class="col-md-6 col-lg-4 p-2"
+        sm4
+        class="pa-2"
       >
         <card-block
           :param="param"
           :item="item"
         />
-      </div>
-    </div>
+      </v-flex>
+    </v-layout>
+
   </div>
 </template>
 
