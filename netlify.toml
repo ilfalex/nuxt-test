@@ -1,6 +1,6 @@
 [build]
   publish = "dist"
-  command = "npm run generate --no-lock && npm run build:api"
+  command = "npm run generate --no-lock"
   functions = "./server"
 [[redirects]]
   from="/*"
