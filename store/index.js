@@ -3,10 +3,6 @@ import Vuex from 'vuex'
 import axios from 'axios'
 import pagination from './steps.json'
 
-console.log({
-  pagination
-})
-
 Vue.use(Vuex)
 
 const femlightAPI = axios.create({

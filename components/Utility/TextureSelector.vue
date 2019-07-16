@@ -5,9 +5,7 @@
       :subtitle="subtitle"
       :step="step"
     />
-
     <div class="preview-area">
-      <!-- {{ selectedOption }} -->
       <div
         v-if="!selectedPreview"
         class="preview-box box bg-secondary text-center rounded mb-5"
@@ -74,13 +72,15 @@
 </template>
 
 <script>
-import { Carousel, Slide } from 'vue-carousel'
+// import { Carousel, Slide } from 'vue-carousel'
+import WizardNavHeader from '../../components/Utility/WizardNavHeader.vue'
+import CardBlock from '../../components/Utility/CardBlock.vue'
 export default {
   components: {
-    CardBlock: require('../../components/Utility/CardBlock.vue'),
-    WizardNavHeader: require('../../components/Utility/WizardNavHeader.vue'),
-    Carousel,
-    Slide
+    CardBlock,
+    WizardNavHeader
+    // Carousel,
+    // Slide
     // WizardNavHeader
   },
   props: {

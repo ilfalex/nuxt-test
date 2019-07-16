@@ -20,13 +20,14 @@
       :options="$store.state.options.colors"
     />
 
-    <!-- <texture-selector
-          v-if="step === 2"
-          step="2"
-          param="texture"
-          title="Step Three: Choose Texture"
-          subtitle="This is where you will be able to choose your sleve cover"
-          :options="$store.state.options.textures"/> -->
+    <texture-selector
+      v-if="step === 2"
+      step="2"
+      param="texture"
+      title="Step Three: Choose Texture"
+      subtitle="This is where you will be able to choose your sleve cover"
+      :options="$store.state.options.textures"
+    />
 
     <options-selector
       v-if="step === 3"
@@ -62,14 +63,14 @@
 <script>
 import Pagination from './Pagination.vue'
 import OptionsSelector from './Utility/OptionsSelectorCard.vue'
-// import TextureSelector from './Utility/TextureSelector.vue'
+import TextureSelector from './Utility/TextureSelector.vue'
 // import ConfirmOrder from './Utility/ConfirmOrder.vue'
 // import MediaUploaderDropzone from './Utility/MediaUploaderDropzone.vue'
 
 export default {
   components: {
     OptionsSelector,
-    // TextureSelector,
+    TextureSelector,
     // ConfirmOrder,
     // MediaUploaderDropzone,
     Pagination

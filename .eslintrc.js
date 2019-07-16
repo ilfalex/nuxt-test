@@ -24,6 +24,7 @@ module.exports = {
     'no-tabs': 'off',
     'no-mixed-spaces-and-tabs': 'off',
     'vue/no-use-v-if-with-v-for': 'off',
+    'vue/no-use-v-if-with-v-for': 'off',
     'vue/require-default-prop': 'off'
   }
 }
