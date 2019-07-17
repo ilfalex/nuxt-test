@@ -6,18 +6,24 @@
       :step="step"
     />
 
-    {{ product }}
+    <!-- {{ product }} -->
 
-    <v-layout row wrap align-start>
+    <v-layout
+      row
+      wrap
+      align-start
+      class="grey lighten-4 mt-5 text-xs-center"
+    >
       <v-flex
         xs12
         sm6
         md3
         class="pa-4"
       >
-        <v-card class="grey pa-2" width="100%">
-          <h3>Anatomy</h3>
-          {{ productAnatomy }}
+        <v-card flat class="grey pa-3 lighten-4" width="100%">
+          <h3 class="grey--text">Anatomy</h3>
+          <p class="headline text-capitalize" v-text="productAnatomy.name" />
+          <v-img :src="productAnatomy.icon" />
         </v-card>
       </v-flex>
       <v-flex
@@ -26,9 +32,10 @@
         md3
         class="pa-4"
       >
-        <v-card class="grey pa-2" width="100%">
-          <h3>Texture</h3>
-          {{ productTexture }}
+        <v-card flat class="grey pa-3 lighten-4" width="100%">
+          <h3 class="grey--text">Texture</h3>
+          <p class="headline text-capitalize" v-text="productTexture.name" />
+          <v-img :src="productTexture.img_path" />
         </v-card>
       </v-flex>
       <v-flex
@@ -37,20 +44,21 @@
         md3
         class="pa-4"
       >
-        <v-card class="grey pa-2" width="100%">
-          <h3>Sleve</h3>
-          {{ productSleve }}
+        <v-card flat class="grey pa-3 lighten-4" width="100%">
+          <h3 class="grey--text">Sleve</h3>
+          <p class="headline text-capitalize" v-text="productSleve.name" />
+          <div class="circle" :style="'background-color:' + productSleve.hex + ';'" />
         </v-card>
-        </v-flex>
+      </v-flex>
       <v-flex
         xs12
         sm6
         md3
         class="pa-4"
       >
-        <v-card class="grey pa-2" width="100%">
-          <h3>Model</h3>
-          {{ productModel }}
+        <v-card flat class="grey pa-3 lighten-4" width="100%">
+          <h3 class="grey--text">Model</h3>
+          <p class="headline text-capitalize" v-text="productModel.name" />
         </v-card>
       </v-flex>
 
@@ -59,19 +67,36 @@
         md6
         class="pa-4"
       >
-        <v-card class="grey pa-2" width="100%">
-          <h3>Submited Insignia</h3>
+        <v-card flat class="grey pa-3 lighten-4" width="100%">
+          <h3 class="grey--text mb-2">Submited Anatomy</h3>
+          <v-img :src="product.upload_anatomy_file" alt="" class="rounded" />
         </v-card>
       </v-flex>
-        <v-flex
+      <v-flex
         xs12
         md6
         class="pa-4"
       >
-        <v-card class="grey pa-2" width="100%">
-          <h3>Model</h3>
+        <v-card flat class="grey pa-3 lighten-4" width="100%">
+          <h3 class="grey--text mb-2">Submited Insignia</h3>
+          <v-img :src="product.upload_insignia_file" alt="" class="rounded" />
         </v-card>
       </v-flex>
+    </v-layout>
+
+    <v-layout
+      align-center
+      justify-end
+      row
+      class="mt-4">
+      <v-btn
+        large
+        class="btn btn-default primary white--text rounded"
+        @click="$store.dispatch('nextStep')"
+      >
+        Complete Order
+        <v-icon>arrow_right</v-icon>
+      </v-btn>
     </v-layout>
   </div>
 </template>
@@ -97,17 +122,17 @@ export default {
       )
     },
     productTexture() {
-      return this.$store.state.options.anatomies.find(
+      return this.$store.state.options.textures.find(
         item => item.id === this.product.texture
       )
     },
     productSleve() {
-      return this.$store.state.options.anatomies.find(
+      return this.$store.state.options.colors.find(
         item => item.id === this.product.sleve_cover
       )
     },
     productModel() {
-      return this.$store.state.options.anatomies.find(
+      return this.$store.state.options.form_factors.find(
         item => item.id === this.product.femlight_model
       )
     }

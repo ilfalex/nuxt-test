@@ -82,7 +82,7 @@ export default {
   }
   .circle {
     margin: auto;
-    border-radius:50%;
+    border-radius:50% !important;
     height: 150px;
     width: 150px;
   }
