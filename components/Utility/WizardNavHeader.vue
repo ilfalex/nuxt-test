@@ -11,7 +11,7 @@
           Prev
         </v-btn>
       </div>
-      <h4 class="display-1 text-green">
+      <h4 class="display-1 text-green d-none sm-and-up">
         {{ title }}
       </h4>
       <div>

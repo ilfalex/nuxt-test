@@ -48,9 +48,6 @@
         </v-list-tile>
       </v-list>
     </v-navigation-drawer>
-    <v-footer :fixed="fixed" app>
-      <span>&copy; 2019</span>
-    </v-footer>
   </v-app>
 </template>
 
@@ -69,8 +66,8 @@ export default {
         },
         {
           icon: 'bubble_chart',
-          title: 'Inspire',
-          to: '/inspire'
+          title: 'Registration',
+          to: '/registration'
         }
       ],
       miniVariant: false,
@@ -81,3 +78,9 @@ export default {
   }
 }
 </script>
+
+<style>
+  .body {
+    margin-bottom:150px;
+  }
+</style>
