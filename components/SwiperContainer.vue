@@ -1,5 +1,7 @@
 <template>
-  <div class="swiper-slide container pt-5">
+  <div
+    class="swiper-slide container pt-5"
+    style="margin-bottom:100px;">
     <pagination />
 
     <options-selector

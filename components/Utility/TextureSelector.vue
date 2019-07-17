@@ -5,7 +5,7 @@
       :subtitle="subtitle"
       :step="step"
     />
-    <div class="preview-area">
+    <div class="preview-area mt-5">
       <div
         v-if="!selectedPreview"
         class="preview-box box grey lighten-2 text-center rounded mb-5"
