@@ -17,19 +17,18 @@ export default {
   components: {
     DropZone
   },
-  props: {
-  },
+  props: {},
   data: function () {
-	    return {
-	      dropzoneOptions: {
-	          url: 'https://httpbin.org/post',
-	          thumbnailWidth: 150,
-	          maxFilesize: 0.5,
-	          headers: { 'My-Awesome-Header': 'header value' }
-	      }
-	    }
-	  },
-  mounted() {},
+    return {
+      dropzoneOptions: {
+        url: 'https://httpbin.org/post',
+        thumbnailWidth: 150,
+        maxFilesize: 0.5,
+        headers: { 'My-Awesome-Header': 'header value' }
+      }
+    }
+  },
+  mounted () {},
   methods: {}
 }
 </script>

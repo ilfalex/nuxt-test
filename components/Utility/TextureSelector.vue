@@ -36,14 +36,12 @@
         v-if="item.img_path"
         :key="item.id"
       >
-        <div
-          @click="setSelection(item)"
-        >
+        <div @click="setSelection(item)">
           <card-block
             :param="param"
             :item="item"
             :hide-button="true"
-            :is-selected="(selectedOption && item.id === selectedPreview.id)"
+            :is-selected="selectedOption && item.id === selectedPreview.id"
           />
         </div>
       </slide>
@@ -108,14 +106,14 @@ export default {
     }
   },
   methods: {
-    setSelection(item) {
+    setSelection (item) {
       this.selectedOption = item
       this.setPreview(item)
     },
-    setPreview(item) {
+    setPreview (item) {
       this.selectedPreview = item
     },
-    updateProduct(param, value) {
+    updateProduct (param, value) {
       // alert('editing the product')
       this.$store.dispatch('updateProduct', {
         param: param,
@@ -123,7 +121,7 @@ export default {
       })
       // this.$store.dispatch('nextStep')
     },
-    nextStep() {
+    nextStep () {
       this.$store.dispatch('nextStep')
       this.updateProduct(this.param, this.selectedOption)
     }
@@ -132,9 +130,9 @@ export default {
 </script>
 
 <style>
-  .preview-box {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+.preview-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 </style>

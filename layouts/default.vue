@@ -24,19 +24,35 @@
         </v-list-tile>
       </v-list>
     </v-navigation-drawer>
-    <v-toolbar :clipped-left="clipped" fixed app>
+    <v-toolbar
+      :clipped-left="clipped"
+      fixed
+      app
+    >
       <v-toolbar-side-icon @click="drawer = !drawer" />
       <v-spacer />
-      <img style="height:55px;position:relative; bottom:4px;" src="http://alex.www.femlight.com/customize/storage/femlight-logo-02_grayPink.png" class="">
+      <img
+        style="height:55px;position:relative; bottom:4px;"
+        src="http://alex.www.femlight.com/customize/storage/femlight-logo-02_grayPink.png"
+        class=""
+      >
       <v-spacer />
-      <v-btn icon @click.stop="rightDrawer = !rightDrawer">
+      <v-btn
+        icon
+        @click.stop="rightDrawer = !rightDrawer"
+      >
         <v-icon>shopping_cart</v-icon>
       </v-btn>
     </v-toolbar>
     <v-content>
       <nuxt />
     </v-content>
-    <v-navigation-drawer v-model="rightDrawer" :right="right" temporary fixed>
+    <v-navigation-drawer
+      v-model="rightDrawer"
+      :right="right"
+      temporary
+      fixed
+    >
       <v-list>
         <v-list-tile @click.native="right = !right">
           <v-list-tile-action>
@@ -53,7 +69,7 @@
 
 <script>
 export default {
-  data() {
+  data () {
     return {
       clipped: false,
       drawer: false,
@@ -80,7 +96,7 @@ export default {
 </script>
 
 <style>
-  .body {
-    margin-bottom:150px;
-  }
+.body {
+  margin-bottom: 150px;
+}
 </style>

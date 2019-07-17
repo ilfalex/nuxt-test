@@ -22,10 +22,9 @@ export default {
   components: {
     CardBlock
   },
-  props: {
-  },
+  props: {},
   computed: {
-    options() {
+    options () {
       return this.$store.state.options.form_factors
     }
   }

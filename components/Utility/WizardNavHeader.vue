@@ -41,7 +41,7 @@ export default {
     step: String
   },
   computed: {
-    isAllowedToContinue() {
+    isAllowedToContinue () {
       // needs to check what the current step is
       let result = false
       let stepData
@@ -67,9 +67,9 @@ export default {
       return result
     }
   },
-  mounted() {},
+  mounted () {},
   methods: {
-    go(action) {
+    go (action) {
       event.preventDefault()
       this.$store.dispatch(action)
     }
@@ -77,9 +77,9 @@ export default {
 }
 </script>
 <style>
-	.nav-bar {
-		display:flex;
-		align-items:center;
-		justify-content:space-between;
-	}
+.nav-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 </style>

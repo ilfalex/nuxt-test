@@ -4,7 +4,7 @@
     :class="[
       'bg-green container-fluid text-xs-center',
       'px-0',
-      { 'fixed': isFixed},
+      { fixed: isFixed }
     ]"
     style="width:100%;"
   >
@@ -19,13 +19,9 @@
         jusify-content
         align-content
       >
-        <v-flex
-          class="headline white--text"
-        >
+        <v-flex class="headline white--text">
           Step {{ currentStep.key + 1 }}/ {{ steps.length }}
-          <span class="">
-            : {{ currentStep.label }}
-          </span>
+          <span class=""> : {{ currentStep.label }} </span>
         </v-flex>
       </v-layout>
     </v-progress-linear>
@@ -66,15 +62,15 @@ export default {
     }
   },
   computed: {
-    steps() {
+    steps () {
       return this.$store.state.steps
     },
-    percentage() {
+    percentage () {
       const length = this.$store.state.steps.length
       const percent = this.$store.state.step / (length - 1)
       return percent * 100
     },
-    currentStep() {
+    currentStep () {
       let result = this.$store.state.step
       this.$store.state.steps.forEach((item) => {
         if (item.key === this.$store.state.step) {
@@ -88,22 +84,22 @@ export default {
 </script>
 
 <style type="text/css">
-    #wizard-progress.fixed{
-      position: fixed;
-      bottom:0px;
-      left:0px;
-      z-index:100;
-      box-shadow: 0px 10px 15px #000000;
-    }
-    #footer-content {
-      margin-bottom:180px;
-    }
-    .bg-green.lighten {
-      background-color: rgb(219,	234, 206) !important;
-    }
-    .flex {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
+#wizard-progress.fixed {
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  z-index: 100;
+  box-shadow: 0px 10px 15px #000000;
+}
+#footer-content {
+  margin-bottom: 180px;
+}
+.bg-green.lighten {
+  background-color: rgb(219, 234, 206) !important;
+}
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 </style>

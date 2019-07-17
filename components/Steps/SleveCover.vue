@@ -31,7 +31,7 @@ export default {
     title: String
   },
   computed: {
-    options() {
+    options () {
       return this.$store.state.options.colors
     }
   }

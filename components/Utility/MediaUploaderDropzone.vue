@@ -37,9 +37,7 @@
             xs12
             class="uploaded-file-options mt-2"
           >
-            <v-layout
-              justify-space-between
-            >
+            <v-layout justify-space-between>
               <v-btn
                 flat
                 class="red--text"
@@ -81,29 +79,31 @@ export default {
     options: Array
   },
   data: function () {
-	    return {
+    return {
       uploadedFile: null,
-	      dropzoneOptions: {
-	          url: '/customize/design/upload/' + this.slug.replace('upload-', ''),
-	          thumbnailWidth: 600,
+      dropzoneOptions: {
+        url: '/customize/design/upload/' + this.slug.replace('upload-', ''),
+        thumbnailWidth: 600,
         addRemoveLinks: true,
-	          headers: {
+        headers: {
           // 'X-CSRF-TOKEN': document.head.querySelector('meta[name="csrf-token"]').content
           // 'Authorization': 'Bearer ' + $('meta[name="api_token"]').attr('content'),
         }
-	      }
-	    }
-	  },
+      }
+    }
+  },
   computed: {
-    type() {
+    type () {
       return this.slug.replace('upload-', '')
     }
   },
-  created() {
-    this.uploadedFile = this.$store.state.product['upload_' + this.type + '_file']
+  created () {
+    this.uploadedFile = this.$store.state.product[
+      'upload_' + this.type + '_file'
+    ]
   },
   methods: {
-    uploadSuccess(file, response) {
+    uploadSuccess (file, response) {
       this.uploadedFile = file.dataURL
       this.$store.dispatch('updateProduct', {
         param: this.slug.replace('-', '_') + '_file',
@@ -113,7 +113,7 @@ export default {
       // this.$refs[this.slug].removeAllFiles()
       // this.$store.dispatch('nextStep')
     },
-    removeUploadedFile() {
+    removeUploadedFile () {
       this.uploadedFile = null
       this.$refs[this.slug].removeAllFiles()
       this.$store.dispatch('updateProduct', {
@@ -121,7 +121,7 @@ export default {
         value: ''
       })
     },
-    nextStep() {
+    nextStep () {
       this.uploadedFile = null
       this.$refs[this.slug].removeAllFiles()
       this.$store.dispatch('nextStep')

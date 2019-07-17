@@ -1,9 +1,7 @@
 <template>
   <div class="swiper-container&quot;">
     <div class="swiper-wrapper">
-      <swiper-slide
-        params="here are the params"
-      />
+      <swiper-slide params="here are the params" />
 
       <!-- <choose-anatomy
                 v-if="step === 0"
@@ -36,10 +34,9 @@ export default {
       message: 'Hello I am talking from the example component!'
     }
   },
-  mounted() {
-  },
+  mounted () {},
   methods: {
-    nextStep() {
+    nextStep () {
       this.$appRoot.swiper.nextStep()
     }
   }

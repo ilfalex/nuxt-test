@@ -1,22 +1,26 @@
 <template>
   <v-card
     flat
-    :color="(isSelected ? 'primary' : 'transparent')"
-    :class="['pa-4 mb-2 text-xs-center rounded',
-             { 'primary': (isSelected) },
-    ]"
-    :style=" 'width:100%;'"
+    :color="isSelected ? 'primary' : 'transparent'"
+    :class="['pa-4 mb-2 text-xs-center rounded', { primary: isSelected }]"
+    :style="'width:100%;'"
   >
-    <img id="asdlkfj" :src="image" class="img-responsive rounded" style="max-width:200px;">
-    <div v-if="hasHex" class="text-xs-center">
-      <div class="circle" :style="slideColor" />
-    </div>
-    <h4
-      :class="[
-        'text-capitalize title mt-3',
-        { 'white--text': (isSelected) }
-      ]"
+    <img
+      id="asdlkfj"
+      :src="image"
+      class="img-responsive rounded"
+      style="max-width:200px;"
     >
+    <div
+      v-if="hasHex"
+      class="text-xs-center"
+    >
+      <div
+        class="circle"
+        :style="slideColor"
+      />
+    </div>
+    <h4 :class="['text-capitalize title mt-3', { 'white--text': isSelected }]">
       {{ item.name }}
     </h4>
     <v-btn
@@ -38,10 +42,10 @@ export default {
     param: String
   },
   computed: {
-    hasHex() {
+    hasHex () {
       return !(this.item.hex === undefined)
     },
-    slideColor() {
+    slideColor () {
       if (this.hasHex) {
         return 'background-color:' + this.item.hex + ';'
       } else if (this.isSelected) {
@@ -50,7 +54,7 @@ export default {
         return 'background-color:transparent;'
       }
     },
-    image() {
+    image () {
       if (this.item.icon) {
         return this.item.icon
       }
@@ -60,12 +64,12 @@ export default {
       return false
     }
   },
-  mounted() {},
+  mounted () {},
   methods: {
-    nextStep() {
+    nextStep () {
       this.$store.dispatch('nextStep')
     },
-    updateProduct(param, value) {
+    updateProduct (param, value) {
       this.$store.dispatch('updateProduct', {
         param: param,
         value: value
@@ -77,13 +81,13 @@ export default {
 </script>
 
 <style>
-  .btn.rounded {
-    border-radius:2em !important;
-  }
-  .circle {
-    margin: auto;
-    border-radius:50% !important;
-    height: 150px;
-    width: 150px;
-  }
+.btn.rounded {
+  border-radius: 2em !important;
+}
+.circle {
+  margin: auto;
+  border-radius: 50% !important;
+  height: 150px;
+  width: 150px;
+}
 </style>

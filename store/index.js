@@ -15,20 +15,20 @@ const femlightAPI = axios.create({
 })
 
 const store = new Vuex.Store({
-  	state: {
-	    step: 0,
+  state: {
+    step: 0,
     steps: pagination.steps,
-	    options: {},
-	   	product: {}
-  	},
-  	mutations: {
-	    SET_OPTIONS(state, payload) {
-	    	state.options = payload
-	    },
-	    SET_STEP(state, payload) {
-	    	state.step = payload
-	    },
-	    UPDATE_PRODUCT(state, payload) {
+    options: {},
+    product: {}
+  },
+  mutations: {
+    SET_OPTIONS (state, payload) {
+      state.options = payload
+    },
+    SET_STEP (state, payload) {
+      state.step = payload
+    },
+    UPDATE_PRODUCT (state, payload) {
       if (payload.param === 'anatomy') {
         state.product.anatomy = payload.value.id
       }
@@ -69,29 +69,33 @@ const store = new Vuex.Store({
       // } else {
       //   console.log('NOT SENDING THE API')
       // }
-	    },
-	    SET_PRODUCT(state, payload) {
-	    	state.product = payload
-	    }
-  	},
-  	actions: {
-	  	fetchOptions(context) {
-	  		// femlightAPI.get('/design/options').then((res) => {
+    },
+    SET_PRODUCT (state, payload) {
+      state.product = payload
+    }
+  },
+  actions: {
+    fetchOptions (context) {
+      // femlightAPI.get('/design/options').then((res) => {
       // context.commit('SET_OPTIONS', res.data)
-	  		// })
+      // })
       const mockOptionsData = require('./mock-options.json')
       context.commit('SET_OPTIONS', mockOptionsData)
-	  	},
-	  	fetchActiveProduct(context) {
-	  		// check local storage for previous product
-	  		//
-	  		if (localStorage.getItem('product')) { context.commit('SET_PRODUCT', localStorage.getItem('product')) } else {
+    },
+    fetchActiveProduct (context) {
+      // check local storage for previous product
+      //
+      if (localStorage.getItem('product')) {
+        context.commit('SET_PRODUCT', localStorage.getItem('product'))
+      } else {
         femlightAPI.get('/design/not-in-cart-product').then((res) => {
-		  			if (res.data) { context.commit('SET_PRODUCT', (res.data.data ? res.data.data : {})) }
-		  		})
+          if (res.data) {
+            context.commit('SET_PRODUCT', res.data.data ? res.data.data : {})
+          }
+        })
       }
-	  	},
-	  	nextStep(context) {
+    },
+    nextStep (context) {
       const next = parseInt(context.state.step) + 1
       const max = context.state.steps.length
 
@@ -100,8 +104,8 @@ const store = new Vuex.Store({
       } else {
         context.commit('SET_STEP', next)
       }
-	  	},
-	  	prevStep(context) {
+    },
+    prevStep (context) {
       const next = parseInt(context.state.step) - 1
       const max = context.state.steps.length - 1
 
@@ -110,11 +114,11 @@ const store = new Vuex.Store({
       } else {
         context.commit('SET_STEP', next)
       }
-	  	},
-    updateProduct(context, payload) {
+    },
+    updateProduct (context, payload) {
       context.commit('UPDATE_PRODUCT', payload)
     }
-  	}
+  }
 })
 
 export default () => {

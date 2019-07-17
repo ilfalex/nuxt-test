@@ -1,7 +1,8 @@
 <template>
   <div
     class="swiper-slide container pt-5"
-    style="margin-bottom:100px;">
+    style="margin-bottom:100px;"
+  >
     <pagination />
 
     <options-selector
@@ -81,11 +82,11 @@ export default {
     Pagination
   },
   computed: {
-    step() {
+    step () {
       return this.$store.state.step
     }
   },
-  mounted() {
+  mounted () {
     this.$store.dispatch('fetchOptions')
     // this.$store.dispatch('fetchActiveProduct')
   }

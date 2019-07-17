@@ -22,7 +22,11 @@ module.exports = {
       {
         rel: 'stylesheet',
         href:
-          'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons'
+          'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons|Open+Sans:300|Raleway'
+      },
+      {
+        rel: 'stylesheet',
+        href: '/assets/css/style.scss'
       }
     ]
   },
@@ -78,6 +82,6 @@ module.exports = {
     /*
      ** You can extend webpack config here
      */
-    extend(config, ctx) {}
+    extend (config, ctx) {}
   }
 }
