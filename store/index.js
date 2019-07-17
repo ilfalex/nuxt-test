@@ -48,7 +48,7 @@ const store = new Vuex.Store({
         state.product.upload_insignia_file = payload.value
       }
 
-      console.log('thisIsWhereTheCallWouldGo', state)
+      console.log('API call to update product', state)
       const options = new URLSearchParams()
       options.append('anatomy', state.product.anatomy)
       options.append('texture', state.product.texture)

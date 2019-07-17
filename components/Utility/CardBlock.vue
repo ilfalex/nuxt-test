@@ -1,7 +1,7 @@
 <template>
   <v-card
     flat
-    :color="(isSelected ? primary : 'transparent')"
+    :color="(isSelected ? 'primary' : 'transparent')"
     :class="['pa-4 mb-2 text-xs-center rounded',
              { 'primary': (isSelected) },
     ]"

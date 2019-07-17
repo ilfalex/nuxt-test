@@ -56,7 +56,7 @@
       <v-btn
         large
         class="btn btn-default primary white--text rounded"
-        @click="$store.dispatch('nextStep')"
+        @click="nextStep()"
       >
         Click here to continue
       </v-btn>
@@ -111,7 +111,6 @@ export default {
     setSelection(item) {
       this.selectedOption = item
       this.setPreview(item)
-      this.updateProduct(this.param, item)
     },
     setPreview(item) {
       this.selectedPreview = item
@@ -123,6 +122,10 @@ export default {
         value: value
       })
       // this.$store.dispatch('nextStep')
+    },
+    nextStep() {
+      this.$store.dispatch('nextStep')
+      this.updateProduct(this.param, this.selectedOption)
     }
   }
 }

@@ -56,10 +56,10 @@ export default {
       if (stepData && stepData.required) {
         stepData.required.forEach((res) => {
           if (this.$store.state.product[res]) {
-            console.log('it EXISTS!!', res)
+            // console.log('it EXISTS!!', res)
             result = true
           } else {
-            console.log('it does not exist', res)
+            // console.log('it does not exist', res)
             result = false
           }
         })

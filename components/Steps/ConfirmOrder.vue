@@ -25,7 +25,7 @@
             Anatomy
           </h3>
           <p class="headline text-capitalize" v-text="productAnatomy.name" />
-          <v-img :src="productAnatomy.icon" />
+          <v-img v-if="productAnatomy" :src="productAnatomy.icon" />
         </v-card>
       </v-flex>
       <v-flex
@@ -39,7 +39,7 @@
             Texture
           </h3>
           <p class="headline text-capitalize" v-text="productTexture.name" />
-          <v-img :src="productTexture.img_path" />
+          <v-img v-if="productTexture" :src="productTexture.img_path" />
         </v-card>
       </v-flex>
       <v-flex
@@ -53,7 +53,7 @@
             Sleve
           </h3>
           <p class="headline text-capitalize" v-text="productSleve.name" />
-          <div class="circle" :style="'background-color:' + productSleve.hex + ';'" />
+          <div v-if="productSleve" class="circle" :style="'background-color:' + productSleve.hex + ';'" />
         </v-card>
       </v-flex>
       <v-flex
@@ -75,11 +75,12 @@
         md6
         class="pa-4"
       >
+        <!-- {{ product }} -->
         <v-card flat class="grey pa-3 lighten-4" width="100%">
           <h3 class="grey--text mb-2">
             Submited Anatomy
           </h3>
-          <v-img :src="product.upload_anatomy_file" alt="" class="rounded" />
+          <v-img v-if="product.upload_anatomy_file" :src="product.upload_anatomy_file" alt="" class="rounded" />
         </v-card>
       </v-flex>
       <v-flex
@@ -91,7 +92,7 @@
           <h3 class="grey--text mb-2">
             Submited Insignia
           </h3>
-          <v-img :src="product.upload_insignia_file" alt="" class="rounded" />
+          <v-img v-if="product.upload_insignia_file" :src="product.upload_insignia_file" alt="" class="rounded" />
         </v-card>
       </v-flex>
     </v-layout>
