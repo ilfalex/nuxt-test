@@ -16,7 +16,7 @@
       step="1"
       param="sleve_cover"
       title="Step Two: Choose Your Sleve Cover"
-      subtitle="This is where you will be able to choose your sleve cover"
+      subtitle="This is where you will be able to choose your sleve cover."
       :options="$store.state.options.colors"
     />
 
@@ -25,7 +25,7 @@
       step="2"
       param="texture"
       title="Step Three: Choose Texture"
-      subtitle="This is where you will be able to choose your sleve cover"
+      subtitle="Use the form below to select a texture for the inside of your femlight."
       :options="$store.state.options.textures"
     />
 
@@ -34,7 +34,7 @@
       step="3"
       param="femlight_model"
       title="Step Four: Choose Femlight"
-      subtitle="This is where you will be able to choose your sleve cover"
+      subtitle="Choose the model casing of your personal femlight."
       :options="$store.state.options.form_factors"
     />
 
@@ -42,7 +42,7 @@
       v-if="step === 4"
       step="4"
       title="Step Five: Upload Anatomy"
-      subtitle="This is where you will be able to choose your sleve cover"
+      subtitle="Upload your anatomy here. Use the instructions included below to properly get a complete rendering of your anatomy."
       slug="upload-anatomy"
     />
 
@@ -50,7 +50,7 @@
       v-if="step === 5"
       step="5"
       title="Step Six: Upload Insignia"
-      subtitle="This is where you will be able to choose your sleve cover"
+      subtitle="Upload any logos or signatures you would like to place on the product to brand your personal product."
       slug="upload-insignia"
     />
 
@@ -58,7 +58,7 @@
       v-if="step === 6"
       step="6"
       title="Step Seven: Confirm Order"
-      subtitle="This is where you will be able to choose your sleve cover"
+      subtitle="Review your order below and confirm the details are correct before sending in your order."
     />
   </div>
 </template>

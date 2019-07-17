@@ -35,9 +35,11 @@
 
           <v-flex
             xs12
-            class="uploaded-file-options mt-2">
+            class="uploaded-file-options mt-2"
+          >
             <v-layout
-              justify-space-between>
+              justify-space-between
+            >
               <v-btn
                 flat
                 class="red--text"
@@ -46,7 +48,7 @@
                 <v-icon>close</v-icon>
                 Remove
               </v-btn>
-                <v-btn
+              <v-btn
                 flat
                 class="green--text"
                 @click="nextStep()"

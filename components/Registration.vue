@@ -2,9 +2,11 @@
   <v-container fluid fill-height>
     <v-layout align-center justify-center>
       <v-flex xs12 sm8 md4>
-        <div class="text-xs-center mb-5">
-          <img width="400px" src="http://alex.www.femlight.com/customize/storage/femlight-logo-02_grayPink.png" />
-        </div>
+        <!-- <v-flex>
+          <div class="text-xs-center mb-5">
+            <img width="400px" src="http://alex.www.femlight.com/customize/storage/femlight-logo-02_grayPink.png" />
+          </div>
+        </v-flex> -->
         <v-card flat class="elevation-12">
           <v-toolbar flat color="white">
             <v-toolbar-title>Create Your Account</v-toolbar-title>
@@ -18,8 +20,10 @@
           </v-card-text>
           <v-card-actions>
             <v-btn
-            block
-            color="primary">
+              block
+              color="primary"
+              @click="$router.push('/registration')"
+            >
               Login
             </v-btn>
           </v-card-actions>
