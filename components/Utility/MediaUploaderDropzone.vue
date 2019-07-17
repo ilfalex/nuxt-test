@@ -99,7 +99,7 @@ export default {
       return this.slug.replace('upload-', '')
     }
   },
-  mounted() {
+  created() {
     this.uploadedFile = this.$store.state.product['upload_' + this.type + '_file']
   },
   methods: {
@@ -125,6 +125,7 @@ export default {
       this.uploadedFile = null
       this.$refs[this.slug].removeAllFiles()
       this.$store.dispatch('nextStep')
+      // this.uploadedFile = this.$store.state.product['upload_' + this.type + '_file']
     }
   }
 }

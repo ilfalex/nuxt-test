@@ -5,25 +5,58 @@
       :subtitle="subtitle"
       :step="step"
     />
+    <v-layout row wrap>
+      <v-flex
+        sm3
+        class="pa-4"
+      >
+        <v-card class="grey pa-2" width="100%">
+          <h3>Anatomy</h3>
+        </v-card>
+      </v-flex>
+      <v-flex
+        sm3
+        class="pa-4"
+      >
+        <v-card class="grey pa-2" width="100%">
+          <h3>Texture</h3>
+        </v-card>
+      </v-flex>
+      <v-flex
+        sm3
+        class="pa-4"
+      >
+        <v-card class="grey pa-2" width="100%">
+          <h3>Sleve</h3>
+        </v-card>
+      </v-flex>
+      <v-flex
+        sm3
+        class="pa-4"
+      >
+        <v-card class="grey pa-2" width="100%">
+          <h3>Submitted Anatomy</h3>
+        </v-card>
+      </v-flex>
 
-    <!-- Anatomy -->
-    <!-- Texture -->
-    <!-- Sleve Cover -->
-    <!-- Femlight Model -->
-    This is where you confirm your order
+      <v-flex
+        sm6
+        class="pa-4"
+      >
+        <v-card class="grey pa-2" width="100%">
+          <h3>Submited Insignia</h3>
+        </v-card>
+      </v-flex>
+      <v-flex
+        sm6
+        class="pa-4"
+      >
+        <v-card class="grey pa-2" width="100%">
+          <h3>Model</h3>
+        </v-card>
+      </v-flex>
 
-    {{ product }}
-
-    <div class="row">
-      <div class="col-md-6">
-        <img :src="product.upload_anatomy_file" class="img-responsive">
-      </div>
-      <div class="col-md-6">
-        <img :src="product.upload_insignia_file" class="img-responsive">
-      </div>
-    </div>
-
-    div
+    </v-layout>
   </div>
 </template>
 
