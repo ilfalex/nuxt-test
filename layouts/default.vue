@@ -5,7 +5,6 @@
       :mini-variant="miniVariant"
       :clipped="clipped"
       fixed
-      app
     >
       <v-list>
         <v-list-tile
@@ -14,6 +13,7 @@
           :to="item.to"
           router
           exact
+          @click="drawer = false"
         >
           <v-list-tile-action>
             <v-icon>{{ item.icon }}</v-icon>

@@ -21,7 +21,9 @@
         class="pa-4"
       >
         <v-card flat class="grey pa-3 lighten-4" width="100%">
-          <h3 class="grey--text">Anatomy</h3>
+          <h3 class="grey--text">
+            Anatomy
+          </h3>
           <p class="headline text-capitalize" v-text="productAnatomy.name" />
           <v-img :src="productAnatomy.icon" />
         </v-card>
@@ -33,7 +35,9 @@
         class="pa-4"
       >
         <v-card flat class="grey pa-3 lighten-4" width="100%">
-          <h3 class="grey--text">Texture</h3>
+          <h3 class="grey--text">
+            Texture
+          </h3>
           <p class="headline text-capitalize" v-text="productTexture.name" />
           <v-img :src="productTexture.img_path" />
         </v-card>
@@ -45,7 +49,9 @@
         class="pa-4"
       >
         <v-card flat class="grey pa-3 lighten-4" width="100%">
-          <h3 class="grey--text">Sleve</h3>
+          <h3 class="grey--text">
+            Sleve
+          </h3>
           <p class="headline text-capitalize" v-text="productSleve.name" />
           <div class="circle" :style="'background-color:' + productSleve.hex + ';'" />
         </v-card>
@@ -57,7 +63,9 @@
         class="pa-4"
       >
         <v-card flat class="grey pa-3 lighten-4" width="100%">
-          <h3 class="grey--text">Model</h3>
+          <h3 class="grey--text">
+            Model
+          </h3>
           <p class="headline text-capitalize" v-text="productModel.name" />
         </v-card>
       </v-flex>
@@ -68,7 +76,9 @@
         class="pa-4"
       >
         <v-card flat class="grey pa-3 lighten-4" width="100%">
-          <h3 class="grey--text mb-2">Submited Anatomy</h3>
+          <h3 class="grey--text mb-2">
+            Submited Anatomy
+          </h3>
           <v-img :src="product.upload_anatomy_file" alt="" class="rounded" />
         </v-card>
       </v-flex>
@@ -78,7 +88,9 @@
         class="pa-4"
       >
         <v-card flat class="grey pa-3 lighten-4" width="100%">
-          <h3 class="grey--text mb-2">Submited Insignia</h3>
+          <h3 class="grey--text mb-2">
+            Submited Insignia
+          </h3>
           <v-img :src="product.upload_insignia_file" alt="" class="rounded" />
         </v-card>
       </v-flex>
@@ -88,7 +100,8 @@
       align-center
       justify-end
       row
-      class="mt-4">
+      class="mt-4"
+    >
       <v-btn
         large
         class="btn btn-default primary white--text rounded"
