@@ -23,11 +23,8 @@ module.exports = {
         rel: 'stylesheet',
         href:
           'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons|Open+Sans:300|Raleway'
-      },
-      {
-        rel: 'stylesheet',
-        href: '/assets/css/style.scss'
-      }
+      } // ,
+      // { rel: 'stylesheet', href: '/assets/css/style.scss' }
     ]
   },
   /*
