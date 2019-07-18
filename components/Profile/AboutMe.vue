@@ -18,14 +18,14 @@
             class="text-xs-center"
           >
             <v-flex>
-              <h4 class="display-2 white--text">
+              <h4 class="display-2 white--text mb-2">
                 About Me
               </h4>
               <p
                 v-if="user.about_me"
                 class="headline grey--text"
               >
-                {{ user.about_me.bio }}
+                {{ user.about_me.body }}
               </p>
             </v-flex>
           </v-layout>

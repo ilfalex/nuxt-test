@@ -6,7 +6,6 @@
     </h3>
 
     <v-tabs
-      v-model="active"
       color="primary"
       dark
       slider-color="yellow"
@@ -54,6 +53,15 @@
           :user="user"
         />
       </v-tab-item>
+
+      <v-tab-item class="grey lighten-3 pa-3 mb-5">
+        <h4 class="display-1 font-weight-thin mb-2">
+          Edit Links
+        </h4>
+        <links
+          :user="user"
+        />
+      </v-tab-item>
     </v-tabs>
   </div>
 </template>
@@ -63,11 +71,13 @@ import Hero from '../components/Profile/Hero'
 import AboutMe from '../components/Profile/AboutMe'
 import Photos from '../components/Profile/Photos'
 import Products from '../components/Profile/Products'
+import Links from '../components/Profile/Links'
 export default {
   components: {
     Hero,
     Photos,
     Products,
+    Links,
     AboutMe
   },
   data () {
@@ -76,7 +86,8 @@ export default {
         'Hero',
         'About',
         'Photos',
-        'Products'
+        'Products',
+        'Links'
       ]
     }
   },

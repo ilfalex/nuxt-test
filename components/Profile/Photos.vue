@@ -10,7 +10,10 @@
         sm4
         class="pa-3"
       >
-        <v-img :src="item.url" />
+        <v-img
+          v-if="item.url"
+          :src="item.url"
+        />
       </v-flex>
     </v-layout>
   </div>

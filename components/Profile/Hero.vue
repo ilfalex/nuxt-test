@@ -5,7 +5,7 @@
       :hide-delimiters="true"
     >
       <v-carousel-item
-        :src="user.hero_image"
+        :src="backgroundImage"
       >
         <v-container
           fill-height
@@ -17,7 +17,7 @@
           >
             <v-flex>
               <h4 class="display-2 white--text">
-                {{ user.fakename }}
+                {{ user.stage_name }}
               </h4>
               <p class="headline grey--text">
                 {{ user.professional_title }}
@@ -81,6 +81,15 @@ export default {
     return {
       dialog: false,
       dialogInterface: false
+    }
+  },
+  computed: {
+    backgroundImage () {
+      if (this.user.hero_image) {
+        return this.user.hero_image
+      } else {
+        return ''
+      }
     }
   },
   methods: {

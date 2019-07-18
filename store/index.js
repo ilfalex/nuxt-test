@@ -81,10 +81,12 @@ const store = new Vuex.Store({
   actions: {
     getUser (context) {
       console.log('getting user')
-      const mockUserData = require('./mock-user.json')
-      const mockUserProfile = require('./mock-profile.json')
-      const data = { ...mockUserData.user, ...mockUserProfile.profile }
-      context.commit('SET_USER', data)
+      // const mockUserData = require('./mock-user.json')
+      // const mockUserProfile = require('./mock-profile.json')
+      // const data = { ...mockUserData.user, ...mockUserProfile.profile }
+      axios.get('http://mike.www.femlight.com/xxx/api/profile/32').then((res) => {
+        context.commit('SET_USER', res.data)
+      })
     },
     fetchOptions (context) {
       // femlightAPI.get('/design/options').then((res) => {
