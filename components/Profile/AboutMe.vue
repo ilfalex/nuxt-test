@@ -4,6 +4,8 @@
     min
   >
     <v-carousel
+      :hide-controls="true"
+      :hide-delimiters="true"
       class="grey lighten-3"
     >
       <v-carousel-item>
@@ -30,6 +32,42 @@
         </v-container>
       </v-carousel-item>
     </v-carousel>
+
+    <v-layout class="mt-3 text-xs-center">
+      <v-flex>
+        <v-btn
+          large
+          class="red--text"
+        >
+          <v-icon>close</v-icon>
+          Remove Photo
+        </v-btn>
+        <v-btn
+          large
+          class=""
+          @click="openDialog('text')"
+        >
+          <v-icon>edit</v-icon>
+          Change Text
+        </v-btn>
+        <v-btn
+          large
+          class=""
+          @click="openDialog('color')"
+        >
+          <v-icon>edit</v-icon>
+          Change Color
+        </v-btn>
+      </v-flex>
+    </v-layout>
+
+    <v-dialog
+      v-model="dialog"
+      width="500"
+    >
+      <!-- <edit-text v-if="dialogInterface === 'text'" /> -->
+      <!-- <edit-color v-if="dialogInterface === 'color'" /> -->
+    </v-dialog>
   </div>
 </template>
 
@@ -37,6 +75,18 @@
 export default {
   props: {
     user: Object
+  },
+  data () {
+    return {
+      dialog: false,
+      dialogInterface: false
+    }
+  },
+  methods: {
+    openDialog (type) {
+      this.dialog = true
+      this.dialogInterface = type
+    }
   }
 }
 </script>

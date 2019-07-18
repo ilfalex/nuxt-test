@@ -28,7 +28,7 @@
       </v-carousel-item>
     </v-carousel>
 
-    <v-layout class="mt-3">
+    <v-layout class="mt-3 text-xs-center">
       <v-flex>
         <v-btn
           large
@@ -60,11 +60,9 @@
       v-model="dialog"
       width="500"
     >
-
       <edit-text v-if="dialogInterface === 'text'" />
       <edit-color v-if="dialogInterface === 'color'" />
     </v-dialog>
-
   </div>
 </template>
 
@@ -72,12 +70,12 @@
 import EditText from '../../components/Profile/Dialog/EditText'
 import EditColor from '../../components/Profile/Dialog/EditColor'
 export default {
-  props: {
-    user: Object
-  },
   components: {
     EditText,
     EditColor
+  },
+  props: {
+    user: Object
   },
   data () {
     return {

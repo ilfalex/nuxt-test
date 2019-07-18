@@ -81,6 +81,11 @@ export default {
           to: '/'
         },
         {
+          icon: 'apps',
+          title: 'Edit Profile',
+          to: '/profile'
+        },
+        {
           icon: 'bubble_chart',
           title: 'Registration',
           to: '/registration'
