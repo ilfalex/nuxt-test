@@ -2,7 +2,6 @@
   "profile": {
     "user_id": 5283,
     "professional_title": "Cam Girl",
-    "bio": "I am the greatest cam girl alive i want to become a superstar!",
     "hero_image": "https://images.pexels.com/photos/1414047/pexels-photo-1414047.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
     "about_me": {
       "background_image": "",
@@ -10,12 +9,13 @@
       "background_opactiy": 0,
       "title_color": "#ffffff",
       "body_color": "#ffffff",
-      "description": 0
+      "bio": "I am the greatest cam girl alive i want to become a superstar!",
+      "description": ""
     },
     "products": [
       {
         "id": 123,
-        "name": "",
+        "name": "Big Dick Shawty",
         "description": "",
         "price": "",
         "images": [
@@ -25,7 +25,7 @@
       },
       {
         "id": 456,
-        "name": "",
+        "name": "Purple Pussy Power",
         "description": "",
         "price": "",
         "images": [
@@ -36,7 +36,18 @@
     ],
     "images": [
       {
+        "id": 2342,
         "order": 1,
+        "url": "https://images.pexels.com/photos/1716530/pexels-photo-1716530.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+      },
+      {
+        "id": 3554,
+        "order": 2,
+        "url": "https://images.pexels.com/photos/1716530/pexels-photo-1716530.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+      },
+      {
+        "id": 6574,
+        "order": 3,
         "url": "https://images.pexels.com/photos/1716530/pexels-photo-1716530.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
       }
     ]

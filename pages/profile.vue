@@ -1,38 +1,25 @@
 <template>
   <div class="pa-5">
-    <v-carousel>
-      <v-carousel-item
-        :key="i"
-        :src="user.hero_image"
-      />
-    </v-carousel>
-    <!-- {{ user }} -->
-    <v-layout
-      row
-      wrap
-    >
-      <v-flex
-        v-for="(item, i) in user"
-        :key="i"
-        sm3
-        class="pa-3"
-      >
-        <div class="grey lighten-3 pa-2">
-          <h4 class="heading grey--text">
-            {{ i }}:
-          </h4>
-          <span class="display-1">{{ item }}</span>
-        </div>
-      </v-flex>
-    </v-layout>
+    <!-- {{ user.hero_image }} -->
+    <hero :user="user" />
+    <about-me :user="user" />
+    <photos :user="user" />
+    <products :user="user" />
+
   </div>
 </template>
 
 <script>
+import Hero from '../components/Profile/Hero'
+import AboutMe from '../components/Profile/AboutMe'
+import Photos from '../components/Profile/Photos'
+import Products from '../components/Profile/Products'
 export default {
   components: {
-    // Registration,
-    // SwiperContainer
+    Hero,
+    Photos,
+    Products,
+    AboutMe
   },
   computed: {
     user () {
