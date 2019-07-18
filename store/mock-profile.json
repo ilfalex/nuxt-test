@@ -1,0 +1,44 @@
+{
+  "profile": {
+    "user_id": 5283,
+    "professional_title": "Cam Girl",
+    "bio": "I am the greatest cam girl alive i want to become a superstar!",
+    "hero_image": "https://images.pexels.com/photos/1414047/pexels-photo-1414047.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+    "about_me": {
+      "background_image": "",
+      "background_color": "#ffffff",
+      "background_opactiy": 0,
+      "title_color": "#ffffff",
+      "body_color": "#ffffff",
+      "description": 0
+    },
+    "products": [
+      {
+        "id": 123,
+        "name": "",
+        "description": "",
+        "price": "",
+        "images": [
+          "https://cdn.shopify.com/s/files/1/0992/7780/files/ice-lady-homepage-light-primary-with-texture.jpg",
+          "https://cdn.shopify.com/s/files/1/0992/7780/files/ice-lady-homepage-light-primary-with-texture.jpg"
+        ]
+      },
+      {
+        "id": 456,
+        "name": "",
+        "description": "",
+        "price": "",
+        "images": [
+          "https://cdn.shopify.com/s/files/1/0992/7780/files/ice-lady-homepage-light-primary-with-texture.jpg",
+          "https://cdn.shopify.com/s/files/1/0992/7780/files/ice-lady-homepage-light-primary-with-texture.jpg"
+        ]
+      }
+    ],
+    "images": [
+      {
+        "order": 1,
+        "url": "https://images.pexels.com/photos/1716530/pexels-photo-1716530.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+      }
+    ]
+  }
+}

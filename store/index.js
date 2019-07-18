@@ -18,12 +18,16 @@ const store = new Vuex.Store({
   state: {
     step: 0,
     steps: pagination.steps,
+    user: {},
     options: {},
     product: {}
   },
   mutations: {
     SET_OPTIONS (state, payload) {
       state.options = payload
+    },
+    SET_USER (state, payload) {
+      state.user = payload
     },
     SET_STEP (state, payload) {
       state.step = payload
@@ -75,6 +79,13 @@ const store = new Vuex.Store({
     }
   },
   actions: {
+    getUser (context) {
+      console.log('getting user')
+      const mockUserData = require('./mock-user.json')
+      const mockUserProfile = require('./mock-profile.json')
+      const data = { ...mockUserData.user, ...mockUserProfile.profile }
+      context.commit('SET_USER', data)
+    },
     fetchOptions (context) {
       // femlightAPI.get('/design/options').then((res) => {
       // context.commit('SET_OPTIONS', res.data)
