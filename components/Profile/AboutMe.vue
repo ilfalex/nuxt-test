@@ -19,7 +19,10 @@
               <h4 class="display-2 white--text">
                 About Me
               </h4>
-              <p v-if="user.about_me" class="headline grey--text">
+              <p
+                v-if="user.about_me"
+                class="headline grey--text"
+              >
                 {{ user.about_me.bio }}
               </p>
             </v-flex>

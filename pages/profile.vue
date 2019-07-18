@@ -1,26 +1,60 @@
 <template>
   <div class="pa-5">
     <!-- {{ user.hero_image }} -->
-    <div class="grey lighten-3 pa-3 mb-5">
-      <h4 class="display-3 font-weight-thin mb-3">Edit Hero</h4>
-      <hero :user="user" class="mb-5"/>
-    </div>
+    <h3 class="display-4 mb-4">
+      Profile Editor
+    </h3>
 
-    <div class="grey lighten-3 pa-3 mb-5">
-      <h4 class="display-3 font-weight-thin mb-2">Edit About Me</h4>
-      <about-me :user="user" class="mb-5"/>
-    </div>
+    <v-tabs
+      v-model="active"
+      color="primary"
+      dark
+      slider-color="yellow"
+    >
+      <v-tab
+        v-for="n in tabs"
+        :key="n"
+        ripple
+      >
+        {{ n }}
+      </v-tab>
 
-    <div class="grey lighten-3 pa-3 mb-5">
-      <h4 class="display-3 font-weight-thin mb-2">Edit Photos</h4>
-      <photos :user="user" class="mb-5"/>
-    </div>
+      <v-tab-item class="grey lighten-3 pa-3 mb-5">
+        <h4 class="display-1 font-weight-thin mb-3">
+          Edit Hero
+        </h4>
+        <hero
+          :user="user"
+        />
+      </v-tab-item>
 
-    <div class="grey lighten-3 pa-3 mb-5">
-      <h4 class="display-3 font-weight-thin mb-2">Edit Products</h4>
-      <products :user="user" class="mb-5"/>
-    </div>
+      <v-tab-item class="grey lighten-3 pa-3 mb-5">
+        <h4 class="display-1 font-weight-thin mb-2">
+          Edit About Me
+        </h4>
+        <about-me
+          :user="user"
+        />
+      </v-tab-item>
 
+      <v-tab-item class="grey lighten-3 pa-3 mb-5">
+        <h4 class="display-1 font-weight-thin mb-2">
+          Edit Photos
+        </h4>
+        <photos
+          :user="user"
+        />
+      </v-tab-item>
+
+      <v-tab-item class="grey lighten-3 pa-3 mb-5">
+        <h4 class="display-1 font-weight-thin mb-2">
+          Edit Products
+        </h4>
+        <products
+          :user="user"
+        />
+      </v-tab-item>
+    </v-tabs>
   </div>
 </template>
 
@@ -35,6 +69,16 @@ export default {
     Photos,
     Products,
     AboutMe
+  },
+  data () {
+    return {
+      tabs: [
+        'Hero',
+        'About',
+        'Photos',
+        'Products'
+      ]
+    }
   },
   computed: {
     user () {
