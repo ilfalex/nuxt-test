@@ -10,10 +10,12 @@
     <div class="pa-4">
       <v-text-field
         v-model="user.stage_name"
-        label="Title" />
+        label="Title"
+      />
       <v-text-field
         v-model="user.professional_title"
-        label="Subtitle" />
+        label="Subtitle"
+      />
     </div>
 
     <v-divider />
@@ -23,7 +25,7 @@
       <v-btn
         color="primary"
         flat
-        @click="$emit('dialog', false)"
+        @click="save()"
       >
         Save
       </v-btn>
@@ -42,6 +44,9 @@ export default {
         return this.$store.commit('SET_USER', value)
       }
     }
+  },
+  methods: {
+    save () {}
   }
 }
 </script>

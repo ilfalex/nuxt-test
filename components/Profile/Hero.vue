@@ -31,8 +31,22 @@
     <v-layout class="mt-3 text-xs-center">
       <v-flex>
         <v-btn
+          v-if="!backgroundImage"
+          large
+          class=""
+        >
+          <v-icon
+            @click="launchPhotoUpload()"
+          >
+            upload
+          </v-icon>
+          Upload Photo
+        </v-btn>
+        <v-btn
+          v-if="backgroundImage"
           large
           class="red--text"
+          @click="removePhoto()"
         >
           <v-icon>close</v-icon>
           Remove Photo
@@ -45,14 +59,14 @@
           <v-icon>edit</v-icon>
           Change Text
         </v-btn>
-        <v-btn
+        <!-- <v-btn
           large
           class=""
           @click="openDialog('color')"
         >
           <v-icon>edit</v-icon>
           Change Color
-        </v-btn>
+        </v-btn> -->
       </v-flex>
     </v-layout>
 
@@ -67,12 +81,10 @@
 </template>
 
 <script>
-import EditText from '../../components/Profile/Dialog/EditText'
-import EditColor from '../../components/Profile/Dialog/EditColor'
+import EditText from '../../components/Profile/Dialog/Hero/EditText'
 export default {
   components: {
-    EditText,
-    EditColor
+    EditText
   },
   props: {
     user: Object
@@ -96,6 +108,14 @@ export default {
     openDialog (type) {
       this.dialog = true
       this.dialogInterface = type
+    },
+    launchPhotoUpload () {
+      this.openDialog('upload_photo')
+    },
+    removePhoto () {
+      this.$store.commit('UPDATE_PROFILE', {
+        hero_image: false
+      })
     }
   }
 }

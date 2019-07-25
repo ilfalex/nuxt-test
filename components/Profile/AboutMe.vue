@@ -20,6 +20,12 @@
             <v-flex>
               <h4 class="display-2 white--text mb-2">
                 About Me
+                <v-icon
+                  class="ml-2"
+                  style="position:relative:bottom:10px;"
+                >
+                  edit
+                </v-icon>
               </h4>
               <p
                 v-if="user.about_me"
@@ -65,14 +71,20 @@
       v-model="dialog"
       width="500"
     >
-      <!-- <edit-text v-if="dialogInterface === 'text'" /> -->
-      <!-- <edit-color v-if="dialogInterface === 'color'" /> -->
+      <edit-about-me-text v-if="dialogInterface === 'text'" />
+      <edit-color v-if="dialogInterface === 'color'" />
     </v-dialog>
   </div>
 </template>
 
 <script>
+import EditAboutMeText from '../../components/Profile/Dialog/AboutMe/EditText'
+import EditColor from '../../components/Profile/Dialog/AboutMe/EditColor'
 export default {
+  components: {
+    EditAboutMeText,
+    EditColor
+  },
   props: {
     user: Object
   },

@@ -80,5 +80,8 @@ module.exports = {
      ** You can extend webpack config here
      */
     extend (config, ctx) {}
+  },
+  env: {
+    baseUrl: process.env.NUXT_ENV_BASE_URL || 'http://mike.www.femlight.com/xxx/api'
   }
 }

@@ -3,6 +3,8 @@ import Vuex from 'vuex'
 import axios from 'axios'
 import pagination from './steps.json'
 
+const cookieparser = process.server ? require('cookieparser') : undefined
+
 Vue.use(Vuex)
 
 const femlightAPI = axios.create({
@@ -16,6 +18,7 @@ const femlightAPI = axios.create({
 
 const store = new Vuex.Store({
   state: {
+    auth: null,
     step: 0,
     steps: pagination.steps,
     user: {},
@@ -23,6 +26,9 @@ const store = new Vuex.Store({
     product: {}
   },
   mutations: {
+    setAuth (state, auth) {
+      state.auth = auth
+    },
     SET_OPTIONS (state, payload) {
       state.options = payload
     },
@@ -60,33 +66,36 @@ const store = new Vuex.Store({
       options.append('sleve_cover', state.product.sleve_cover)
       options.append('upload_anatomy_file', state.product.upload_anatomy_file)
       options.append('upload_insignia_file', state.product.upload_insignia_file)
-
-      // if (state.product.anatomy) {
-      // console.log('SENDING THE API!!!!',
-      //   state.product
-      // )
-      // femlightAPI.put('/design/update', options).then((res) => {
-      //   console.log({
-      //     res: res
-      //   })
-      // })
-      // } else {
-      //   console.log('NOT SENDING THE API')
-      // }
+    },
+    UPDATE_PROFILE (state, payload) {
+      state.user = { ...state.user, ...payload }
     },
     SET_PRODUCT (state, payload) {
       state.product = payload
     }
   },
   actions: {
+    nuxtServerInit ({ commit }, { req }) {
+      let auth = null
+      if (req.headers.cookie) {
+        const parsed = cookieparser.parse(req.headers.cookie)
+        try {
+          auth = JSON.parse(parsed.auth)
+        } catch (err) {
+          // No valid cookie found
+        }
+      }
+      commit('setAuth', auth)
+    },
     getUser (context) {
       console.log('getting user')
-      // const mockUserData = require('./mock-user.json')
-      // const mockUserProfile = require('./mock-profile.json')
-      // const data = { ...mockUserData.user, ...mockUserProfile.profile }
-      axios.get('http://mike.www.femlight.com/xxx/api/profile/32').then((res) => {
-        context.commit('SET_USER', res.data)
-      })
+      const mockUserData = require('./mock-user.json')
+      const mockUserProfile = require('./mock-profile.json')
+      const data = { ...mockUserData.user, ...mockUserProfile.profile }
+      context.commit('SET_USER', data)
+      // axios.get('http://mike.www.femlight.com/xxx/api/profile/32').then((res) => {
+      //   context.commit('SET_USER', res.data)
+      // })
     },
     fetchOptions (context) {
       // femlightAPI.get('/design/options').then((res) => {

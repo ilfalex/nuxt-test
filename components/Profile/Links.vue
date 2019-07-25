@@ -11,15 +11,20 @@
         class="pa-3"
       >
         <div class="grey lighten-4 pa-4 text-xs-center">
-          <h3 class="display-2 font-weight-thin mb-2">
+          <h3 class="display-2 font-weight-thin mb-3">
             {{ item.name }}
           </h3>
-          <v-btn
-            flat
-            color="transparent"
-          >
-            <v-icon>edit</v-icon>
+          <v-btn>
+            <v-icon class="mr-1">
+              edit
+            </v-icon>
             Edit
+          </v-btn>
+          <v-btn>
+            <v-icon class="mr-1">
+              link
+            </v-icon>
+            Preview
           </v-btn>
         </div>
       </v-flex>
