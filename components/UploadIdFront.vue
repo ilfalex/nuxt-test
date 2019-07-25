@@ -49,7 +49,8 @@ export default {
     return {
       // See https://rowanwins.github.io/vue-dropzone/docs/dist/index.html#/props
       options: {
-        url: 'http://httpbin.org/anything'
+        url: 'http://httpbin.org/anything',
+        timeout : 4000000
       }
     }
   },
