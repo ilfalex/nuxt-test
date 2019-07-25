@@ -12,12 +12,15 @@
     <v-card-actions>
       <v-layout justify-center>
         <v-flex xs2>
-          <v-btn
-            text
-            color="normal"
-          >
-            Previous
-          </v-btn>
+          <nuxt-link to="/user-details">
+            <v-btn
+              text
+              color="normal"
+              nuxt
+            >
+              Previous
+            </v-btn>
+          </nuxt-link>
         </v-flex>
         <v-flex xs2>
           <v-btn
