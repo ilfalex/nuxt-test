@@ -12,7 +12,8 @@
     <v-card-actions>
       <v-layout justify-center>
         <v-flex xs2>
-          <nuxt-link to="/user-details">
+          <nuxt-link 
+            to="/user-details">
             <v-btn
               text
               color="normal"
