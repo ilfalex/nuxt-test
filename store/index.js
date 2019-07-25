@@ -93,6 +93,7 @@ const store = new Vuex.Store({
       const mockUserProfile = require('./mock-profile.json')
       const data = { ...mockUserData.user, ...mockUserProfile.profile }
       context.commit('SET_USER', data)
+
       // axios.get('http://mike.www.femlight.com/xxx/api/profile/32').then((res) => {
       //   context.commit('SET_USER', res.data)
       // })
