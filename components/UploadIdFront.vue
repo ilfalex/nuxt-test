@@ -12,10 +12,10 @@
     </v-card-text>
 
     <v-card-actions>
-      <v-layout justify-center>
+      <v-layout justify-space-between>
         <v-flex xs2>
           <v-btn
-            to="/user-details"
+            :to="details.prev"
             text
             color="normal"
           >
@@ -26,7 +26,9 @@
           <v-btn
             text
             color="primary"
+            :to="details.next"
             type="submit"
+            :disabled="!img_id"
           >
             Next
           </v-btn>
@@ -46,38 +48,67 @@ export default {
   components: {
     Dropzone
   },
+  props: {
+    details : {}
+  },
   data () {
     return {
       // See https://rowanwins.github.io/vue-dropzone/docs/dist/index.html#/props
       options: {
-        addedFile: function(file){ alert(file); console.log(file) },
-        url: process.env.baseUrl + '/register/id/front',
+        url: process.env.baseUrl + this.$props.details.endpoint,
         timeout: 4000000,
         method: 'post',
         headers: {
           Authorization: 'Bearer ' + this.$store.state.auth.accessToken
         },
         paramName: 'id_img',
-        addRemoveLinks: true,
-        maxFiles: 1
+        addRemoveLinks: true
       },
-      img_id: 0
+      img_id: false
     }
   },
   mounted () {
     // Everything is mounted and you can access the dropzone instance
     // const instance = this.$refs.el.dropzone
-    console.log(process.env.baseUrl)
+    console.log(this)
   },
   methods: {
     uploadComplete: function(response){
 
       // set the image id
       this.img_id = JSON.parse(response.xhr.response).success.id
+      console.log(this)
+      this.$refs.el.disable()
     },
     removedFile: function(file){
-      registrationAPI.deleteIdImg('front')
+      registrationAPI.deleteIdImg( this.$props.details.endpoint )
+      this.img_id = false
+      this.$refs.el.enable()
     }
   }
 }
 </script>
+
+<style>
+  .dz-details{
+    background-color: #94d31b !important
+  }
+  .dz-filename{
+    display: none;
+  }
+  .dz-size{
+    display: none;
+  }
+  .dz-remove{
+    top: 50% !important;
+    bottom: inherit !important;
+    left: 50%;
+    margin-left: -56px !important;
+    margin-top: -20px;
+    text-decoration: none !important;
+    transition: 300ms ease;
+  }
+  .dz-remove:hover{
+    background-color: rgba(255,255,255,0.2);
+  }
+</style>

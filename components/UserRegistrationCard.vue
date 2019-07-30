@@ -2,7 +2,7 @@
   <v-card
     class="mx-auto"
   >
-    <v-list two-line>
+    <v-list two-line class="primary">
       <v-list-tile>
         <v-list-tile-action>
           <v-icon>
@@ -11,14 +11,24 @@
         </v-list-tile-action>
         <v-list-tile-content>
           <v-list-tile-title>
-            {{ details.title }}
+            <h3>
+              {{ details.title }}
+            </h3>
           </v-list-tile-title>
-          <v-list-tile-sub-title class="overflowable">
-            {{ details.subTitle }}
-          </v-list-tile-sub-title>
         </v-list-tile-content>
       </v-list-tile>
     </v-list>
+
+    <v-container grid-list-md text-center>
+      <v-layout wrap align-center>
+        <v-flex xs12 md6>
+          <img :src="details.img" class="example-img">
+        </v-flex>
+        <v-flex xs12 md6 text-xs-left>
+          {{ details.subtitle }}
+        </v-flex>
+      </v-layout>
+    </v-container>
 
     <slot />
   </v-card>
@@ -44,4 +54,13 @@ export default {
 	.overflowable{
 		white-space: normal;
 	}
+  .example-img{
+    width: 100%;
+  }
+  .primary{
+    color: #fff !important;
+  }
+  .primary .v-icon{
+    color: #fff;
+  }
 </style>

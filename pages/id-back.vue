@@ -1,3 +1,4 @@
+
 <template>
   <v-layout
     column
@@ -37,14 +38,14 @@ export default {
   data () {
     return {
       details: {
-        icon: 'contacts',
-        title: 'Upload ID - Front',
-        subtitle: 'Upload your identification card. If you are using a drivers license or state ID, please upload a picture of the front only. If you are using a passport, please upload the page with your picture on it.',
-        img: '/images/id_front.png',
+        icon: 'credit_card',
+        title: 'Upload ID - Back',
+        subtitle: 'Upload the back of your identification card. If you are using a drivers license or state ID, please upload a picture of the back only. If you are using a passport, just upload a picture of the cover.',
+        img: '/images/id_back.png',
         card_inner: {
-          prev: '/user-details',
-          next: '/id-back',
-          endpoint: '/register/id/front'
+          prev: '/id-front',
+          next: '/id-2257',
+          endpoint: '/register/id/back'
         }
       }
     }
