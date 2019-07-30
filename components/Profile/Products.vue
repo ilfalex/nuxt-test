@@ -17,6 +17,13 @@
             {{ item.name }}
           </h4>
         </div>
+        <v-btn
+          class="red--text"
+          @click="removeProduct(item)"
+        >
+          <v-icon>close</v-icon>
+          <!-- Remove Product -->
+        </v-btn>
       </v-flex>
     </v-layout>
   </div>
@@ -26,6 +33,11 @@
 export default {
   props: {
     user: Object
+  },
+  methods: {
+    removeProduct (item) {
+      this.user.products.splice(this.user.products.indexOf(item), 1)
+    }
   }
 }
 </script>

@@ -40,9 +40,9 @@
           <v-icon
             @click="launchPhotoUpload()"
           >
-            edit
+            add
           </v-icon>
-          Upload Photo
+          Add Photo
         </v-btn>
         <v-btn
           v-if="backgroundImage"

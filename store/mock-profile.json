@@ -34,6 +34,26 @@
         ]
       }
     ],
+    "links": [
+      {
+        "id": 132,
+        "title": "Instagram",
+        "icon": "fa fa-instagram",
+        "url": "https://instagram.com/fleshlight"
+      },
+      {
+        "id": 2323,
+        "title": "Facebook",
+        "icon": "fa fa-facebook",
+        "url": "https://facebook.com/fleshlight"
+        },
+      {
+        "id": 343,
+        "title": "Twitter",
+        "icon": "fa fa-twitter",
+        "url": "https://twitter.com/fleshlight"
+      }
+    ],
     "images": [
       {
         "id": 2342,
@@ -43,12 +63,12 @@
       {
         "id": 3554,
         "order": 2,
-        "url": "https://images.pexels.com/photos/1716530/pexels-photo-1716530.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+        "url": "https://images.pexels.com/photos/2612751/pexels-photo-2612751.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
       },
       {
         "id": 6574,
         "order": 3,
-        "url": "https://images.pexels.com/photos/1716530/pexels-photo-1716530.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+        "url": "https://images.pexels.com/photos/2707756/pexels-photo-2707756.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
       }
     ]
   }

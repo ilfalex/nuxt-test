@@ -46,12 +46,22 @@
     <v-layout class="mt-3 text-xs-center">
       <v-flex>
         <v-btn
+          v-if="backgroundImage"
           large
           class="red--text"
           @click="removePhoto()"
         >
           <v-icon>close</v-icon>
           Remove Photo
+        </v-btn>
+        <v-btn
+          v-if="!backgroundImage"
+          large
+          class=""
+          @click="removePhoto()"
+        >
+          <v-icon>add</v-icon>
+          Add Photo
         </v-btn>
         <v-btn
           large
