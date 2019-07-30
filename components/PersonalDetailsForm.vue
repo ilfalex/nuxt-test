@@ -47,16 +47,7 @@
     </v-card-text>
 
     <v-card-actions>
-      <v-layout justify-center>
-        <v-flex xs2>
-          <v-btn
-            text
-            color="normal"
-            disabled
-          >
-            Previous
-          </v-btn>
-        </v-flex>
+      <v-layout justify-end>
         <v-flex xs2>
           <v-btn
             text

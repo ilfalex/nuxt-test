@@ -68,9 +68,44 @@ export default {
     }
   },
   mounted () {
+
+    // get the file from the server
+    registrationAPI.getIdImg( this.$props.details.endpoint )
+      .then((r) => {
+        // console.log({getImgResponse : r})
+
+        if(r.data.hasOwnProperty('local_path')){
+
+          var url = 'http://mike.www.femlight.com/xxx/storage/'+r.data.local_path
+
+          var file = { size: 0, name: "id_img", type: "image/png" , url};
+
+          // console.log(file)
+          this.$refs.el.dropzone.emit("addedfile", file);
+
+          // And optionally show the thumbnail of the file:
+          this.$refs.el.dropzone.emit("thumbnail", file, url);
+
+          this.$refs.el.dropzone.files.push(file)
+
+          this.$refs.el.dropzone.files[0].previewElement.className += ' dz-complete'
+
+          // set the img id
+          this.img_id = r.data.id
+        }
+
+      })
+
+      // console.log({refs: this.$refs.el})
+
+    // var file = { size: 0, name: "id_img", type: "image/png" };
+    // var url = "https://myvizo.com/img/logo_sm.png";
+    // this.$refs.el.dropzone.manuallyAddFile(file, url);
+
+
     // Everything is mounted and you can access the dropzone instance
     // const instance = this.$refs.el.dropzone
-    console.log(this)
+    // console.log(this)
   },
   methods: {
     uploadComplete: function(response){
@@ -80,16 +115,22 @@ export default {
       console.log(this)
       this.$refs.el.disable()
     },
-    removedFile: function(file){
+    removedFile: function(file){ console.log(file)
       registrationAPI.deleteIdImg( this.$props.details.endpoint )
       this.img_id = false
       this.$refs.el.enable()
     }
+  },
+  beforeDestroy: function(){
+    this.details.endpoint = ''
   }
 }
 </script>
 
 <style>
+  .dz-preview{
+    width: 200px;
+  }
   .dz-details{
     background-color: #94d31b !important
   }
@@ -110,5 +151,8 @@ export default {
   }
   .dz-remove:hover{
     background-color: rgba(255,255,255,0.2);
+  }
+  .dz-image img{
+    max-width: 100%;
   }
 </style>

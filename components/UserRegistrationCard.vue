@@ -19,7 +19,7 @@
       </v-list-tile>
     </v-list>
 
-    <v-container grid-list-md text-center>
+    <v-container grid-list-md text-center v-if="showExample">
       <v-layout wrap align-center>
         <v-flex xs12 md6>
           <img :src="details.img" class="example-img">
@@ -42,6 +42,13 @@ export default {
   data () {
     return {
 
+    }
+  },
+  computed: {
+    showExample: function() {
+      // console.log(this)
+      return this.$props.details.hasOwnProperty('card_inner')
+      // return false;
     }
   }
 }
