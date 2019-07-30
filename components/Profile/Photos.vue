@@ -3,6 +3,7 @@
     <v-layout justify-end>
       <v-btn @click="addPhotos()">
         <v-icon>add</v-icon>
+        Add New Photos
       </v-btn>
     </v-layout>
     <v-layout
@@ -28,13 +29,30 @@
         </v-btn>
       </v-flex>
     </v-layout>
+    <v-dialog
+      v-model="dialog"
+      width="500"
+    >
+      <!-- <edit-text v-if="dialogInterface === 'text'" /> -->
+      <!-- <edit-color v-if="dialogInterface === 'color'" /> -->
+      <photo-uploader />
+    </v-dialog>
   </div>
 </template>
 
 <script>
+import PhotoUploader from '@/components/Utility/PhotoUploader'
 export default {
+  components: {
+    PhotoUploader
+  },
   props: {
     user: Object
+  },
+  data () {
+    return {
+      dialog: false
+    }
   },
   methods: {
     removePhoto (item) {
@@ -42,6 +60,7 @@ export default {
     },
     addPhotos () {
       // TODO: need to create a centralized location for adding photos
+      this.dialog = true
     }
   }
 }
