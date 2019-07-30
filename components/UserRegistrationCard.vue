@@ -26,9 +26,9 @@
 
 <script>
 export default {
-  props: [
-    'details'
-  ],
+  props: {
+    details: {}
+  },
   data () {
     return {
 

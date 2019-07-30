@@ -10,5 +10,9 @@ export const registrationAPI = {
   setUserDetails (fields) {
     // axios.post()
     return axios.post('/register/user-details', fields)
+  },
+
+  deleteIdImg ( side ){
+  	return axios.delete('/register/id/' + side)
   }
 }
