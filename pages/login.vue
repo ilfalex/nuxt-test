@@ -6,7 +6,6 @@
   >
     <v-flex xs12>
       <v-form
-        v-model="valid"
         @submit.prevent="submitForm"
       >
         <v-card>
@@ -30,7 +29,7 @@
                   xs12
                 >
                   <v-text-field
-                    v-model="email"
+                    v-model="fields.email"
                     label="E-mail"
                     required
                   />
@@ -41,7 +40,7 @@
                   xs12
                 >
                   <v-text-field
-                    v-model="password"
+                    v-model="fields.password"
                     label="Password"
                     type="password"
                     required
@@ -82,31 +81,23 @@ export default {
   data: function () {
     return {
       drawer: false,
-      valid: false,
-      email: '',
-      password: ''
+      fields : {
+        email: '',
+        password: ''
+      }
     }
   },
   methods: {
     submitForm () {
       console.log('submitting the form')
 
-      // event.preventDefault()
+      const args = {
+        fields: this.fields,
+        store: this.$store,
+        router: this.$router
+      }
 
-      login.login(this.email, this.password)
-        .then((res) => {
-			        const auth = {
-			          	accessToken: res.data.access_token
-			        }
-			        this.$store.commit('setAuth', auth) // mutating to store for client rendering
-			        Cookie.set('auth', auth) // saving token in cookie for server rendering
-			        this.$router.push('/user-details')
-        })
-        .catch((res) => {
-          console.log({
-            fail: res
-          })
-        })
+      login.login( args )
     }
   }
 }

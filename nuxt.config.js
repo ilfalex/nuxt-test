@@ -82,6 +82,7 @@ module.exports = {
     extend (config, ctx) {}
   },
   env: {
-    baseUrl: process.env.NUXT_ENV_BASE_URL || 'http://mike.www.femlight.com/xxx/api'
+    baseUrl: process.env.NUXT_ENV_BASE_URL || 'http://mike.www.femlight.com/xxx/api',
+    clientSecret : process.env.NUXT_ENV_CLIENT_SECRET || 'DINJRja6MRzW2VtbSW0XokCfwdu6O2tNDeVSNIPU',
   }
 }

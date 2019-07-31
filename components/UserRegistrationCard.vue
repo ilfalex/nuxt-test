@@ -30,6 +30,10 @@
       </v-layout>
     </v-container>
 
+    <v-container v-if="!showExample" text-xs-left>
+      {{ details.subtitle }}
+    </v-container>
+
     <slot />
   </v-card>
 </template>

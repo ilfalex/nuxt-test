@@ -2,7 +2,7 @@
 import axios from 'axios'
 
 export const registrationAPI = {
-
+	
   getUserDetails () {
     return axios.get('/register/user-details')
   },
