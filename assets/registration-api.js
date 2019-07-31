@@ -2,7 +2,7 @@
 import axios from 'axios'
 
 export const registrationAPI = {
-	
+
   getUserDetails () {
     return axios.get('/register/user-details')
   },
@@ -18,5 +18,13 @@ export const registrationAPI = {
 
   deleteIdImg ( endpoint ){
   	return axios.delete( endpoint )
+  },
+
+  getHelloSignUrl(){
+  	return axios.get('/register/sign-docs')
+  },
+
+  confirmSubmission(){
+  	return axios.put('/register/confirm-submission')
   }
 }

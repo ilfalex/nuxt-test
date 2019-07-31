@@ -45,6 +45,8 @@ export const login = {
    * @return 
    */
   login ( args ) {
+
+    const thoseArgs = args
     	// const that = this
     axios.post('http://mike.www.femlight.com/xxx/oauth/token', {
       grant_type: 'password',
@@ -57,9 +59,12 @@ export const login = {
         const auth = {
             accessToken: response.data.access_token
         }
-        args.store.commit('setAuth', auth) // mutating to store for client rendering
-        Cookie.set('auth', auth) // saving token in cookie for server rendering
-        args.router.push('/user-details')
+        thoseArgs.store.commit('setAuth', auth) // mutating to store for client rendering
+        Cookie.set('auth', auth, {expires: 364}) // saving token in cookie for server rendering
+        // args.router.push('/user-details')
+
+        // determine the user type and send them on their way
+        this.getUserType( auth.accessToken, thoseArgs.router )
       })
       .catch(error => {
         console.log({error})
@@ -70,5 +75,45 @@ export const login = {
     axios.defaults.headers.common['Accept'] = 'application/json'
     axios.defaults.headers.common['Authorization'] = 'Bearer ' + auth
     axios.defaults.baseURL = process.env.baseUrl
+  },
+
+  /**
+   * after the user logs in, make another call to get the user type
+   *
+   * @param accessToken
+   */
+  getUserType( accessToken, router ){
+
+    const thatRouter = router
+
+    // set the axios headers
+    this.setAxiosHeaders( accessToken )
+
+    // make api call to get the user type
+    axios.get('/is-user')
+      .then(response => {
+        // set a cookie with the user type
+        Cookie.set('user', 'user');
+        // redirect to dashboard
+        thatRouter.push('/user-details')
+      })
+      .catch(error => {
+        // attempt to login as a custodian
+        axios.get('/is-custodian')
+          .then(response => {
+            Cookie.set('user', 'custodian')
+            thatRouter.push('/custodian-queue')
+          })
+          .catch(error => {
+            axios.get('/is-artist')
+              .then(response => {
+                Cookie.set('user', 'custodian')
+                thatRouter.push('/custodian-queue')
+              })
+              .catch(error => {
+                console.log({error})
+              })
+          })
+      })
   }
 }

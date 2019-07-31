@@ -84,5 +84,6 @@ module.exports = {
   env: {
     baseUrl: process.env.NUXT_ENV_BASE_URL || 'http://mike.www.femlight.com/xxx/api',
     clientSecret : process.env.NUXT_ENV_CLIENT_SECRET || 'DINJRja6MRzW2VtbSW0XokCfwdu6O2tNDeVSNIPU',
+    helloSignClientID: process.env.NUXT_ENV_HELLOSIGN_CLIENT_ID || '3d890329ad5b164acfdcc56b9da5777c'
   }
 }

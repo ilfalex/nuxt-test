@@ -31,7 +31,8 @@
 		layout: 'authenticated',
 		middleware: 'authenticated',
 		components: {
-			UserRegistrationCard
+			UserRegistrationCard,
+			HelloSignBtn
 		},
 		data () {
 			return {
