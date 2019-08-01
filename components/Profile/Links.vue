@@ -15,7 +15,9 @@
           <h3 class="title font-weight-thin mb-3">
             {{ item.title }}
           </h3>
-          <p>{{ item.url }}</p>
+          <p>
+            <a :href="item.url" target="_blank">{{ item.url }}</a>
+          </p>
           <v-btn
             small
             class="red--text"
@@ -26,32 +28,48 @@
             </v-icon>
             Remove
           </v-btn>
-          <v-btn small>
+          <v-btn
+            small
+            @click="editLink(item)">
             <v-icon class="mr-1">
               edit
             </v-icon>
             Edit
           </v-btn>
-          <v-btn small>
-            <v-icon class="mr-1">
-              link
-            </v-icon>
-            Preview
-          </v-btn>
         </div>
       </v-flex>
     </v-layout>
+    <v-dialog
+      v-model="dialog"
+      width="500"
+    >
+      <edit-text :selectedItem="selectedItem"/>
+    </v-dialog>
   </div>
 </template>
 
 <script>
+import EditText from '@/components/Profile/Dialog/Links/EditText'
 export default {
   props: {
     user: Object
   },
+  components: {
+    EditText
+  },
+  data () {
+    return {
+      dialog: false,
+      selectedItem: true
+    }
+  },
   methods: {
     removeLink (item) {
       this.user.links.splice(this.user.links.indexOf(item), 1)
+    },
+    editLink (item) {
+      this.selectedItem = item
+      this.dialog = true
     }
   }
 }

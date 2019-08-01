@@ -28,10 +28,6 @@ export default {
         this.$store.commit('UPDATE_PROFILE', {
           images: images
         })
-        console.log({
-          photoUrl,
-          images
-        })
       })
     },
     readFile (file, onLoadCallback) {
