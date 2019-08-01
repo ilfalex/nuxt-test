@@ -17,10 +17,12 @@
           class="mx-auto full-width"
         >
           <carousel
-            :per-page="1">
+            :per-page="1"
+          >
             <slide
               v-for="(image, i) in item.images"
-              :key="i">
+              :key="i"
+            >
               <v-img
                 class="white--text"
                 height="300px"
@@ -29,9 +31,9 @@
             </slide>
           </carousel>
 
-            <v-card-title class="align-end fill-height">
-              {{ item.name }}
-            </v-card-title>
+          <v-card-title class="align-end fill-height">
+            {{ item.name }}
+          </v-card-title>
 
           <v-card-text>
             <v-layout
@@ -77,16 +79,16 @@
       v-model="dialog"
       width="500"
     >
-      <edit-text :selected-item="selectedItem" />
+      <edit-product :selected-item="selectedItem" />
     </v-dialog>
   </div>
 </template>
 
 <script>
-import EditText from '@/components/Profile/Dialog/Products/EditProduct'
+import EditProduct from '@/components/Profile/Dialog/Products/EditProduct'
 export default {
   components: {
-    EditText
+    EditProduct
   },
   props: {
     user: Object
@@ -94,7 +96,7 @@ export default {
   data () {
     return {
       dialog: false,
-      selectedItem: true
+      selectedItem: {}
     }
   },
   methods: {

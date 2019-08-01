@@ -11,7 +11,10 @@
         sm6
         class="pa-3"
       >
-        <div class="grey lighten-4 pa-4 text-xs-center" style="width:100%;">
+        <v-card
+          class="grey lighten-4 pa-4 text-xs-center"
+          style="width:100%;"
+        >
           <v-icon>{{ item.icon }}</v-icon>
           <h3 class="title font-weight-thin mb-3">
             {{ item.title }}
@@ -41,7 +44,7 @@
             </v-icon>
             Edit
           </v-btn>
-        </div>
+        </v-card>
       </v-flex>
     </v-layout>
     <v-dialog
@@ -65,7 +68,7 @@ export default {
   data () {
     return {
       dialog: false,
-      selectedItem: true
+      selectedItem: {}
     }
   },
   methods: {

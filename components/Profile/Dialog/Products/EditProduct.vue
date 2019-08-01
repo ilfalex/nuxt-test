@@ -34,9 +34,17 @@
           v-for="(image, i) in selectedItem.images"
           :key="i"
           xs6
-          class="pa-2"
+          class="pa-2 text-xs-center"
         >
           <v-img :src="image" />
+          <v-btn
+            flat
+            small
+            class="red--text"
+            @click="removePhoto(image, selectedItem)"
+          >
+            <v-icon>close</v-icon>
+          </v-btn>
         </v-flex>
       </v-layout>
     </div>
@@ -69,6 +77,18 @@ export default {
       set (value) {
         return this.$store.commit('SET_USER', value)
       }
+    }
+  },
+  methods: {
+    removePhoto (image, product) {
+      // find the product
+      const selectedProduct = this.$store.state.user.products.find(item => item.id === product.id)
+
+      // remove the product from the store
+      selectedProduct.images.splice(selectedProduct.images.indexOf(image), 1)
+      console.log({
+        selectedProduct
+      })
     }
   }
 }
