@@ -9,34 +9,75 @@
       <v-flex
         v-for="item in user.products"
         :key="item.id"
-        sm4
-        class="pa-3 text-xs-center"
+        md6
+        sm12
+        class="pa-3 text-xs-left"
       >
-        <div class="grey pa-3">
-          <h4 class="display-2">
-            {{ item.name }}
-          </h4>
-        </div>
-        <v-btn
-          class="red--text"
-          @click="removeProduct(item)"
+        <v-card
+          class="mx-auto full-width"
         >
-          <v-icon>close</v-icon>
-          <!-- Remove Product -->
-        </v-btn>
-        <v-btn
-          @click="editProduct(item)"
-        >
-          <v-icon class="mr-2">edit</v-icon>
-          Edit
-        </v-btn>
+          <carousel
+            :per-page="1">
+            <slide
+              v-for="(image, i) in item.images"
+              :key="i">
+              <v-img
+                class="white--text"
+                height="300px"
+                :src="image"
+              />
+            </slide>
+          </carousel>
+
+            <v-card-title class="align-end fill-height">
+              {{ item.name }}
+            </v-card-title>
+
+          <v-card-text>
+            <v-layout
+              row
+              wrap
+            >
+              <v-flex xs10>
+                <span class="text--primary headline">{{ item.name }}</span><br>
+                <span class="text--primary title">
+                  {{ item.description }}
+                </span>
+              </v-flex>
+              <v-flex
+                xs2
+                class="text-xs-right"
+              >
+                <span class="text--primary display-1">${{ item.price || 0 }}</span>
+              </v-flex>
+            </v-layout>
+          </v-card-text>
+
+          <v-card-actions>
+            <v-btn
+              class="red--text"
+              @click="removeProduct(item)"
+            >
+              <v-icon>close</v-icon>
+            <!-- Remove Product -->
+            </v-btn>
+            <v-btn
+              @click="editProduct(item)"
+            >
+              <v-icon class="mr-2">
+                edit
+              </v-icon>
+              Edit
+            </v-btn>
+          </v-card-actions>
+        </v-card>
       </v-flex>
     </v-layout>
     <v-dialog
       v-model="dialog"
       width="500"
     >
-      <edit-text :selectedItem="selectedItem"/>
+      <edit-text :selected-item="selectedItem" />
     </v-dialog>
   </div>
 </template>
@@ -44,11 +85,11 @@
 <script>
 import EditText from '@/components/Profile/Dialog/Products/EditProduct'
 export default {
-  props: {
-    user: Object
-  },
   components: {
     EditText
+  },
+  props: {
+    user: Object
   },
   data () {
     return {
@@ -69,5 +110,10 @@ export default {
 </script>
 
 <style lang="css" scoped>
-
+  .VueCarousel-dot-container {
+    margin-top:0px;
+  }
+  .full-width {
+    width:100%;
+  }
 </style>

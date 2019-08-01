@@ -16,17 +16,22 @@
         sm4
         class="pa-3"
       >
-        <v-img
-          v-if="item.url"
-          :src="item.url"
-          :height="200"
-        />
-        <v-btn
-          class="red--text"
-          @click="removePhoto(item)"
-        >
-          <v-icon>close</v-icon>
-        </v-btn>
+        <v-layout column>
+          <v-img
+            v-if="item.url"
+            :src="item.url"
+            :height="200"
+            style="width:100%;"
+          />
+          <div class="">
+            <v-btn
+              class="red--text"
+              @click="removePhoto(item)"
+            >
+              <v-icon>close</v-icon>
+            </v-btn>
+          </div>
+        </v-layout>
       </v-flex>
     </v-layout>
     <v-dialog

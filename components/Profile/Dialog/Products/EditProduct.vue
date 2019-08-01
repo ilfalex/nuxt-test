@@ -26,13 +26,17 @@
       />
     </div>
     <div class="">
-      <v-layout row wrap>
+      <v-layout
+        row
+        wrap
+      >
         <v-flex
-          xs6
           v-for="(image, i) in selectedItem.images"
           :key="i"
-          class="pa-2">
-            <v-img :src="image"/>
+          xs6
+          class="pa-2"
+        >
+          <v-img :src="image" />
         </v-flex>
       </v-layout>
     </div>

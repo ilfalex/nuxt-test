@@ -7,16 +7,20 @@
       <v-flex
         v-for="item in user.links"
         :key="item.id"
+        md4
         sm6
         class="pa-3"
       >
-        <div class="grey lighten-4 pa-4 text-xs-center">
+        <div class="grey lighten-4 pa-4 text-xs-center" style="width:100%;">
           <v-icon>{{ item.icon }}</v-icon>
           <h3 class="title font-weight-thin mb-3">
             {{ item.title }}
           </h3>
           <p>
-            <a :href="item.url" target="_blank">{{ item.url }}</a>
+            <a
+              :href="item.url"
+              target="_blank"
+            >{{ item.url }}</a>
           </p>
           <v-btn
             small
@@ -30,7 +34,8 @@
           </v-btn>
           <v-btn
             small
-            @click="editLink(item)">
+            @click="editLink(item)"
+          >
             <v-icon class="mr-1">
               edit
             </v-icon>
@@ -43,7 +48,7 @@
       v-model="dialog"
       width="500"
     >
-      <edit-text :selectedItem="selectedItem"/>
+      <edit-text :selected-item="selectedItem" />
     </v-dialog>
   </div>
 </template>
@@ -51,11 +56,11 @@
 <script>
 import EditText from '@/components/Profile/Dialog/Links/EditText'
 export default {
-  props: {
-    user: Object
-  },
   components: {
     EditText
+  },
+  props: {
+    user: Object
   },
   data () {
     return {
