@@ -1,5 +1,11 @@
 <template lang="html">
   <div>
+    <v-layout justify-end>
+      <v-btn @click="addPhotos()">
+        <v-icon>add</v-icon>
+        Add Links
+      </v-btn>
+    </v-layout>
     <v-layout
       row
       wrap
