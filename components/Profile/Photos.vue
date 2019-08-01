@@ -7,6 +7,7 @@
       </v-btn>
     </v-layout>
     <v-layout
+      v-if="user.images && user.images.length > 0"
       row
       wrap
     >
@@ -16,7 +17,7 @@
         sm4
         class="pa-3"
       >
-        <v-card>
+        <v-card style="width:100%;">
           <v-layout column>
             <v-img
               v-if="item.url"
@@ -36,6 +37,12 @@
         </v-card>
       </v-flex>
     </v-layout>
+    <v-layout v-else>
+      <v-flex xs12>
+        <p class="grey--text headline font-weight-thin text-xs-center">You have no photos added to your profile.</p>
+      </v-flex>
+    </v-layout>
+
     <v-dialog
       v-model="dialog"
       width="500"

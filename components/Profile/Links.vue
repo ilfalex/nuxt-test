@@ -7,6 +7,7 @@
       </v-btn>
     </v-layout>
     <v-layout
+      v-if="user.links && user.links.length > 0"
       row
       wrap
     >
@@ -53,6 +54,12 @@
         </v-card>
       </v-flex>
     </v-layout>
+    <v-layout v-else>
+      <v-flex xs12>
+        <p class="grey--text headline font-weight-thin text-xs-center">You have no links attached to your profile.</p>
+      </v-flex>
+    </v-layout>
+
     <v-dialog
       v-model="dialog"
       width="500"

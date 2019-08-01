@@ -7,6 +7,7 @@
       </v-btn>
     </v-layout>
     <v-layout
+      v-if="user.products && user.products.length > 0"
       align-center
       justify-center
       row
@@ -81,6 +82,11 @@
         </v-card>
       </v-flex>
     </v-layout>
+    <v-layout v-else>
+      <v-flex xs12>
+        <p class="grey--text headline font-weight-thin text-xs-center">You have no products attached to your profile.</p>
+      </v-flex>
+    </v-layout>
     <v-dialog
       v-model="dialog"
       width="500"
@@ -125,6 +131,6 @@ export default {
     margin-top:0px;
   }
   .full-width {
-    width:100%;
+    width:100% !important;
   }
 </style>

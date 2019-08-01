@@ -1,48 +1,58 @@
 <template lang="html">
   <v-layout column>
     <v-flex class="profile-section">
-      <h4 class="display-1 font-weight-thin mb-3">
-        Edit Hero
-      </h4>
-      <hero
-        :user="user"
-      />
+      <v-layout column>
+        <h4 class="display-1 font-weight-thin mb-3">
+          Edit Hero
+        </h4>
+        <hero
+          :user="user"
+        />
+      </v-layout>
     </v-flex>
 
     <v-flex class="profile-section">
-      <h4 class="display-1 font-weight-thin mb-2">
-        Edit About Me
-      </h4>
-      <about-me
-        :user="user"
-      />
+      <v-layout column>
+        <h4 class="display-1 font-weight-thin mb-2">
+          Edit About Me
+        </h4>
+        <about-me
+          :user="user"
+        />
+      </v-layout>
     </v-flex>
 
     <v-flex class="profile-section">
-      <h4 class="display-1 font-weight-thin mb-2">
-        Edit Photos
-      </h4>
-      <photos
-        :user="user"
-      />
+      <v-layout column>
+        <h4 class="display-1 font-weight-thin mb-2">
+          Edit Photos
+        </h4>
+        <photos
+          :user="user"
+        />
+      </v-layout>
     </v-flex>
 
     <v-flex class="profile-section">
-      <h4 class="display-1 font-weight-thin mb-2">
-        Edit Products
-      </h4>
-      <products
-        :user="user"
-      />
+      <v-layout column>
+        <h4 class="display-1 font-weight-thin mb-2">
+          Edit Products
+        </h4>
+        <products
+          :user="user"
+        />
+      </v-layout>
     </v-flex>
 
     <v-flex class="profile-section">
-      <h4 class="display-1 font-weight-thin mb-2">
-        Edit Links
-      </h4>
-      <links
-        :user="user"
-      />
+      <v-layout column>
+        <h4 class="display-1 font-weight-thin mb-2">
+          Edit Links
+        </h4>
+        <links
+          :user="user"
+        />
+      </v-layout>
     </v-flex>
   </v-layout>
 </template>
