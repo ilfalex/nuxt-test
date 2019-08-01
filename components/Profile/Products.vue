@@ -24,19 +24,45 @@
           <v-icon>close</v-icon>
           <!-- Remove Product -->
         </v-btn>
+        <v-btn
+          @click="editProduct(item)"
+        >
+          <v-icon class="mr-2">edit</v-icon>
+          Edit
+        </v-btn>
       </v-flex>
     </v-layout>
+    <v-dialog
+      v-model="dialog"
+      width="500"
+    >
+      <edit-text :selectedItem="selectedItem"/>
+    </v-dialog>
   </div>
 </template>
 
 <script>
+import EditText from '@/components/Profile/Dialog/Products/EditProduct'
 export default {
   props: {
     user: Object
   },
+  components: {
+    EditText
+  },
+  data () {
+    return {
+      dialog: false,
+      selectedItem: true
+    }
+  },
   methods: {
     removeProduct (item) {
       this.user.products.splice(this.user.products.indexOf(item), 1)
+    },
+    editProduct (item) {
+      this.selectedItem = item
+      this.dialog = true
     }
   }
 }
