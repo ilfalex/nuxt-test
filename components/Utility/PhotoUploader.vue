@@ -24,7 +24,7 @@
             Upload File
           </v-btn>
         </v-flex>
-        <v-flex
+        <!-- <v-flex
           xs6
           class="pa-3"
         >
@@ -34,7 +34,7 @@
           >
             Import via Instagram
           </v-btn>
-        </v-flex>
+        </v-flex> -->
       </v-layout>
       <upload-file v-if="upload_method==='file'" />
       <import-instagram v-if="upload_method==='instagram'" />

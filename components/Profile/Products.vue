@@ -1,7 +1,7 @@
 <template lang="html">
   <div>
     <v-layout justify-end>
-      <v-btn @click="addPhotos()">
+      <v-btn @click="addProducts()">
         <v-icon>add</v-icon>
         Add Products
       </v-btn>
@@ -112,6 +112,9 @@ export default {
     editProduct (item) {
       this.selectedItem = item
       this.dialog = true
+    },
+    addProducts () {
+      this.$router.push('/')
     }
   }
 }

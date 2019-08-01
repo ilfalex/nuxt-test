@@ -1,5 +1,5 @@
 <template lang="html">
-  <v-card>
+  <v-card @keydown.enter="saveProduct()">
     <v-card-title
       class="headline grey lighten-2"
       primary-title
@@ -56,7 +56,7 @@
       <v-btn
         color="primary"
         flat
-        @click="$emit('dialog', false)"
+        @click="saveProduct()"
       >
         Save
       </v-btn>
@@ -80,6 +80,9 @@ export default {
     }
   },
   methods: {
+    saveProduct () {
+      this.$parent.$parent.$parent.dialog = false
+    },
     removePhoto (image, product) {
       // find the product
       const selectedProduct = this.$store.state.user.products.find(item => item.id === product.id)

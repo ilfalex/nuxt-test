@@ -1,10 +1,11 @@
 <template lang="html">
-  <v-card>
+  <v-card @keydown.enter="saveLink()">
     <v-card-title
       class="headline grey lighten-2"
       primary-title
     >
-      Edit Link Text
+      {{ (createNew ? 'Create New': 'Edit') }} Link
+
     </v-card-title>
 
     <div class="pa-4">
@@ -29,7 +30,7 @@
       <v-btn
         color="primary"
         flat
-        @click="$emit('dialog', false)"
+        @click="saveLink()"
       >
         Save
       </v-btn>
@@ -40,6 +41,7 @@
 <script>
 export default {
   props: {
+    createNew: Boolean,
     selectedItem: Object
   },
   computed: {
@@ -50,6 +52,12 @@ export default {
       set (value) {
         return this.$store.commit('SET_USER', value)
       }
+    }
+  },
+  methods: {
+    saveLink () {
+      this.$parent.$parent.$parent.dialog = false
+      this.$store.state.user.links.push(this.selectedItem)
     }
   }
 }

@@ -1,7 +1,7 @@
 <template lang="html">
   <div>
     <v-layout justify-end>
-      <v-btn @click="addPhotos()">
+      <v-btn @click="addLink()">
         <v-icon>add</v-icon>
         Add Links
       </v-btn>
@@ -57,13 +57,16 @@
       v-model="dialog"
       width="500"
     >
-      <edit-text :selected-item="selectedItem" />
+      <edit-text
+        :selected-item="selectedItem"
+        :create-new="createNew"
+      />
     </v-dialog>
   </div>
 </template>
 
 <script>
-import EditText from '@/components/Profile/Dialog/Links/EditText'
+import EditText from '@/components/Profile/Dialog/Links/Edit'
 export default {
   components: {
     EditText
@@ -73,6 +76,7 @@ export default {
   },
   data () {
     return {
+      createNew: false,
       dialog: false,
       selectedItem: {}
     }
@@ -82,7 +86,13 @@ export default {
       this.user.links.splice(this.user.links.indexOf(item), 1)
     },
     editLink (item) {
+      this.createNew = false
       this.selectedItem = item
+      this.dialog = true
+    },
+    addLink () {
+      this.createNew = true
+      this.selectedItem = {}
       this.dialog = true
     }
   }
