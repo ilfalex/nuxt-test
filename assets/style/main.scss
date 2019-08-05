@@ -28,8 +28,11 @@ html, body{
 
 .login-card-holder{
 	padding: 0 15px;
-	
+	width: 100%;
+	text-align: center;
+
 	.v-card{
+		margin: auto;
 		width: 400px;
 		margin-top: 4rem;
 	}

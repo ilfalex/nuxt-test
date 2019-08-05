@@ -1,11 +1,4 @@
 <template>
-	<v-layout
-		column
-		justify-center
-		align-center
-		fill-height
-	>
-		<v-flex xs12>
 			<v-form
 				@submit.prevent="submitForm"
 				class="login-card-holder"
@@ -66,8 +59,6 @@
 					</v-card-actions>
 				</v-card>
 			</v-form>
-		</v-flex>
-	</v-layout>
 </template>
 
 <script>

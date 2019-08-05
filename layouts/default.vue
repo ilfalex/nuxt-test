@@ -6,6 +6,17 @@
 			:clipped="clipped"
 			fixed
 		>
+			<div class="text-xs-center">
+				<nuxt-link
+					to="/"
+				>
+					<img
+						style="height:55px;position:relative; bottom:4px;"
+						src="/images/femlight_logo.png"
+						class=""
+					>
+				</nuxt-link>
+			</div>
 			<v-list>
 				<v-list-tile
 					v-for="(item, i) in items"
@@ -31,11 +42,11 @@
 		>
 			<v-toolbar-side-icon @click="drawer = !drawer" />
 			<v-spacer />
-			<img
-				style="height:55px;position:relative; bottom:4px;"
-				src="http://alex.www.femlight.com/customize/storage/femlight-logo-02_grayPink.png"
-				class=""
-			>
+				<img
+					style="height:55px;position:relative; bottom:4px;"
+					src="/images/femlight_logo.png"
+					class=""
+				>
 			<v-spacer />
 			<v-menu offset-y>
 				<template v-slot:activator="{ on }">
@@ -68,24 +79,19 @@
 export default {
 	data () {
 		return {
-			clipped: false,
+			clipped: true,
 			drawer: false,
 			fixed: false,
 			items: [
 				{
-					icon: 'apps',
-					title: 'Welcome',
-					to: '/'
+					icon: 'info',
+					title: 'How It Works',
+					to: '/how-it-works'
 				},
 				{
-					icon: 'apps',
-					title: 'Edit Profile',
-					to: '/profile'
-				},
-				{
-					icon: 'bubble_chart',
-					title: 'Registration',
-					to: '/registration'
+					icon: 'contact_support',
+					title: 'Contact Us',
+					to: '/contact-us'
 				}
 			],
 		    userMenu: [
@@ -97,11 +103,7 @@ export default {
 		        	title: 'register',
 		        	href: '/register' 
 		        }
-		    ],
-			miniVariant: false,
-			right: true,
-			rightDrawer: false,
-			title: 'Vuetify.js'
+		    ]
 		}
 	}
 }
