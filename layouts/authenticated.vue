@@ -108,6 +108,7 @@ export default {
 			clipped: false,
 			drawer: false,
 			fixed: false,
+			miniVariant: false,
 			items: [
 				{
 					icon: 'dashboard',

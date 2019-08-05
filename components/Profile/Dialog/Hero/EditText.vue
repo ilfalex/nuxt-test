@@ -1,5 +1,5 @@
 <template lang="html">
-  <v-card>
+  <v-card @keydown.enter="save()">
     <v-card-title
       class="headline grey lighten-2"
       primary-title
@@ -46,7 +46,9 @@ export default {
     }
   },
   methods: {
-    save () {}
+    save () {
+      this.$parent.$parent.$parent.dialog = false
+    }
   }
 }
 </script>

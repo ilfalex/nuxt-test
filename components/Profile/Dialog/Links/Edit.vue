@@ -1,16 +1,25 @@
 <template lang="html">
-  <v-card>
+  <v-card @keydown.enter="saveLink()">
     <v-card-title
       class="headline grey lighten-2"
       primary-title
     >
-      Edit About Me Text
+      {{ (createNew ? 'Create New': 'Edit') }} Link
+
     </v-card-title>
 
     <div class="pa-4">
-      <v-textarea
-        v-model="user.about_me.body"
+      <v-text-field
+        v-model="selectedItem.title"
         label="Title"
+      />
+      <v-text-field
+        v-model="selectedItem.icon"
+        label="Icon"
+      />
+      <v-text-field
+        v-model="selectedItem.url"
+        label="Link URL"
       />
     </div>
 
@@ -21,7 +30,7 @@
       <v-btn
         color="primary"
         flat
-        @click="save()"
+        @click="saveLink()"
       >
         Save
       </v-btn>
@@ -31,6 +40,10 @@
 
 <script>
 export default {
+  props: {
+    createNew: Boolean,
+    selectedItem: Object
+  },
   computed: {
     user: {
       get () {
@@ -42,8 +55,9 @@ export default {
     }
   },
   methods: {
-    save () {
+    saveLink () {
       this.$parent.$parent.$parent.dialog = false
+      this.$store.state.user.links.push(this.selectedItem)
     }
   }
 }

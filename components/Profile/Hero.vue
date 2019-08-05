@@ -16,12 +16,14 @@
             class="text-xs-center"
           >
             <v-flex>
-              <h4 class="display-2 white--text">
-                {{ user.stage_name }}
-              </h4>
-              <p class="headline grey--text">
-                {{ user.professional_title }}
-              </p>
+              <v-layout column>
+                <h4 class="display-2 white--text">
+                  {{ user.stage_name }}
+                </h4>
+                <p class="headline grey--text">
+                  {{ user.professional_title }}
+                </p>
+              </v-layout>
             </v-flex>
           </v-layout>
         </v-container>
@@ -38,9 +40,9 @@
           <v-icon
             @click="launchPhotoUpload()"
           >
-            upload
+            add
           </v-icon>
-          Upload Photo
+          Add Photo
         </v-btn>
         <v-btn
           v-if="backgroundImage"

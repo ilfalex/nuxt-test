@@ -82,6 +82,7 @@ export default {
 			clipped: true,
 			drawer: false,
 			fixed: false,
+			miniVariant: false,
 			items: [
 				{
 					icon: 'info',
