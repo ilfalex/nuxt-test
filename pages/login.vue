@@ -8,6 +8,7 @@
 		<v-flex xs12>
 			<v-form
 				@submit.prevent="submitForm"
+				class="login-card-holder"
 			>
 				<v-card>
 					<v-img
@@ -59,7 +60,7 @@
 								color="primary"
 								type="submit"
 							>
-								submit
+								Login
 							</v-btn>
 						</v-layout>
 					</v-card-actions>
@@ -107,14 +108,3 @@ export default {
 }
 
 </script>
-
-<style>
-
-	.v-form{
-		padding: 0 15px;
-	}
-	.v-card{
-		width: 400px;
-		margin-top: 4rem;
-	}
-</style>

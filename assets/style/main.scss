@@ -25,3 +25,12 @@ html, body{
 .v-card{
 	max-width: 100% !important;
 }
+
+.login-card-holder{
+	padding: 0 15px;
+	
+	.v-card{
+		width: 400px;
+		margin-top: 4rem;
+	}
+}

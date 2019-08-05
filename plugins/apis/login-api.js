@@ -95,7 +95,7 @@ export const login = {
         // set a cookie with the user type
         Cookie.set('user', 'user');
         // redirect to dashboard
-        thatRouter.push('/user-details')
+        thatRouter.push('/register/user-details')
       })
       .catch(error => {
         // attempt to login as a custodian
