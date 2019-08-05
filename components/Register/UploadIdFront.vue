@@ -13,7 +13,7 @@
 
 		<v-card-actions>
 			<v-layout justify-space-between>
-				<v-flex xs2>
+				<v-flex>
 					<v-btn
 						:to="details.prev"
 						text
@@ -22,7 +22,7 @@
 						Previous
 					</v-btn>
 				</v-flex>
-				<v-flex xs2>
+				<v-flex>
 					<v-btn
 						text
 						color="primary"

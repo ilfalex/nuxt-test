@@ -6,6 +6,13 @@
 				:loading="loading"
 				:disabled="disabled"
 				class="primary"
+				v-if="!signComplete"
+			>
+				{{ btnMessage }}
+			</v-btn>
+			<v-btn
+				v-if="signComplete"
+				@click="completeReg"
 			>
 				{{ btnMessage }}
 			</v-btn>
@@ -28,7 +35,8 @@
 				disabled: true,
 				helloSignUrl : '',
 				helloSignClient: {},
-				btnMessage: 'Sign Doc'
+				btnMessage: 'Sign Doc',
+				signComplete: false
 			}
 		},
 		methods: {
@@ -42,15 +50,23 @@
 
 				// set the callback
 				this.helloSignClient.on('sign', (x) => {
-					this.hellowSignCallback()
-					console.log(x)
+					// x = {signatureId}
+					this.helloSignCallback()
 				});
 			},
-			helloSignCallback(x){
+			helloSignCallback(){
 
 				// update the btn message
 				this.loading = false
+				this.signComplete = true
 				this.btnMessage = 'Complete Registration'
+			},
+			completeReg(){
+				this.loading = true
+				registration.confirmSubmission()
+					.then(() => {
+						this.$router.push('/dashboard')
+					})
 			}
 		},
 		mounted(){

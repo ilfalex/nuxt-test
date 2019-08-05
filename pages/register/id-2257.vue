@@ -10,8 +10,8 @@
 			text-center
 		>
 			<v-flex
-				xs8
-				offset-xs2
+				md8
+				offset-md2
 			>
 				<user-registration-card
 					:details="details"
@@ -43,8 +43,8 @@ export default {
 				subtitle: 'Upload a photo of your face next to your ID card. This ensures that you are the person you say you are.',
 				img: '/images/id_2257.png',
 				card_inner: {
-					prev: '/id-back',
-					next: '/sign-docs',
+					prev: '/register/id-back',
+					next: '/register/sign-docs',
 					endpoint: '/register/id/2257'
 				}
 			}

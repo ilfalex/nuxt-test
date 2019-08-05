@@ -54,6 +54,31 @@
 						icon
 						v-on="on"
 					>
+						<v-icon>shopping_cart</v-icon>
+					</v-btn>
+				</template>
+				<v-list>
+					<v-list-tile
+						v-for="(item, index) in cartItems"
+						:key="index"
+					>
+						<v-list-tile-title>
+							<nuxt-link :to="item.href">{{ item.title }}</nuxt-link>
+						</v-list-tile-title>
+					</v-list-tile>
+					<v-list-tile v-if="cartEmpty">
+						<v-list-tile-title>
+							(0) cart empty
+						</v-list-tile-title>
+					</v-list-tile>
+				</v-list>
+			</v-menu>
+			<v-menu offset-y>
+				<template v-slot:activator="{ on }">
+					<v-btn
+						icon
+						v-on="on"
+					>
 						<v-icon>account_circle</v-icon>
 					</v-btn>
 				</template>
@@ -115,14 +140,16 @@ export default {
 		        	href: '/settings' 
 		        }
 		    ],
-			miniVariant: false,
-			right: true,
-			rightDrawer: false,
-			title: 'Vuetify.js'
+		    cartItems: []
 		}
 	},
 	beforeCreate () {
 		if (this.$store.state.auth) { login.setAxiosHeaders(this.$store.state.auth.accessToken) }
+	},
+	computed: {
+		cartEmpty(){
+			return this.cartItems.length === 0
+		}
 	}
 }
 </script>

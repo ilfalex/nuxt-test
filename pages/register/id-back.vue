@@ -10,8 +10,8 @@
       text-center
     >
       <v-flex
-        xs8
-        offset-xs2
+        md8
+        offset-md2
       >
         <user-registration-card
           :details="details"
@@ -43,8 +43,8 @@ export default {
         subtitle: 'Upload the back of your identification card. If you are using a drivers license or state ID, please upload a picture of the back only. If you are using a passport, just upload a picture of the cover.',
         img: '/images/id_back.png',
         card_inner: {
-          prev: '/id-front',
-          next: '/id-2257',
+          prev: '/register/id-front',
+          next: '/register/id-2257',
           endpoint: '/register/id/back'
         }
       }

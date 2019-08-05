@@ -9,8 +9,8 @@
 			text-center
 		>
 			<v-flex
-				xs8
-				offset-xs2
+				md8
+				offset-md2
 			>
 				<user-registration-card
 					:details="details"
@@ -45,3 +45,9 @@
 		}
 	}
 </script>
+
+<style>
+	iframe{
+		margin-top: 63px;
+	}
+</style>
