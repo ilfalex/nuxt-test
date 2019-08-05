@@ -42,7 +42,7 @@
 </template>
 
 <script>
-	import QueueList from '~/components/QueueList.vue'
+	import QueueList from '~/components/Custodian/QueueList.vue'
 
   	export default {
   		components : {

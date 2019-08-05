@@ -25,8 +25,8 @@
 
 <script>
 
-import UserRegistrationCard from '~/components/UserRegistrationCard.vue'
-import UploadIdFront from '~/components/UploadIdFront.vue'
+import UserRegistrationCard from '~/components/Register/UserRegistrationCard.vue'
+import UploadIdFront from '~/components/Register/UploadIdFront.vue'
 
 export default {
   layout: 'authenticated',
@@ -38,14 +38,14 @@ export default {
   data () {
     return {
       details: {
-        icon: 'face',
-        title: 'Upload ID - With Face',
-        subtitle: 'Upload a photo of your face next to your ID card. This ensures that you are the person you say you are.',
-        img: '/images/id_2257.png',
+        icon: 'credit_card',
+        title: 'Upload ID - Back',
+        subtitle: 'Upload the back of your identification card. If you are using a drivers license or state ID, please upload a picture of the back only. If you are using a passport, just upload a picture of the cover.',
+        img: '/images/id_back.png',
         card_inner: {
-          prev: '/id-back',
-          next: '/sign-docs',
-          endpoint: '/register/id/2257'
+          prev: '/id-front',
+          next: '/id-2257',
+          endpoint: '/register/id/back'
         }
       }
     }

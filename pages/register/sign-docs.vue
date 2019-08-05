@@ -24,8 +24,8 @@
 
 <script>
 
-	import UserRegistrationCard from '~/components/UserRegistrationCard.vue'
-	import HelloSignBtn from '~/components/HelloSignBtn.vue'
+	import UserRegistrationCard from '~/components/Register/UserRegistrationCard.vue'
+	import HelloSignBtn from '~/components/Register/HelloSignBtn.vue'
 	
 	export default{
 		layout: 'authenticated',

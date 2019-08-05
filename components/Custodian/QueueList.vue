@@ -13,8 +13,8 @@
 <script>
 
 
-	import { custodianAPI } from '~/assets/custodian-api.js';
-	import QueueListItem from '~/components/QueueListItem.vue'
+	import { custodian } from '~/plugins/apis/custodian-api.js';
+	import QueueListItem from '~/components/Custodian/QueueListItem.vue'
 	
 	export default {
 		components : {
@@ -37,7 +37,7 @@
 			 */
 			update (){
 
-				custodianAPI.fetchQueue( this.endpoint )
+				custodian.fetchQueue( this.endpoint )
 					.then((res) => {
 
 						this.$data.queueItems = res.data

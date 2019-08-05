@@ -1,7 +1,7 @@
 
 import axios from 'axios';
 
-export const custodianAPI = {
+export const custodian = {
 
 	/**
 	 *	get the queue of items for a given column endpoint

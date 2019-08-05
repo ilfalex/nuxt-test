@@ -24,8 +24,8 @@
 
 <script>
 
-import UserRegistrationCard from '~/components/UserRegistrationCard.vue'
-import UploadIdFront from '~/components/UploadIdFront.vue'
+import UserRegistrationCard from '~/components/Register/UserRegistrationCard.vue'
+import UploadIdFront from '~/components/Register/UploadIdFront.vue'
 
 export default {
 	layout: 'authenticated',

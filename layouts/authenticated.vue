@@ -68,7 +68,7 @@
 </template>
 
 <script>
-import { login } from '~/assets/login.js'
+import { login } from '~/plugins/apis/login-api.js'
 export default {
   data () {
     return {

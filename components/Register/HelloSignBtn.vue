@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<v-form @submit.prevent="registrationAPI.confirmSubmission">
+		<v-form @submit.prevent="registration.confirmSubmission">
 			<v-btn
 				@click="loadDoc"
 				:loading="loading"
@@ -15,7 +15,7 @@
 
 <script>
 
-	import { registrationAPI } from '~/assets/registration-api.js'
+	import { registration } from '~/plugins/apis/registration-api.js'
 	let HelloSign = {}
 	if (process.client) {
 		HelloSign = require('hellosign-embedded');
@@ -61,7 +61,7 @@
 			});
 
 			// get the hellosign url
-			registrationAPI.getHelloSignUrl()
+			registration.getHelloSignUrl()
 				.then(response => {
 					this.helloSignUrl = response.data
 					// enable the button

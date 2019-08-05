@@ -25,8 +25,8 @@
 
 <script>
 
-	import Sidebar from '~/components/Sidebar.vue'
-	import ApprovalCard from '~/components/ApprovalCard.vue'
+	import Sidebar from '~/components/Custodian/Sidebar.vue'
+	import ApprovalCard from '~/components/Custodian/ApprovalCard.vue'
 
 	export default {
 		middleware : 'authenticated',

@@ -1,7 +1,7 @@
 
 import axios from 'axios'
 
-export const registrationAPI = {
+export const registration = {
 
   getUserDetails () {
     return axios.get('/register/user-details')

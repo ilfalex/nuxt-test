@@ -65,8 +65,8 @@
 
 <script>
 
-import { registrationAPI } from '~/assets/registration-api.js'
-import { Errors } from '~/assets/form-validation.js'
+import { registration } from '~/plugins/apis/registration-api.js'
+import { Errors } from '~/plugins/form-validation.js'
 
 export default {
   data () {
@@ -85,14 +85,14 @@ export default {
 
   beforeCreate () {
     // populate the fields
-    registrationAPI.getUserDetails()
+    registration.getUserDetails()
       .then((response) => {
         this.fields = response.data
       })
   },
   methods: {
     submitForm (e) {
-      registrationAPI.setUserDetails(this.fields)
+      registration.setUserDetails(this.fields)
         .then(response => {
           this.$router.push('/id-front')
         })
