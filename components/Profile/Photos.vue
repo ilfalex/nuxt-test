@@ -3,10 +3,11 @@
     <v-layout justify-end>
       <v-btn @click="addPhotos()">
         <v-icon>add</v-icon>
-        Add New Photos
+        Add Photos
       </v-btn>
     </v-layout>
     <v-layout
+      v-if="user.images && user.images.length > 0"
       row
       wrap
     >
@@ -16,19 +17,32 @@
         sm4
         class="pa-3"
       >
-        <v-img
-          v-if="item.url"
-          :src="item.url"
-          :height="200"
-        />
-        <v-btn
-          class="red--text"
-          @click="removePhoto(item)"
-        >
-          <v-icon>close</v-icon>
-        </v-btn>
+        <v-card style="width:100%;">
+          <v-layout column>
+            <v-img
+              v-if="item.url"
+              :src="item.url"
+              :height="200"
+              style="width:100%;"
+            />
+            <div class="">
+              <v-btn
+                class="red--text"
+                @click="removePhoto(item)"
+              >
+                <v-icon>close</v-icon>
+              </v-btn>
+            </div>
+          </v-layout>
+        </v-card>
       </v-flex>
     </v-layout>
+    <v-layout v-else>
+      <v-flex xs12>
+        <p class="grey--text headline font-weight-thin text-xs-center">You have no photos added to your profile.</p>
+      </v-flex>
+    </v-layout>
+
     <v-dialog
       v-model="dialog"
       width="500"

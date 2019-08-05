@@ -1,0 +1,39 @@
+html, body{
+	font-size: 14px;
+}
+#app{
+	background-color: #fff;
+}
+
+
+/**
+ *	menus
+ *
+ */
+.v-menu__content{
+	a{
+		text-decoration: none;
+		color: #000;
+	}
+}
+
+
+/**
+ *	cards
+ *
+ */
+.v-card{
+	max-width: 100% !important;
+}
+
+.login-card-holder{
+	padding: 0 15px;
+	width: 100%;
+	text-align: center;
+
+	.v-card{
+		margin: auto;
+		width: 400px;
+		margin-top: 4rem;
+	}
+}

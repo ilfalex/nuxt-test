@@ -21,7 +21,7 @@
       <v-btn
         color="primary"
         flat
-        @click="$emit('dialog', false)"
+        @click="save()"
       >
         Save
       </v-btn>
@@ -39,6 +39,11 @@ export default {
       set (value) {
         return this.$store.commit('SET_USER', value)
       }
+    }
+  },
+  methods: {
+    save () {
+      this.$parent.$parent.$parent.dialog = false
     }
   }
 }

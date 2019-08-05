@@ -34,13 +34,15 @@ module.exports = {
   /*
    ** Global CSS
    */
-  css: [],
+  css: [
+    '@/assets/style/main.scss'
+  ],
   /*
    ** Plugins to load before mounting the App
    */
   plugins: [
-    { src: '~/plugins/vue-carousel.js', ssr: false },
-    { src: '~/plugins/dropzone.js', ssr: false }
+    // { src: '~/plugins/vue-carousel.js', ssr: false },
+    // { src: '~/plugins/dropzone.js', ssr: false }
   ],
   /*
    ** Nuxt.js modules
@@ -49,8 +51,8 @@ module.exports = {
     '@nuxtjs/vuetify',
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
-    '@nuxtjs/pwa',
-    '@nuxtjs/eslint-module'
+    '@nuxtjs/pwa'
+    // '@nuxtjs/eslint-module'
   ],
   /*
    ** Axios module configuration
@@ -82,6 +84,8 @@ module.exports = {
     extend (config, ctx) {}
   },
   env: {
-    baseUrl: process.env.NUXT_ENV_BASE_URL || 'http://mike.www.femlight.com/xxx/api'
+    baseUrl: process.env.NUXT_ENV_BASE_URL || 'http://mike.www.femlight.com/xxx/api',
+    clientSecret : process.env.NUXT_ENV_CLIENT_SECRET || 'DINJRja6MRzW2VtbSW0XokCfwdu6O2tNDeVSNIPU',
+    helloSignClientID: process.env.NUXT_ENV_HELLOSIGN_CLIENT_ID || '3d890329ad5b164acfdcc56b9da5777c'
   }
 }
