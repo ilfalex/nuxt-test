@@ -64,12 +64,16 @@
 						</v-list-tile-title>
 					</v-list-tile>
 					<v-divider></v-divider>
-					<v-list-tile
-						v-for="(item, index) in userMenu"
-						:key="index"
-					>
+					<v-list-tile>
 						<v-list-tile-title>
-							<nuxt-link :to="item.href">{{ item.title }}</nuxt-link>
+							<nuxt-link to="/settings">Account Settings</nuxt-link>
+						</v-list-tile-title>
+					</v-list-tile>
+					<v-list-tile>
+						<v-list-tile-title
+							@click="logout"
+						>
+							<span style="cursor:pointer;">Logout</span>
 						</v-list-tile-title>
 					</v-list-tile>
 				</v-list>
@@ -157,6 +161,14 @@ export default {
 		login.getUser().then(response => {
 			this.$store.commit('SET_USER', response.data)
 		})
+	},
+	methods: {
+		logout(){
+			login.logout()
+				.then(() => {
+					window.location.href = '/login'
+				})
+		}
 	},
 	computed: {
 		cartEmpty(){

@@ -100,3 +100,8 @@
 		}
 	}
 </script>
+<style>
+	.v-overlay{
+		display: none !important;
+	}
+</style>

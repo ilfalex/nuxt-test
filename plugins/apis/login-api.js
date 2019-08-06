@@ -90,12 +90,12 @@ export const login = {
     this.setAxiosHeaders( accessToken )
 
     // make api call to get the user type
-    axios.get('/is-user')
+    axios.get('/user')
       .then(response => {
         // set a cookie with the user type
         Cookie.set('user', 'user');
         // redirect to dashboard
-        thatRouter.push('/register/user-details')
+        thatRouter.push('/dashboard')
       })
       .catch(error => {
         // attempt to login as a custodian
@@ -124,5 +124,12 @@ export const login = {
   getUserVerification( type='' ){
     type = type ? '/'+type : type
     return axios.get('/user/verification'+type)
+  },
+
+  logout(){
+    // delete the cookies
+    Cookie.remove('auth')
+    Cookie.remove('user')
+    return axios.post('/user/logout')
   }
 }
