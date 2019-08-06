@@ -38,7 +38,7 @@ export default {
   data () {
     return {
       details: {
-        icon: 'credit_card',
+        icon: 'recent_actors',
         title: 'Upload ID - Back',
         subtitle: 'Upload the back of your identification card. If you are using a drivers license or state ID, please upload a picture of the back only. If you are using a passport, just upload a picture of the cover.',
         img: '/images/id_back.png',
