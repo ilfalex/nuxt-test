@@ -115,5 +115,14 @@ export const login = {
               })
           })
       })
+  },
+
+  getUser(){
+    return axios.get('/user')
+  },
+
+  getUserVerification( type='' ){
+    type = type ? '/'+type : type
+    return axios.get('/user/verification'+type)
   }
 }

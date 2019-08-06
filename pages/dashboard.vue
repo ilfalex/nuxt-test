@@ -1,41 +1,41 @@
 <template>
-  <div class="pa-5">
-    this is their dashboard
-    {{ user }}
-    <v-layout
-      row
-      wrap
-    >
-      <v-flex
-        v-for="(item, i) in user"
-        :key="i"
-        sm3
-        class="pa-3"
-      >
-        <div class="grey lighten-3 pa-2">
-          <h4 class="heading grey--text">
-            {{ i }}:
-          </h4>
-          <span class="display-1">{{ item }}</span>
-        </div>
-      </v-flex>
-    </v-layout>
-  </div>
+	<v-container>
+		<v-layout>
+			<h1 v-if="isVerified">the user is verified</h1>
+			<h1 v-if="!isVerified">the user is verification is pending or rejected</h1>
+		</v-layout>
+	</v-container>
 </template>
 
 <script>
+
+import { dashboard } from '~/plugins/apis/dashboard-api.js'
+import { login } from '~/plugins/apis/login-api.js'
+
 export default {
-  components: {
-    // Registration,
-    // SwiperContainer
-  },
-  computed: {
-    user () {
-      return this.$store.state.user
-    }
-  },
-  mounted () {
-    this.$store.dispatch('getUser')
-  }
+	layout: 'authenticated',
+	middleware: 'authenticated',
+	components: {
+	},
+	data () {
+		return {
+			verificationStatus: {}
+		}
+	},
+	beforeCreate (){
+		// get the user verification status
+		login.getUserVerification()
+			.then(response => {
+				this.verificationStatus = response.data
+			})
+	},
+	computed: {
+		isVerified(){
+			return this.verificationStatus['lowest'] === 4
+		}
+	},
+
+	mounted () {
+	}
 }
 </script>

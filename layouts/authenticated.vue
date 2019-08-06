@@ -54,6 +54,32 @@
 						icon
 						v-on="on"
 					>
+						<v-icon>account_circle</v-icon>
+					</v-btn>
+				</template>
+				<v-list>
+					<v-list-tile>
+						<v-list-tile-title>
+							{{ user.email }}
+						</v-list-tile-title>
+					</v-list-tile>
+					<v-divider></v-divider>
+					<v-list-tile
+						v-for="(item, index) in userMenu"
+						:key="index"
+					>
+						<v-list-tile-title>
+							<nuxt-link :to="item.href">{{ item.title }}</nuxt-link>
+						</v-list-tile-title>
+					</v-list-tile>
+				</v-list>
+			</v-menu>
+			<v-menu offset-y>
+				<template v-slot:activator="{ on }">
+					<v-btn
+						icon
+						v-on="on"
+					>
 						<v-icon>shopping_cart</v-icon>
 					</v-btn>
 				</template>
@@ -69,26 +95,6 @@
 					<v-list-tile v-if="cartEmpty">
 						<v-list-tile-title>
 							(0) cart empty
-						</v-list-tile-title>
-					</v-list-tile>
-				</v-list>
-			</v-menu>
-			<v-menu offset-y>
-				<template v-slot:activator="{ on }">
-					<v-btn
-						icon
-						v-on="on"
-					>
-						<v-icon>account_circle</v-icon>
-					</v-btn>
-				</template>
-				<v-list>
-					<v-list-tile
-						v-for="(item, index) in userMenu"
-						:key="index"
-					>
-						<v-list-tile-title>
-							<nuxt-link :to="item.href">{{ item.title }}</nuxt-link>
 						</v-list-tile-title>
 					</v-list-tile>
 				</v-list>
@@ -145,11 +151,19 @@ export default {
 		}
 	},
 	beforeCreate () {
+		// set the access token
 		if (this.$store.state.auth) { login.setAxiosHeaders(this.$store.state.auth.accessToken) }
+		// get the user data
+		login.getUser().then(response => {
+			this.$store.commit('SET_USER', response.data)
+		})
 	},
 	computed: {
 		cartEmpty(){
 			return this.cartItems.length === 0
+		},
+		user(){
+			return this.$store.state.user
 		}
 	}
 }

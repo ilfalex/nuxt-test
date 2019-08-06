@@ -9,7 +9,7 @@ export const custodian = {
 	 * @param endpoint string 'pending' | 'approved' | 'rejected'
 	 * @return json object
 	 */
-	async fetchQueue( endpoint ){
-		return await axios.get( endpoint )
+	fetchQueue( endpoint ){
+		return axios.get( endpoint )
 	}
 }
