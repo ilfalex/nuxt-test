@@ -14,6 +14,8 @@
 import ProfileTabs from '@/components/Profile/Edit/Tabs'
 import ProfileInline from '@/components/Profile/Edit/Inline'
 export default {
+  layout: 'authenticated',
+  middleware: 'authenticated',
   components: {
     ProfileTabs,
     ProfileInline
