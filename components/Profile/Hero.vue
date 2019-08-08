@@ -115,7 +115,7 @@ export default {
       this.openDialog('upload_photo')
     },
     removePhoto () {
-      this.$store.commit('wizard/UPDATE_PROFILE', {
+      this.$store.commit('profile/UPDATE_PROFILE', {
         hero_image: false
       })
     }

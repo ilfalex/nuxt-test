@@ -129,7 +129,7 @@ export default {
         ...{
           background_image: ''
         } }
-      this.$store.commit('wizard/UPDATE_PROFILE', {
+      this.$store.commit('profile/UPDATE_PROFILE', {
         about_me: data
       })
     }

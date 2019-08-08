@@ -115,7 +115,7 @@ export default {
   },
   methods: {
     removeProduct (item) {
-      this.$store.dispatch('wizard/removeProduct', item)
+      this.$store.dispatch('profile/removeProduct', item)
     },
     editProduct (item) {
       this.selectedItem = item

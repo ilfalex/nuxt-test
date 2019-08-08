@@ -70,7 +70,7 @@ export default {
   },
   methods: {
     removePhoto (item) {
-      this.$store.dispatch('wizard/removePhoto', item)
+      this.$store.dispatch('profile/removePhoto', item)
     },
     addPhotos () {
       // TODO: need to create a centralized location for adding photos
