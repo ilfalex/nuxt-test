@@ -92,7 +92,9 @@
 <script>
 
 import { Errors } from '~/plugins/form-validation.js'
-import { login } from '~/plugins/apis/login-api.js'
+import { user } from '~/plugins/apis/user-api.js'
+
+const Cookie = process.client ? require('js-cookie') : undefined
 
 export default {
 	components: {},
@@ -104,20 +106,29 @@ export default {
 				password: '',
 				password_confirmation: ''
 			},
-			errors: new Errors()
+			errors: new Errors(),
+			loading: false
 		}
 	},
 	methods: {
 		submitForm (e) {
 
-			const args = {
-				fields : this.fields,
-				store : this.$store,
-				router : this.$router
-			}
+			this.loading = false
 
-			login.register( args )
-				.catch(error => this.errors.record(error.response.data.errors))
+			user.register( this.fields )
+				.then(response => {
+
+			        const auth = {
+			            accessToken: response.data.access_token
+			        }
+
+					// set auth in store and cookie
+      				Cookie.set('auth', auth, {expires: 364})
+					this.$store.commit('setAuth', auth)
+
+					this.$router.push('/register/user-details')
+				})
+				.catch(error => this.errors.record(error))
 		}
 	}
 }

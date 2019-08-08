@@ -84,10 +84,10 @@ export default {
 			this.loading = true
 
 			user.register( this.fields )
-				.then(response => {
+				.then(() => {
 					this.$router.push('/register/user-details')
 				})
-				.catch(error => this.errors.record(error.response.data.errors))
+				.catch(error => this.errors.record(error))
 		}
 	}
 }

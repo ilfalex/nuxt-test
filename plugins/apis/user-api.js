@@ -18,9 +18,10 @@ export const user = {
 	},
 
 	async register ( fields ) {
+		const f = fields
 		return await axios.post('http://mike.www.femlight.com/xxx/register', fields)
 			.then(() => {
-				this.login(fields)
+				return this.login(f)
 			})
 	},
 

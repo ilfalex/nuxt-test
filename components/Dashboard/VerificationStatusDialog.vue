@@ -36,7 +36,7 @@
 
 <script>
 	
-	import { login } from '~/plugins/apis/login-api.js'
+	import { user } from '~/plugins/apis/user-api.js'
 	
 	export default {
 		data () {
@@ -71,7 +71,7 @@
 		},
 		beforeCreate (){
 			// get the user verification status
-			login.getUserVerification()
+			user.getUserVerification()
 				.then(response => {
 					this.verificationStatus = response.data
 
