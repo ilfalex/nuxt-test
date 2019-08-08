@@ -67,10 +67,10 @@ export default {
   mounted () {},
   methods: {
     nextStep () {
-      this.$store.dispatch('nextStep')
+      this.$store.dispatch('wizard/nextStep')
     },
     updateProduct (param, value) {
-      this.$store.dispatch('updateProduct', {
+      this.$store.dispatch('wizard/updateProduct', {
         param: param,
         value: value
       })

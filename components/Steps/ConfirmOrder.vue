@@ -162,7 +162,7 @@
       <v-btn
         large
         class="btn btn-default primary white--text rounded"
-        @click="$store.dispatch('nextStep')"
+        @click="$store.dispatch('wizard/nextStep')"
       >
         Complete Order
         <v-icon>arrow_right</v-icon>

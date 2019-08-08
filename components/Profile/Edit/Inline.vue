@@ -1,5 +1,5 @@
 <template lang="html">
-  <v-layout column>
+  <v-layout v-if="user" column>
     <v-flex class="profile-section">
       <v-layout column>
         <h4 class="display-1 font-weight-thin mb-3">
@@ -88,7 +88,7 @@ export default {
     }
   },
   mounted () {
-    this.$store.dispatch('getUser')
+    this.$store.dispatch('wizard/getUser')
   }
 }
 

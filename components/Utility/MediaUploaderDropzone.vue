@@ -105,18 +105,18 @@ export default {
   methods: {
     uploadSuccess (file, response) {
       this.uploadedFile = file.dataURL
-      this.$store.dispatch('updateProduct', {
+      this.$store.dispatch('wizard/updateProduct', {
         param: this.slug.replace('-', '_') + '_file',
         value: file.dataURL
       })
       // continue to next step
       // this.$refs[this.slug].removeAllFiles()
-      // this.$store.dispatch('nextStep')
+      // this.$store.dispatch('wizard/nextStep')
     },
     removeUploadedFile () {
       this.uploadedFile = null
       this.$refs[this.slug].removeAllFiles()
-      this.$store.dispatch('updateProduct', {
+      this.$store.dispatch('wizard/updateProduct', {
         param: this.slug.replace('-', '_') + '_file',
         value: ''
       })
@@ -124,7 +124,7 @@ export default {
     nextStep () {
       this.uploadedFile = null
       this.$refs[this.slug].removeAllFiles()
-      this.$store.dispatch('nextStep')
+      this.$store.dispatch('wizard/nextStep')
       // this.uploadedFile = this.$store.state.product['upload_' + this.type + '_file']
     }
   }

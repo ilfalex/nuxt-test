@@ -99,7 +99,7 @@ export default {
   },
   computed: {
     backgroundImage () {
-      if (this.user.hero_image) {
+      if (this.user && this.user.hero_image) {
         return this.user.hero_image
       } else {
         return ''
@@ -115,7 +115,7 @@ export default {
       this.openDialog('upload_photo')
     },
     removePhoto () {
-      this.$store.commit('UPDATE_PROFILE', {
+      this.$store.commit('auth/UPDATE_PROFILE', {
         hero_image: false
       })
     }

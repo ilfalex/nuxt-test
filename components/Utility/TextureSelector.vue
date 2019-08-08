@@ -115,14 +115,14 @@ export default {
     },
     updateProduct (param, value) {
       // alert('editing the product')
-      this.$store.dispatch('updateProduct', {
+      this.$store.dispatch('wizard/updateProduct', {
         param: param,
         value: value
       })
-      // this.$store.dispatch('nextStep')
+      // this.$store.dispatch('wizard/nextStep')
     },
     nextStep () {
-      this.$store.dispatch('nextStep')
+      this.$store.dispatch('wizard/nextStep')
       this.updateProduct(this.param, this.selectedOption)
     }
   }

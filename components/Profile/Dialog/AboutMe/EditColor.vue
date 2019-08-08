@@ -59,7 +59,7 @@ export default {
   },
   methods: {
     setColor (data) {
-      // this.$store.dispatch('updateProfile', {
+      // this.$store.dispatch('wizard/updateProfile', {
       //   param: 'about_me',
       //   value: data,
       // })

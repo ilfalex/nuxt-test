@@ -87,8 +87,8 @@ export default {
     }
   },
   mounted () {
-    this.$store.dispatch('fetchOptions')
-    // this.$store.dispatch('fetchActiveProduct')
+    this.$store.dispatch('wizard/fetchOptions')
+    // this.$store.dispatch('wizard/fetchActiveProduct')
   }
 }
 </script>

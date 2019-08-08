@@ -35,7 +35,7 @@ export default {
     }
   },
   mounted () {
-    this.$store.dispatch('getUser')
+    this.$store.dispatch('wizard/getUser')
   }
 }
 </script>
