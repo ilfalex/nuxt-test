@@ -1,9 +1,7 @@
 <template>
   <div
-    v-if="user"
     class="pa-5"
   >
-    <!-- {{ user.hero_image }} -->
     <h3 class="display-4 mb-4">
       Profile Editor
     </h3>
@@ -27,15 +25,9 @@ export default {
     }
   },
   computed: {
-    user () {
-      return this.$store.state.wizard.user
-    }
   },
   mounted () {
-    console.log({
-      store: this.$store
-    })
-    this.$store.dispatch('wizard/getUser')
+    // this.$store.dispatch('profile/getUser')
   }
 }
 </script>

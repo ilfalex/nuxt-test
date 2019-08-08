@@ -16,7 +16,7 @@
 export default {
   methods: {
     loadFile () {
-      const images = this.$store.state.wizard.user.images
+      const images = this.$store.state.profile.user.images
       const fileData = document.getElementById('photo-uploader-input').files[0]
       this.readFile(fileData, () => {
         const photoUrl = event.target.result

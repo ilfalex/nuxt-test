@@ -84,11 +84,11 @@ export default {
   },
   computed: {
     user () {
-      return this.$store.state.wizard.user
+      return this.$store.state.profile.user
     }
   },
   mounted () {
-    this.$store.dispatch('wizard/getUser')
+    this.$store.dispatch('profile/getUser')
   }
 }
 

@@ -46,7 +46,7 @@ export default {
   computed: {
     user: {
       get () {
-        return this.$store.state.wizard.user
+        return this.$store.state.profile.user
       },
       set (value) {
         return this.$store.commit('SET_USER', value)
@@ -56,7 +56,7 @@ export default {
   methods: {
     saveLink () {
       this.$parent.$parent.$parent.dialog = false
-      this.$store.state.wizard.user.links.push(this.selectedItem)
+      this.$store.state.profile.user.links.push(this.selectedItem)
     }
   }
 }
