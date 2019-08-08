@@ -124,12 +124,12 @@ export default {
       this.dialogInterface = type
     },
     removePhoto () {
-      const aboutMe = this.$store.state.user.about_me
+      const aboutMe = this.$store.state.wizard.user.about_me
       const data = { ...aboutMe,
         ...{
           background_image: ''
         } }
-      this.$store.commit('UPDATE_PROFILE', {
+      this.$store.commit('wizard/UPDATE_PROFILE', {
         about_me: data
       })
     }

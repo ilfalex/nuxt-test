@@ -16,7 +16,7 @@
 export default {
   methods: {
     loadFile () {
-      const images = this.$store.state.user.images
+      const images = this.$store.state.wizard.user.images
       const fileData = document.getElementById('photo-uploader-input').files[0]
       this.readFile(fileData, () => {
         const photoUrl = event.target.result
@@ -25,7 +25,7 @@ export default {
           id: 233,
           order: 23
         })
-        this.$store.commit('UPDATE_PROFILE', {
+        this.$store.commit('wizard/UPDATE_PROFILE', {
           images: images
         })
       })

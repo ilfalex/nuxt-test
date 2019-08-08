@@ -72,7 +72,7 @@ export default {
   computed: {
     user: {
       get () {
-        return this.$store.state.user
+        return this.$store.state.wizard.user
       },
       set (value) {
         return this.$store.commit('SET_USER', value)
@@ -85,7 +85,7 @@ export default {
     },
     removePhoto (image, product) {
       // find the product
-      const selectedProduct = this.$store.state.user.products.find(item => item.id === product.id)
+      const selectedProduct = this.$store.state.wizard.user.products.find(item => item.id === product.id)
 
       // remove the product from the store
       selectedProduct.images.splice(selectedProduct.images.indexOf(image), 1)

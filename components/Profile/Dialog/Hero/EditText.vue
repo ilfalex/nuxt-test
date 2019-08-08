@@ -38,7 +38,7 @@ export default {
   computed: {
     user: {
       get () {
-        return this.$store.state.user
+        return this.$store.state.wizard.user
       },
       set (value) {
         return this.$store.commit('SET_USER', value)
