@@ -27,7 +27,7 @@
 					@click="drawer = false"
 				>
 					<v-list-tile-action>
-						<v-icon>{{ item.icon }}</v-icon>
+						<v-icon>{{ item.icon }}</v-icon> 
 					</v-list-tile-action>
 					<v-list-tile-content>
 						<v-list-tile-title v-text="item.title" />
@@ -111,7 +111,11 @@
 </template>
 
 <script>
-import { login } from '~/plugins/apis/login-api.js'
+
+import { user } from '~/plugins/apis/user-api.js'
+
+const Cookie = process.client ? require('js-cookie') : undefined
+
 export default {
 	data () {
 		return {
@@ -156,18 +160,28 @@ export default {
 	},
 	beforeCreate () {
 		// set the access token
-		if (this.$store.state.auth) { login.setAxiosHeaders(this.$store.state.auth.accessToken) }
-		// get the user data
-		login.getUser().then(response => {
-			this.$store.commit('SET_USER', response.data)
-		})
+		user.setAxiosHeaders(this.$store.state.auth.accessToken)
+		// get the user
+		user.getUser()
+			.then(response => {
+				this.$store.commit('setUser', response.data)
+			})
 	},
 	methods: {
 		logout(){
-			console.log({'userObj':this.$store.state.userType})
-			login.logout( this.$store.state.userType )
+
+			// delete the cookies
+			Cookie.remove('auth')
+
+			const that = this.$router
+
+			// make api call to logout
+			user.logout( this.$store.state.user.type )
 				.then(() => {
-					window.location.href = '/login'
+					// redirect to login page
+
+					this.$store.commit('setAuth', null)
+					this.$router.push('/login')
 				})
 		}
 	},

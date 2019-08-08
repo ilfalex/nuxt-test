@@ -52,6 +52,7 @@
 							<v-btn
 								color="primary"
 								type="submit"
+								:loading="loading"
 							>
 								Login
 							</v-btn>
@@ -64,7 +65,7 @@
 <script>
 
 // import { mapMutations } from 'vuex'
-import { login } from '~/plugins/apis/login-api.js'
+import { user} from '~/plugins/apis/user-api.js'
 
 // get the cookie object
 const Cookie = process.client ? require('js-cookie') : undefined
@@ -80,21 +81,31 @@ export default {
 			fields : {
 				email: '',
 				password: ''
-			}
+			},
+			redirectTo: '/dashboard',
+			loading: false
 		}
 	},
 	methods: {
 		submitForm () {
-			console.log('submitting the form')
 
-			const args = {
-				fields: this.fields,
-				store: this.$store,
-				router: this.$router
-			}
+			this.loading = true
 
-			login.login( args )
-		}
+			user.login( this.fields )
+				.then(response => {
+
+			        const auth = {
+			            accessToken: response.data.access_token
+			        }
+
+					// set auth in store and cookie
+      				Cookie.set('auth', auth, {expires: 364})
+					this.$store.commit('setAuth', auth)
+					
+					// redirect to user dashboard
+					this.$router.push('/dashboard')
+				})
+		}	
 	}
 }
 

@@ -49,6 +49,7 @@
 						block
 						color="primary"
 						type="submit"
+						:loading="loading"
 					>
 						Get Started
 					</v-btn>
@@ -61,7 +62,7 @@
 <script>
 
 import { Errors } from '~/plugins/form-validation.js'
-import { login } from '~/plugins/apis/login-api.js'
+import { user } from '~/plugins/apis/register-api.js'
 
 export default {
 	components: {},
@@ -73,19 +74,19 @@ export default {
 				password: '',
 				password_confirmation: ''
 			},
-			errors: new Errors()
+			errors: new Errors(),
+			loading: false
 		}
 	},
 	methods: {
 		submitForm (e) {
 
-			const args = {
-				fields : this.fields,
-				store : this.$store,
-				router : this.$router
-			}
+			this.loading = true
 
-			login.register( args )
+			user.register( this.fields )
+				.then(response => {
+					this.$router.push('/register/user-details')
+				})
 				.catch(error => this.errors.record(error.response.data.errors))
 		}
 	}

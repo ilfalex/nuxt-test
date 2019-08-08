@@ -83,37 +83,29 @@
 <script>
 
 import { registration } from '~/plugins/apis/registration-api.js'
+import { user } from '~/plugins/apis/user-api.js'
 import { Errors } from '~/plugins/form-validation.js'
 
 export default {
 	data () {
 		return {
-			fields: {
-				first_name: '',
-				last_name: '',
-				address: '',
-				address2: '',
-				fake_first_name: '',
-				fake_last_name: ''
-			},
 			errors: new Errors(),
-			alert: false
+			alert: false,
+			fields : {}
 		}
 	},
 
 	beforeCreate () {
-		// populate the fields
-		registration.getUserDetails()
-			.then((response) => {
+		user.getUser()
+			.then(response => {
 				this.fields = response.data
 			})
 	},
-	mounted (){
-		// const that = this
-		// setTimeout(()=>{
-		// 	this.alert = true
-		// }, 4000)
-	},
+	// computed: {
+	// 	fields(){
+	// 		return this.$store.state.user
+	// 	}
+	// },
 	methods: {
 		submitForm (e) {
 			registration.setUserDetails(this.fields)
