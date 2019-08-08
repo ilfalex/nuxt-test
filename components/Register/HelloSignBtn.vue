@@ -1,20 +1,42 @@
 <template>
 	<div>
 		<v-form @submit.prevent="registration.confirmSubmission">
+			<v-alert
+				:value="signedPreviously"
+				border="top"
+				colored-border
+				type="success"
+				transition="scale-transition"
+				class="signed-alert"
+			>
+		    	You already signed
+		    </v-alert>
 			<v-btn
+				v-if="!signComplete"
 				@click="loadDoc"
 				:loading="loading"
 				:disabled="disabled"
-				class="primary"
-				v-if="!signComplete"
+				color="primary"
 			>
 				{{ btnMessage }}
 			</v-btn>
 			<v-btn
 				v-if="signComplete"
 				@click="completeReg"
+				color="primary"
 			>
-				{{ btnMessage }}
+				<span
+					v-if="!signedPreviously"
+				>
+					{{ btnMessage }}
+				</span>
+				<v-icon
+					v-else
+					class="a-done"
+					transition="scale-transition"
+				>
+					done
+				</v-icon>
 			</v-btn>
 		</v-form>
 	</div>
@@ -36,7 +58,8 @@
 				helloSignUrl : '',
 				helloSignClient: {},
 				btnMessage: 'Sign Doc',
-				signComplete: false
+				signComplete: false,
+				signedPreviously: false
 			}
 		},
 		methods: {
@@ -67,23 +90,63 @@
 					.then(() => {
 						this.$router.push('/dashboard')
 					})
-			}
+			},
+
+			/**
+			 * user has been to this page before and already signed
+			 *
+			 */
+			 previouslySigned( error ){
+
+			 	// set button properties to indicate completion
+			 	this.signComplete = 
+			 	this.signedPreviously = true
+			 	this.disabled = false
+			 	this.loading = false
+
+			 	// timeout to automatically take them to the dashboard in 5 seconds
+			 	setTimeout(() => {
+			 		this.$router.push('/dashboard')
+			 	}, 5000)
+			 },
+
+			/**
+			 * activate the button and allow the user 
+			 * to open HelloSign iframe
+			 *
+			 */
+			 activateBtn( url ){
+			 
+				this.helloSignUrl = url
+				// enable the button
+				this.loading = false
+				this.disabled = false
+			 }
 		},
 		mounted(){
 
 			// init the client
 			this.helloSignClient = new HelloSign({
+				// load the client id from the env file
 			  	clientId: process.env.helloSignClientID
 			});
 
 			// get the hellosign url
 			registration.getHelloSignUrl()
 				.then(response => {
-					this.helloSignUrl = response.data
-					// enable the button
-					this.loading = false
-					this.disabled = false
+					return this.activateBtn( response.data.url )
+				})
+				.catch(error => {
+					return this.previouslySigned( error.message )
 				})
 		}
 	}
 </script>
+
+<style>
+	.signed-alert{
+		max-width: 250px;
+		background-color: #fff !important;
+		color:#333 !important;
+	}
+</style>

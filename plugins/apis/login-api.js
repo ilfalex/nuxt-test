@@ -102,7 +102,7 @@ export const login = {
         axios.get('/is-custodian')
           .then(response => {
             Cookie.set('user', 'custodian')
-            thatRouter.push('/custodian-queue')
+            thatRouter.push('/custodian')
           })
           .catch(error => {
             axios.get('/is-artist')
@@ -126,10 +126,11 @@ export const login = {
     return axios.get('/user/verification'+type)
   },
 
-  logout(){
+  logout( userType ){
     // delete the cookies
     Cookie.remove('auth')
     Cookie.remove('user')
-    return axios.post('/user/logout')
+    // console.log()
+    return axios.post('/'+userType+'/logout')
   }
 }

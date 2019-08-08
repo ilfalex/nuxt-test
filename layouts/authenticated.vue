@@ -164,7 +164,8 @@ export default {
 	},
 	methods: {
 		logout(){
-			login.logout()
+			console.log({'userObj':this.$store.state.userType})
+			login.logout( this.$store.state.userType )
 				.then(() => {
 					window.location.href = '/login'
 				})

@@ -95,17 +95,6 @@ export default {
 				}
 
 			})
-
-			// console.log({refs: this.$refs.el})
-
-		// var file = { size: 0, name: "id_img", type: "image/png" };
-		// var url = "https://myvizo.com/img/logo_sm.png";
-		// this.$refs.el.dropzone.manuallyAddFile(file, url);
-
-
-		// Everything is mounted and you can access the dropzone instance
-		// const instance = this.$refs.el.dropzone
-		// console.log(this)
 	},
 	methods: {
 		uploadComplete: function(response){

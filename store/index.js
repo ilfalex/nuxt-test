@@ -22,12 +22,17 @@ const store = new Vuex.Store({
     step: 0,
     steps: pagination.steps,
     user: {},
+    userType: '',
     options: {},
     product: {}
   },
   mutations: {
     setAuth (state, auth) {
       state.auth = auth
+    },
+    setUserType (state, userType) {
+      console.log(userType)
+      state.userType = userType
     },
     SET_OPTIONS (state, payload) {
       state.options = payload
@@ -77,15 +82,19 @@ const store = new Vuex.Store({
   actions: {
     nuxtServerInit ({ commit }, { req }) {
       let auth = null
+      let userType = null
       if (req.headers.cookie) {
         const parsed = cookieparser.parse(req.headers.cookie)
         try {
           auth = JSON.parse(parsed.auth)
+          userType = parsed.user
+          // console.log(parsed.user)
         } catch (err) {
           // No valid cookie found
         }
       }
       commit('setAuth', auth)
+      commit('setUserType', userType)
     },
     getUser (context) {
       console.log('getting user')
