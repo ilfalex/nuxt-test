@@ -115,7 +115,7 @@ export default {
   },
   methods: {
     removeProduct (item) {
-      this.user.products.splice(this.user.products.indexOf(item), 1)
+      this.$store.dispatch('wizard/removeProduct', item)
     },
     editProduct (item) {
       this.selectedItem = item

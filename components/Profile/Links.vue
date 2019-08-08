@@ -92,7 +92,7 @@ export default {
   },
   methods: {
     removeLink (item) {
-      this.user.links.splice(this.user.links.indexOf(item), 1)
+      this.$store.dispatch('wizard/removeLink', item)
     },
     editLink (item) {
       this.createNew = false

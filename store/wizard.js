@@ -76,6 +76,36 @@ export const mutations = {
 }
 
 export const actions = {
+  removeLink (context, item) {
+    // make a copy of the object,
+    const links = [...context.state.user.links]
+    // remove the specified item
+    links.splice(links.indexOf(item), 1)
+    // commit this to the store
+    context.commit('UPDATE_PROFILE', {
+      links: links
+    })
+  },
+  removePhoto (context, item) {
+    // make a copy of the object,
+    const images = [...context.state.user.images]
+    // remove the specified item
+    images.splice(images.indexOf(item), 1)
+    // commit this to the store
+    context.commit('UPDATE_PROFILE', {
+      images: images
+    })
+  },
+  removeProduct (context, item) {
+    // make a copy of the object,
+    const products = [...context.state.user.products]
+    // remove the specified item
+    products.splice(products.indexOf(item), 1)
+    // commit this to the store
+    context.commit('UPDATE_PROFILE', {
+      products: products
+    })
+  },
   nuxtServerInit ({ commit }, { req }) {
     let auth = null
     if (req.headers.cookie) {

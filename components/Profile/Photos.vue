@@ -39,9 +39,7 @@
     </v-layout>
     <v-layout v-else>
       <v-flex xs12>
-        <p class="grey--text headline font-weight-thin text-xs-center">
-          You have no photos added to your profile.
-        </p>
+        <p class="grey--text headline font-weight-thin text-xs-center">You have no photos added to your profile.</p>
       </v-flex>
     </v-layout>
 
@@ -72,7 +70,7 @@ export default {
   },
   methods: {
     removePhoto (item) {
-      this.user.images.splice(this.user.images.indexOf(item), 1)
+      this.$store.dispatch('wizard/removePhoto', item)
     },
     addPhotos () {
       // TODO: need to create a centralized location for adding photos
