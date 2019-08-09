@@ -1,41 +1,41 @@
 <template>
-	<div>
-		<v-card-text>
-			<dropzone
-				id="foo"
-				ref="el"
-				:options="options"
-				:destroy-dropzone="true"
-				@vdropzone-complete="uploadComplete"
-				@vdropzone-removed-file="removedFile"
-			/>
-		</v-card-text>
+  <div>
+    <v-card-text>
+      <dropzone
+        id="foo"
+        ref="el"
+        :options="options"
+        :destroy-dropzone="true"
+        @vdropzone-complete="uploadComplete"
+        @vdropzone-removed-file="removedFile"
+      />
+    </v-card-text>
 
-		<v-card-actions>
-			<v-layout justify-space-between>
-				<v-flex>
-					<v-btn
-						:to="details.prev"
-						text
-						color="normal"
-					>
-						Previous
-					</v-btn>
-				</v-flex>
-				<v-flex>
-					<v-btn
-						text
-						color="primary"
-						:to="details.next"
-						type="submit"
-						:disabled="!img_id"
-					>
-						Next
-					</v-btn>
-				</v-flex>
-			</v-layout>
-		</v-card-actions>
-	</div>
+    <v-card-actions>
+      <v-layout justify-space-between>
+        <v-flex>
+          <v-btn
+            :to="details.prev"
+            text
+            color="normal"
+          >
+            Previous
+          </v-btn>
+        </v-flex>
+        <v-flex>
+          <v-btn
+            text
+            color="primary" 
+            :to="details.next"
+            type="submit"
+            :disabled="!img_id"
+          >
+            Next
+          </v-btn>
+        </v-flex>
+      </v-layout>
+    </v-card-actions>
+  </div>
 </template>
 
 <script>
@@ -45,74 +45,71 @@ import 'nuxt-dropzone/dropzone.css'
 import { registration } from '~/plugins/apis/registration-api.js'
 
 export default {
-	components: {
-		Dropzone
-	},
-	props: {
-		details : {}
-	},
-	data () {
-		return {
-			// See https://rowanwins.github.io/vue-dropzone/docs/dist/index.html#/props
-			options: {
-				url: process.env.baseUrl + this.$props.details.endpoint,
-				timeout: 4000000,
-				method: 'post',
-				headers: {
-					Authorization: 'Bearer ' + this.$store.state.auth.accessToken
-				},
-				paramName: 'id_img',
-				addRemoveLinks: true
-			},
-			img_id: false
-		}
-	},
-	mounted () {
+  components: {
+    Dropzone
+  },
+  props: {
+    details: {}
+  },
+  data () {
+    return {
+      // See https://rowanwins.github.io/vue-dropzone/docs/dist/index.html#/props
+      options: {
+        url: process.env.baseUrl + this.$props.details.endpoint,
+        timeout: 4000000,
+        method: 'post',
+        headers: {
+          Authorization: 'Bearer ' + this.$store.state.auth.accessToken
+        },
+        paramName: 'id_img',
+        addRemoveLinks: true
+      },
+      img_id: false
+    }
+  },
+  mounted () {
+    // get the file from the server
+    registration.getIdImg(this.$props.details.endpoint)
+      .then((r) => {
+        // console.log({getImgResponse : r})
 
-		// get the file from the server
-		registration.getIdImg( this.$props.details.endpoint )
-			.then((r) => {
-				// console.log({getImgResponse : r})
+        if (r.data.hasOwnProperty('local_path')) {
+          var url = 'http://mike.www.femlight.com/xxx/storage/' + r.data.local_path
 
-				if(r.data.hasOwnProperty('local_path')){
+          var file = { size: 0, name: 'id_img', type: 'image/png', url }
 
-					var url = 'http://mike.www.femlight.com/xxx/storage/'+r.data.local_path
+          // console.log(file)
+          this.$refs.el.dropzone.emit('addedfile', file)
 
-					var file = { size: 0, name: "id_img", type: "image/png" , url};
+          // And optionally show the thumbnail of the file:
+          this.$refs.el.dropzone.emit('thumbnail', file, url)
 
-					// console.log(file)
-					this.$refs.el.dropzone.emit("addedfile", file);
+          this.$refs.el.dropzone.files.push(file)
 
-					// And optionally show the thumbnail of the file:
-					this.$refs.el.dropzone.emit("thumbnail", file, url);
+          this.$refs.el.dropzone.files[0].previewElement.className += ' dz-complete'
 
-					this.$refs.el.dropzone.files.push(file)
-
-					this.$refs.el.dropzone.files[0].previewElement.className += ' dz-complete'
-
-					// set the img id
-					this.img_id = r.data.id
-				}
-
-			})
-	},
-	methods: {
-		uploadComplete: function(response){
-
-			// set the image id
-			this.img_id = JSON.parse(response.xhr.response).success.id
-			console.log(this)
-			this.$refs.el.disable()
-		},
-		removedFile: function(file){ console.log(file)
-			registration.deleteIdImg( this.$props.details.endpoint )
-			this.img_id = false
-			this.$refs.el.enable()
-		}
-	},
-	beforeDestroy: function(){
-		this.details.endpoint = ''
-	}
+          // set the img id
+          this.img_id = r.data.id
+        }
+      })
+  },
+  beforeDestroy: function () {
+    this.details.endpoint = ''
+  },
+  methods: {
+    uploadComplete: function (response) {
+      // set the image id
+      this.img_id = JSON.parse(response.xhr.response).success.id
+      console.log(this)
+      this.$refs.el.disable()
+    },
+    removedFile: function (file) {
+      console.log(file)
+      registration.deleteIdImg(this.$props.details.endpoint)
+      this.img_id = false
+      this.$refs.el.enable()
+    }
+  }
 }
 </script>
 
