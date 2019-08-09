@@ -98,7 +98,7 @@ export default {
     }
   },
   created () {
-    this.uploadedFile = this.$store.state.product[
+    this.uploadedFile = this.$store.state.wizard.product[
       'upload_' + this.type + '_file'
     ]
   },

@@ -3,7 +3,7 @@
     <div class="nav-bar py-3">
       <div>
         <v-btn
-          v-show="$store.state.step !== 0"
+          v-show="$store.state.wizard.step !== 0"
           class="btn btn-default primary text-white rounded"
           href="#"
           @click="go('prevStep')"
@@ -47,7 +47,7 @@ export default {
       let stepData
       const currentStep = this.step
       // needs to grab the step data from the store
-      this.$store.state.steps.forEach((item) => {
+      this.$store.state.wizard.steps.forEach((item) => {
         if (parseInt(currentStep) === item.key) {
           stepData = item
         }
@@ -55,7 +55,7 @@ export default {
       // check the step data to confirm that the required info is set for the relative step
       if (stepData && stepData.required) {
         stepData.required.forEach((res) => {
-          if (this.$store.state.product[res]) {
+          if (this.$store.state.wizard.product[res]) {
             // console.log('it EXISTS!!', res)
             result = true
           } else {
@@ -71,7 +71,7 @@ export default {
   methods: {
     go (action) {
       event.preventDefault()
-      this.$store.dispatch(action)
+      this.$store.dispatch('wizard/' + action)
     }
   }
 }

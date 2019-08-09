@@ -184,25 +184,25 @@ export default {
   },
   computed: {
     product () {
-      return this.$store.state.product
+      return this.$store.state.wizard.product
     },
     productAnatomy () {
-      return this.$store.state.options.anatomies.find(
+      return this.$store.state.wizard.options.anatomies.find(
         item => item.id === this.product.anatomy
       )
     },
     productTexture () {
-      return this.$store.state.options.textures.find(
+      return this.$store.state.wizard.options.textures.find(
         item => item.id === this.product.texture
       )
     },
     productSleve () {
-      return this.$store.state.options.colors.find(
+      return this.$store.state.wizard.options.colors.find(
         item => item.id === this.product.sleve_cover
       )
     },
     productModel () {
-      return this.$store.state.options.form_factors.find(
+      return this.$store.state.wizard.options.form_factors.find(
         item => item.id === this.product.femlight_model
       )
     }

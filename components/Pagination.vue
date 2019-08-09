@@ -1,6 +1,7 @@
 <template>
   <div
     id="wizard-progress"
+    v-if="steps"
     :class="[
       'bg-green container-fluid text-xs-center',
       'px-0',

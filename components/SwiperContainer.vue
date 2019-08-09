@@ -3,15 +3,16 @@
     class="swiper-slide container pt-5"
     style="margin-bottom:100px;"
   >
-    <pagination />
 
+    <pagination />
+    step: {{ step }}
     <options-selector
       v-if="step === 0"
       step="0"
       param="anatomy"
       title="Step One: Choose Your Anatomy"
       subtitle="Choose the type of product you want to create."
-      :options="$store.state.options.anatomies"
+      :options="$store.state.wizard.options.anatomies"
     />
 
     <options-selector
@@ -20,7 +21,7 @@
       param="sleve_cover"
       title="Step Two: Choose Your Sleve Cover"
       subtitle="This is where you will be able to choose your sleve cover."
-      :options="$store.state.options.colors"
+      :options="$store.state.wizard.options.colors"
     />
 
     <texture-selector
@@ -29,7 +30,7 @@
       param="texture"
       title="Step Three: Choose Texture"
       subtitle="Use the form below to select a texture for the inside of your femlight."
-      :options="$store.state.options.textures"
+      :options="$store.state.wizard.options.textures"
     />
 
     <options-selector
@@ -38,7 +39,7 @@
       param="femlight_model"
       title="Step Four: Choose Femlight"
       subtitle="Choose the model casing of your personal femlight."
-      :options="$store.state.options.form_factors"
+      :options="$store.state.wizard.options.form_factors"
     />
 
     <media-uploader-dropzone
@@ -83,11 +84,14 @@ export default {
   },
   computed: {
     step () {
-      return this.$store.state.step
+      return this.$store.state.wizard.step
     }
   },
-  mounted () {
-    this.$store.dispatch('wizard/fetchOptions')
+  async mounted () {
+    await this.$store.dispatch('wizard/fetchOptions')
+    console.log({
+      store: this.$store.state.wizard.options
+    })
     // this.$store.dispatch('wizard/fetchActiveProduct')
   }
 }
