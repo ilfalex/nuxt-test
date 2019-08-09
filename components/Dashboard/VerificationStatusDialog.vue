@@ -71,7 +71,7 @@
 		},
 		beforeCreate (){
 			// get the user verification status
-			user.getUserVerification()
+			user.getVerficiationStatus()
 				.then(response => {
 					this.verificationStatus = response.data
 
