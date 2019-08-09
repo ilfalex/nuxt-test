@@ -67,11 +67,11 @@
 </template>
 
 <script>
-import Pagination from '~/components/Wizard/Pagination.vue'
-import TextureSelector from '~/components/Utility/TextureSelector.vue'
-import OptionsSelector from '~/components/Utility/OptionsSelectorCard.vue'
-import MediaUploaderDropzone from '~/components/Utility/MediaUploaderDropzone.vue'
-import ConfirmOrder from '~/components/Steps/ConfirmOrder.vue'
+import Pagination from './Pagination.vue'
+import TextureSelector from './Utility/TextureSelector.vue'
+import OptionsSelector from './Utility/OptionsSelectorCard.vue'
+import MediaUploaderDropzone from './Utility/MediaUploaderDropzone.vue'
+import ConfirmOrder from './Steps/ConfirmOrder.vue'
 
 export default {
   components: {

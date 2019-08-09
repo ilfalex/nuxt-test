@@ -5,7 +5,6 @@
       primary-title
     >
       {{ (createNew ? 'Create New': 'Edit') }} Link
-
     </v-card-title>
 
     <div class="pa-4">

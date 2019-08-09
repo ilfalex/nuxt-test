@@ -19,7 +19,9 @@
         jusify-content
         align-content
       >
-        <v-flex class="headline white--text">
+        <v-flex
+          v-if="steps"
+          class="headline white--text">
           Step {{ currentStep.key + 1 }}/ {{ steps.length }}
           <span class=""> : {{ currentStep.label }} </span>
         </v-flex>
@@ -66,9 +68,12 @@ export default {
       return this.$store.state.steps
     },
     percentage () {
-      const length = this.$store.state.steps.length
-      const percent = this.$store.state.step / (length - 1)
-      return percent * 100
+      if (this.$store.state.steps) {
+        const length = this.$store.state.steps.length
+        const percent = this.$store.state.step / (length - 1)
+        return percent * 100
+      }
+      return false
     },
     currentStep () {
       let result = this.$store.state.step

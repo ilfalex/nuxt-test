@@ -12,19 +12,19 @@ export const registration = {
     return axios.post('/register/user-details', fields)
   },
 
-  getIdImg( endpoint ){
-  	return axios.get( endpoint )
+  getIdImg (endpoint) {
+  	return axios.get(endpoint)
   },
 
-  deleteIdImg ( endpoint ){
-  	return axios.delete( endpoint )
+  deleteIdImg (endpoint) {
+  	return axios.delete(endpoint)
   },
 
-  getHelloSignUrl(){
+  getHelloSignUrl () {
   	return axios.get('/register/sign-docs')
   },
 
-  confirmSubmission(){
+  confirmSubmission () {
   	return axios.put('/register/confirm-submission')
   }
 }

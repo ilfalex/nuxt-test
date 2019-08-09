@@ -84,7 +84,9 @@
     </v-layout>
     <v-layout v-else>
       <v-flex xs12>
-        <p class="grey--text headline font-weight-thin text-xs-center">You have no products attached to your profile.</p>
+        <p class="grey--text headline font-weight-thin text-xs-center">
+          You have no products attached to your profile.
+        </p>
       </v-flex>
     </v-layout>
     <v-dialog
