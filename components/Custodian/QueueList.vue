@@ -39,7 +39,7 @@ export default {
       custodian.fetchQueue(this.endpoint)
         .then((res) => {
           // console.log(res)
-          this.$data.queueItems = res.data
+          this.queueItems = res.data
         })
     }
   }
