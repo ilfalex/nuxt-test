@@ -29,6 +29,10 @@ class Custodian extends UserGlobal{
 	getHelloSignUrl(signature_id){
 		return axios.get('/sign-docs/'+signature_id)
 	}
+
+	updateUserStatus( user ){
+		return axios.post('/custodian/update-user-status', user)
+	}
 }
 
 export const custodian = new Custodian()

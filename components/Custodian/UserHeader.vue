@@ -39,6 +39,8 @@
 						:disabled="approvalScore == 2"
 						v-if="approvalScore != 3"
 						color="light-green"
+						:loading="loading"
+						@click="updateUserStatus"
 					>
 						Complete Verification
 					</v-btn>
@@ -46,6 +48,8 @@
 						:disabled="!rejectionsHaveMsgs"
 						v-if="approvalScore == 3"
 						color="red lighten-1"
+						:loading="loading"
+						@click="updateUserStatus"
 					>
 						Send Rejection Notice(s)
 					</v-btn>
@@ -67,10 +71,13 @@
 </template>
 
 <script>
+
+	import { custodian } from '~/plugins/apis/custodian-api.js'
+
 	export default{
 		data () {
 			return {
-
+				loading : false
 			}
 		},
 		computed: {
@@ -105,6 +112,16 @@
 		methods: {
 			clearActiveUser(){
 				this.$store.commit('custodian/clearActiveUser')
+			},
+			updateUserStatus(){
+				this.loading = true
+				custodian.updateUserStatus({ user: this.$store.state.custodian.activeUser })
+					.then(response => {
+						console.log(response)
+					})
+					.catch(error => {
+						console.log(error)
+					})
 			}
 		}
 	}

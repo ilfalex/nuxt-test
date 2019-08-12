@@ -38,14 +38,21 @@
 					row
 				>
 					<v-radio-group 
-						v-model="reason"
+						v-model="radioGroup"
+						@change="updateRejectionReason"
 					>
 						<v-radio
-							v-for="(reason, n) in rejectionReasons"
+							v-for="(r, n) in rejectionReasons"
 							:key="n"
-							:label="reason"
-							:value="reason"
-							:name="reason"
+							:label="r"
+							:value="r"
+							:name="r"
+							:checked="r === reason"
+						></v-radio>
+						<v-radio
+							label="Other"
+							value="Other"
+							name="Other"
 						></v-radio>
 					</v-radio-group>
 				</v-layout>
@@ -54,12 +61,15 @@
 				>
 					<v-textarea
 						outlined
-						v-if="reason == 'Other'"
+						v-if="radioGroup == 'Other' || (reason !== null && reason !== undefined && reason.length)"
 						name="other_reason"
 						rows="2"
 						label="Reason"
+						v-model="reason"
+						:value="reason"
 						@keyup="updateRejectionReason"
-		        	></v-textarea>
+		        	>
+		        	</v-textarea>
 		        </v-layout>
 		    </v-container>
 		</v-card-actions>
@@ -78,25 +88,20 @@ export default {
 			rejectionReasons: [
 				'Photo resolution too low or blurry',
 				'Key information is obstructed',
-				'Name on ID card does not match ',
-				'Other'
-			]
+				'Name on ID card does not match '
+			],
+			radioGroup: null
 		}
 	},
 	computed: {
 		docSrc(){
 			return 'http://mike.www.femlight.com/xxx/storage/' + this.doc.local_path
 		},
-		reason: {
-			get: function(){
-				return this.$store.state.custodian.activeUser.docs[this.i].rejection_msg
-			},
-			set: function(event){
-				this.$store.commit('custodian/setRejectionReason', {
-					key: this.i,
-					reason: event
-				})
-			}
+		reason(){
+			return this.$store.state.custodian.activeUser.docs[this.i].rejection_msg
+		},
+		isOther(){
+			return this.rejectionReasons.includes(this.$store.state.custodian.activeUser.docs[this.i].rejection_msg) ? 'checked': false
 		}
 	},
 	methods: {
@@ -107,7 +112,16 @@ export default {
 			})
 		},
 		updateRejectionReason(){
-			return false
+			if( this.radioGroup != 'Other')
+				this.$store.commit('custodian/setRejectionReason', {
+					key: this.i,
+					reason: this.radioGroup
+				})
+			else
+				this.$store.commit('custodian/setRejectionReason', {
+					key: this.i,
+					reason: event.target.value
+				})
 		}
 	}
 }
