@@ -12,7 +12,12 @@ export const mutations = {
 	},
 
 	setRejectionReason(state, payload){
+		console.log(state.activeUser.docs[payload.key])
 		state.activeUser.docs[payload.key].rejection_msg = payload.reason
+	},
+
+	clearActiveUser(state){
+		state.activeUser = null
 	}
 }
 

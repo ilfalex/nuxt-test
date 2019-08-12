@@ -58,6 +58,7 @@
 						name="other_reason"
 						rows="2"
 						label="Reason"
+						v-model="reason"
 						@keyup="updateRejectionReason"
 		        	></v-textarea>
 		        </v-layout>
@@ -98,7 +99,7 @@ export default {
 			})
 		},
 		updateRejectionReason(){
-			if( this.radioGroup != 'Other' )
+			if( this.radioGroup != 'Other')
 				this.$store.commit('custodian/setRejectionReason', {
 					key: this.i,
 					reason: this.radioGroup

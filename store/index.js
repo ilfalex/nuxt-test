@@ -17,14 +17,14 @@ export const mutations = {
 
 export const actions = {
   nuxtServerInit ({ commit }, { req }) {
-    	let auth = null
-	    // get the user and auth data from the cookie
-      	if (req.headers.cookie) {
-	        const parsed = cookieparser.parse(req.headers.cookie)
+    let auth = null
+	  // get the user and auth data from the cookie
+    if (req.headers.cookie) {
+	    const parsed = cookieparser.parse(req.headers.cookie)
 
-	        auth = JSON.parse(parsed.auth)
+	    auth = JSON.parse(parsed.auth)
 
-		    commit('setAuth', auth)
-	    }
+		  commit('setAuth', auth)
+	  }
   }
 }

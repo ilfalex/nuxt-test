@@ -25,6 +25,10 @@ class Custodian extends UserGlobal{
 		axios.defaults.headers.common['Authorization'] = 'Bearer ' + auth
 		axios.defaults.baseURL = process.env.baseUrl
 	}
+
+	getHelloSignUrl(signature_id){
+		return axios.get('/sign-docs/'+signature_id)
+	}
 }
 
 export const custodian = new Custodian()

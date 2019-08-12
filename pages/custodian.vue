@@ -6,6 +6,13 @@
 			grid-list-xl
 		>
 			<v-layout wrap>
+				<v-flex
+					xs12
+				>
+					<user-header 
+						v-if="activeUser"
+					/>
+				</v-flex>
 				<v-flex 
 					xs6
 					v-for="(doc, key) in docs"
@@ -18,7 +25,13 @@
 				</v-flex>
 
 				<v-flex xs6>
-					<!-- 2257 button -->
+					<!-- HelloSign button -->
+					<v-card>
+						<v-card-title>
+							Sign Docs
+						</v-card-title>
+
+					</v-card>
 				</v-flex>
 			</v-layout>
 		</v-container>
@@ -29,13 +42,17 @@
 
 import Sidebar from '~/components/Custodian/Sidebar.vue'
 import ApprovalCard from '~/components/Custodian/ApprovalCard.vue'
+import UserHeader from '~/components/Custodian/UserHeader.vue'
+// import HelloSignBtn from '~/components/Custodian/HelloSignBtn.vue'
 
 export default {
 	middleware: 'authenticated',
 	layout: 'custodian',
 	components: {
 		Sidebar,
-		ApprovalCard
+		UserHeader,
+		ApprovalCard,
+		// HelloSignBtn
 	},
 	computed: {
 		docs(){
@@ -57,6 +74,9 @@ export default {
 				for(let i = 0; i < docs.length; i++)
 					if(docs[i].doc_type_id == 4)
 						return docs[i]
+		},
+		activeUser(){
+			return this.$store.state.custodian.activeUser
 		}
 	}
 }

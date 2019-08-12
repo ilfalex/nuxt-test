@@ -33,12 +33,20 @@ export default {
 	],
 	data () {
 		return {
-			isActive: false
+			
 		}
 	},
 	computed: {
 		lastUpdate () {
 			return moment(this.user.docs[this.user.docs.length - 1].updated_at).fromNow()
+		},
+		isActive : {
+			get: function(){
+				return JSON.stringify(this.user) === JSON.stringify(this.$store.state.custodian.activeUser)
+			},
+			set: function(val){
+				return false
+			}
 		}
 	},
 	mounted () {
