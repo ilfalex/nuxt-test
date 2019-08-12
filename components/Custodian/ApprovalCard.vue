@@ -38,14 +38,14 @@
 					row
 				>
 					<v-radio-group 
-						v-model="radioGroup"
-						@change="updateRejectionReason"
+						v-model="reason"
 					>
 						<v-radio
 							v-for="(reason, n) in rejectionReasons"
 							:key="n"
 							:label="reason"
 							:value="reason"
+							:name="reason"
 						></v-radio>
 					</v-radio-group>
 				</v-layout>
@@ -54,11 +54,10 @@
 				>
 					<v-textarea
 						outlined
-						v-if="radioGroup == 'Other'"
+						v-if="reason == 'Other'"
 						name="other_reason"
 						rows="2"
 						label="Reason"
-						v-model="reason"
 						@keyup="updateRejectionReason"
 		        	></v-textarea>
 		        </v-layout>
@@ -81,14 +80,23 @@ export default {
 				'Key information is obstructed',
 				'Name on ID card does not match ',
 				'Other'
-			],
-			radioGroup: null,
-			reason: ''
+			]
 		}
 	},
 	computed: {
 		docSrc(){
 			return 'http://mike.www.femlight.com/xxx/storage/' + this.doc.local_path
+		},
+		reason: {
+			get: function(){
+				return this.$store.state.custodian.activeUser.docs[this.i].rejection_msg
+			},
+			set: function(event){
+				this.$store.commit('custodian/setRejectionReason', {
+					key: this.i,
+					reason: event
+				})
+			}
 		}
 	},
 	methods: {
@@ -99,16 +107,7 @@ export default {
 			})
 		},
 		updateRejectionReason(){
-			if( this.radioGroup != 'Other')
-				this.$store.commit('custodian/setRejectionReason', {
-					key: this.i,
-					reason: this.radioGroup
-				})
-			else
-				this.$store.commit('custodian/setRejectionReason', {
-					key: this.i,
-					reason: event.target.value
-				})
+			return false
 		}
 	}
 }
